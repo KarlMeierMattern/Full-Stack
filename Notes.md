@@ -4,8 +4,8 @@
 
 ### Comments
 
-// for inline comments    
-/* for multiline comments */  
+Use // for inline comments    
+Use /* for multiline comments */  
 ---  
 
 ### Data Types  
@@ -28,7 +28,4 @@ ourName = 5;
 > In JavaScript we end statements with semicolons  
 
 Variable names can be made up of numbers, letters, and $ or _, but may not contain spaces or start with a number.  
-This is another test  
-And so is this  
 
-And so is this
