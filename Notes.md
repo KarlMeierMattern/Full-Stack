@@ -28,7 +28,7 @@ JavaScript provides eight different data types which are:
     var ourName;  
     ourName = 5;  
 
-> `var ourName` is the <mark>variable delcaration</mark>  
+> `var ourName` is the variable delcaration  
 > `ourName = 5` is the variable assignment  
 > In JavaScript we end statements with semicolons  
 
@@ -38,3 +38,16 @@ It is common to initialize a variable to an initial value in the same line as it
 
     var myVar = 0;  
 
+---
+
+### let vs var  
+
+One of the problems with declaring variables with the `var` keyword is that you can easily overwrite variable declarations.  
+Unlike var, when you use `let`, a variable with the same name can only be declared once.  
+
+### const  
+
+You can also declare variables using the `const` keyword.  
+`const` has the same features as `let`, with the added bonus that variables declared using `const` cannot be reassigned.  
+You should always name variables you don't want to reassign using the `const` keyword.  
+It is best practice to use uppercase variable identifiers for immutable values and lowercase or camelCase for mutable values.  
