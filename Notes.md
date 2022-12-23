@@ -24,7 +24,7 @@ JavaScript provides eight different data types which are:
 ---
 
 ### Variables  
-  
+
     var ourName;  
     ourName = 5;  
 
@@ -32,4 +32,4 @@ JavaScript provides eight different data types which are:
 > In JavaScript we end statements with semicolons  
 
 Variable names can be made up of numbers, letters, and $ or _, but may not contain spaces or start with a number.  
-
+This is `code`, and this is a test run
