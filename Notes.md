@@ -28,7 +28,7 @@ JavaScript provides eight different data types which are:
     var ourName;  
     ourName = 5;  
 
-> `var ourName`is the variable delcaration  
+> `var ourName` is the == variable delcaration ==  
 > `ourName = 5` is the variable assignment  
 > In JavaScript we end statements with semicolons  
 
@@ -36,6 +36,5 @@ Variable names can be made up of numbers, letters, and $ or _, but may not conta
 
 It is common to initialize a variable to an initial value in the same line as it is declared:  
 
-    var myVar 0;  
-
+    var myVar = 0;  
 
