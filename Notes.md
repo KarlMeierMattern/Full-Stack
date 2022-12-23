@@ -1,9 +1,14 @@
 # JavaScript Notes  
 
-**BASIC JAVASCRIPT**  
+## BASIC JAVASCRIPT  
+
+### Comments
 
 // for inline comments    
 /* for multiline comments */  
+---  
+
+### Data Types  
 
 JavaScript provides eight different data types which are:  
 1. undefined  
@@ -16,10 +21,10 @@ JavaScript provides eight different data types which are:
 8. object  
 ---
 
-## Variables  
+### Variables  
 var ourName;  
 ourName = 5;  
 > Assigns the number 5 to ourName  
-In JavaScript we end statements with semicolons  
+> In JavaScript we end statements with semicolons  
 
 Variable names can be made up of numbers, letters, and $ or _, but may not contain spaces or start with a number.
