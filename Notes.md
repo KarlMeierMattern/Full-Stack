@@ -45,9 +45,24 @@ It is common to initialize a variable to an initial value in the same line as it
 One of the problems with declaring variables with the `var` keyword is that you can easily overwrite variable declarations.  
 Unlike var, when you use `let`, a variable with the same name can only be declared once.  
 
+    let camper = "James";  
+    let camper = "David";  
+
+> The above code will produce an error
+
 ### const  
 
 You can also declare variables using the `const` keyword.  
 `const` has the same features as `let`, with the added bonus that variables declared using `const` cannot be reassigned.  
 You should always name variables you don't want to reassign using the `const` keyword.  
 It is best practice to use uppercase variable identifiers for immutable values and lowercase or camelCase for mutable values.  
+
+    const FAV_PET = "Cats";  
+    FAV_PET = "Dogs";  
+
+> The above code will produce an error  
+
+---
+
+### Numbers  
+
