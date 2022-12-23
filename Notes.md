@@ -6,7 +6,8 @@
 
 Use // for inline comments    
 Use /* for multiline comments */  
----  
+
+---
 
 ### Data Types  
 
@@ -19,6 +20,7 @@ JavaScript provides eight different data types which are:
 6. bigint  
 7. number; and  
 8. object  
+
 ---
 
 ### Variables  
