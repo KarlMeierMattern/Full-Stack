@@ -24,10 +24,7 @@ JavaScript provides eight different data types which are:
 ---
 
 ### Variables  
-'''  
-var ourName;  
-ourName = 5;  
-      
+  
     var ourName;  
     ourName = 5;  
 
