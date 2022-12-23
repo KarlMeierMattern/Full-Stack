@@ -27,7 +27,10 @@ JavaScript provides eight different data types which are:
 '''  
 var ourName;  
 ourName = 5;  
-'''
+      
+    var ourName;  
+    ourName = 5;  
+
 > Assigns the number 5 to ourName  
 > In JavaScript we end statements with semicolons  
 
