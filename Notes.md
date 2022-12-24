@@ -126,11 +126,11 @@ Where a word contains an apostrophe you can either use an escape character or ch
 |---|---|  
 |\\'|single quote|  
 |\\"|double quote|  
-|\ \| backslash|  
 |\n|newline|  
 |\t|tab|  
 |\r|carriage return|  
 |\b|word boundary|  
 |\f|form feed|  
 
-hhhh
+> To perform a backlash \\ `\\`  
+
