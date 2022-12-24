@@ -126,7 +126,7 @@ Where a word contains an apostrophe you can either use an escape character or ch
 |---|---|  
 |\\'|single quote|  
 |\\"|double quote|  
-|\\\\\\|backslash|  
+|"\\"|backslash|  
 |\n|newline|  
 |\t|tab|  
 |\r|carriage return|  
