@@ -66,3 +66,31 @@ It is best practice to use uppercase variable identifiers for immutable values a
 
 ### Numbers  
 
+    const myVar = 5 + 10;  
+
+> Number is a data type in JavaScript which represents numeric data.  
+
+### Increment/Decrememnt a number  
+
+You can easily increment/decrement a variable (increase/decrease by 1) ++ or -- operators.  
+
+    i++;  
+    i--;
+
+> is the equivalent of  
+
+    i = i + 1;  
+    i = i - 1;  
+
+---
+
+### Compound assignment with augmented addition  
+
+    let myVar = 1;  
+    myVar += 5;  
+    console.log(myVar);  
+
+> `myVar += 5` is the same as `myVar = myVar + 5`.  
+
+
+
