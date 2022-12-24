@@ -122,8 +122,8 @@ Where a word contains an apostrophe you can either use an escape character or ch
 
 ### Escaping sequences in Strings  
 
-| --- | --- |  
 | **Code** | **Output** |  
+| --- | --- |  
 | \' | single quote |  
 |\"|double quote|  
 |\\|backslash|  
