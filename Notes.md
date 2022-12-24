@@ -97,8 +97,37 @@ You can easily increment/decrement a variable (increase/decrease by 1) ++ or -- 
 
 ### Literal quotes in strings  
 
-When you need a literal quote inside of a string, do the following:
+When you need a literal quote inside of a string, you can do the following:
 
     var myVar = "Karl said \"This is a good idea\" and then left"  
 
-> The output is *Karl said "This is a good idea" and then left.*
+> The output is: *Karl said "This is a good idea" and then left.*  
+> Alternatively, you can use single/double quotes for the main string and double/single quotes for the literal quote.  
+> With this method you can remove the `\`escape character
+
+    var myVar = 'Karl said "This is a good idea" and then left'  
+
+Where a word contains an apostrophe you can either use an escape character or change the order of the quotations.  
+
+    const badStr = 'Finn responds, "Let's go!"';
+
+> The above code throws out an error as the outermost quotes (single) are used within the quoted sentence (for the apostrophe).  
+
+    const badStr = "Finn responds, 'Let's go!'";  
+    const badStr = 'Finn responds, "Let\'s go!"';  
+
+> Either of the two options above will solve the issue.  
+
+---
+
+### Escaping sequences in Strings  
+
+|**Code**|**Output**|
+|\'|single quote|
+|\"|double quote|
+|\\|backslash|
+|\n|newline|
+|\t|tab|
+|\r|carriage return|
+|\b|word boundary|
+|\f|form feed|
