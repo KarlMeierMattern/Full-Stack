@@ -124,9 +124,9 @@ Where a word contains an apostrophe you can either use an escape character or ch
 
 | **Code** | **Output** |  
 |---|---|  
-| \' | single quote |  
-|\"|double quote|  
-|\\\\|backslash|  
+|\'|single quote|  
+|\\"|double quote|  
+|'\\'|backslash|  
 |\n|newline|  
 |\t|tab|  
 |\r|carriage return|  
