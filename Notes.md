@@ -84,13 +84,21 @@ You can easily increment/decrement a variable (increase/decrease by 1) ++ or -- 
 
 ---
 
-### Compound assignment with augmented addition  
+### Compound assignment with augmented addition/subraction/multiplication/division  
 
     let myVar = 1;  
     myVar += 5;  
     console.log(myVar);  
 
 > `myVar += 5` is the same as `myVar = myVar + 5`.  
+> Similarily you can use `-=`or `*=` or `/=` for subtraction/multiplication/division.  
 
+---
 
+### Literal quotes in strings  
 
+When you need a literal quote inside of a string, do the following:
+
+    var myVar = "Karl said \"This is a good idea\" and then left"  
+
+> The output is *Karl said "This is a good idea" and then left.*
