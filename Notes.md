@@ -122,12 +122,13 @@ Where a word contains an apostrophe you can either use an escape character or ch
 
 ### Escaping sequences in Strings  
 
-|**Code**|**Output**|
+|**Code**|**Output**|  
 | \' | single quote |  
-|\"|double quote|
-|\\|backslash|
-|\n|newline|
-|\t|tab|
-|\r|carriage return|
-|\b|word boundary|
-|\f|form feed|
+|\"|double quote|  
+|\\|backslash|  
+|\n|newline|  
+|\t|tab|  
+|\r|carriage return|  
+|\b|word boundary|  
+|\f|form feed|  
+
