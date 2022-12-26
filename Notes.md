@@ -132,5 +132,106 @@ Where a word contains an apostrophe you can either use an escape character or ch
 |\b|word boundary|  
 |\f|form feed|  
 
-> To perform a backlash \\ `\\`  
+> To perform a backslash requires two backslashes `\\`  
+
+---
+
+### Concatenating strings  
+
+Concatenation does not add spaces between concatenated strings, so you'll need to add them yourself.  
+
+    let ourStr = "I come first. ";  
+    ourStr += "I come second.";  
+
+> This produces the string `I come first. I come second.` 
+
+---
+
+### Length of a string  
+
+You can find the length of a `String` value by writing `.length` after the string variable or string literal.  
+
+### Bracket notation for indexing  
+
+Similar to Python, JavaScript uses *zero-based* indexing.  
+
+    const firstName = "Charles";  
+    const firstLetter = firstName[0];  
+
+> The result would be `C`.  
+
+---
+
+### Understand String Immutability  
+
+In JavaScript, `String` values are *immutable*, which means that they cannot be altered once created.  
+
+    let myStr = "Bob";  
+    myStr[0] = "J";  
+
+> The above code produces an error.  
+
+---
+
+### Use Bracket Notation to Find the Last Character in a String  
+
+    const firstName = "Ada";  
+    const lastLetter = firstName[firstName.length - 1];  
+
+> The above code produces a result of `a`.  
+
+---
+
+### JavaScript Arrays  
+
+With JavaScript array variables, we can store several pieces of data in one place.  
+
+    const sandwich = ["peanut butter", 4, "bread"];  
+
+---
+
+### Nested arrary  
+
+You can also nest arrays within other arrays.  
+
+    const teams = [["Bulls", 23], ["White Sox", 45]];  
+
+---
+
+### Access Array Data with Indexes  
+
+    const array = [50, 60, 70];  
+    console.log(array[0]);  
+
+> The result of the above is `50`.  
+
+---
+
+### Modify Array Data With Indexes  
+
+Unlike strings, the entries of arrays are *mutable* and can be changed freely, even if the array was declared with const.  
+
+    const ourArray = [50, 40, 30];  
+    ourArray[0] = 15;  
+
+> The result is `[15,40,30]`.  
+
+---
+
+### Multi-Dimensional Arrays  
+
+    const arr = [  
+        [1, 2, 3],  
+        [4, 5, 6],  
+        [7, 8, 9],  
+        [[10, 11, 12], 13, 14]  
+    ];  
+
+    arr[3][0][1];  
+
+
+> The result of the above is `11`.  
+
+---
+
 
