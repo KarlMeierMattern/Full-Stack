@@ -234,4 +234,32 @@ Unlike strings, the entries of arrays are *mutable* and can be changed freely, e
 
 ---
 
+### Manipulate arrays with .push()  
+
+An easy way to append data to the end of an array is via the push() function.  
+
+    const arr2 = ["Stimpson", "J", "cat"];  
+    arr2.push(["happy", "joy"]);  
+    console.log(arr2);
+
+> The result of the above is `["Stimpson", "J", "cat", ["happy", "joy"]]`.  
+
+---
+
+### Manipulate arrays with .pop()  
+
+.pop() is used to pop a value off of the end of an array.  
+
+    const threeArr = [1, 4, 6];  
+    const oneDown = threeArr.pop();  
+    console.log(oneDown);  
+    console.log(threeArr);  
+
+> The output of `oneDown` is `6`, while `threeArr`is `[1,4]`.  
+
+### Manipulate arrays with .shift()  
+
+.shift() removes the first element.  
+
+---
 
