@@ -263,4 +263,40 @@ An easy way to append data to the end of an array is via the push() function.
 
 ---
 
-helo
+### Manipulate arrays with unshift()  
+
+.unshift() works exactly like .push(), but instead of adding the element at the end of the array, unshift() adds the element at the beginning of the array.  
+
+    const ourArray = ["Stimpson", "J", "cat"];  
+    ourArray.shift();  
+    ourArray.unshift("Happy");  
+
+> ourArray would have the value `["Happy, "J", "cat]`.  
+
+---
+
+### Write reusable code with Functions  
+
+    function functionName() {  
+    console.log("Hello World");  
+    }  
+
+> You can call function using with `functionName()`.  
+
+---
+
+### Passing values to functions  
+
+**Parameters**  
+: Variables that act as placeholders for the values that are to be input to a function when it is called. 
+: When a function is defined, it is typically defined along with one or more parameters. 
+
+**Arguments**  
+: The actual values that are input (or "passed") into a function when it is called.  
+
+    function testFun(param1, param2) {  
+    console.log(param1, param2);  
+    }  
+
+---
+
