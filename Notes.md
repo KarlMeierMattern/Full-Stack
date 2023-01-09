@@ -288,11 +288,11 @@ An easy way to append data to the end of an array is via the push() function.
 ### Passing values to functions  
 
 **Parameters**  
-:  Variables that act as placeholders for the values that are to be input to a function when it is called. 
-: When a function is defined, it is typically defined along with one or more parameters. 
+- Variables that act as placeholders for the values that are to be input to a function when it is called.  
+- When a function is defined, it is typically defined along with one or more parameters.  
 
 **Arguments**  
-: The actual values that are input (or "passed") into a function when it is called.  
+- The actual values that are input (or "passed") into a function when it is called.  
 
     function testFun(param1, param2) {  
     console.log(param1, param2);  
