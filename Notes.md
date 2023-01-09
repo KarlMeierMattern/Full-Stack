@@ -281,14 +281,14 @@ An easy way to append data to the end of an array is via the push() function.
     console.log("Hello World");  
     }  
 
-> You can call function using with `functionName()`.  
+> You can call the function with `functionName()`.  
 
 ---
 
 ### Passing values to functions  
 
 **Parameters**  
-: Variables that act as placeholders for the values that are to be input to a function when it is called. 
+:  Variables that act as placeholders for the values that are to be input to a function when it is called. 
 : When a function is defined, it is typically defined along with one or more parameters. 
 
 **Arguments**  
