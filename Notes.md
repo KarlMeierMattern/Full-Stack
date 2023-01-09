@@ -234,7 +234,7 @@ Unlike strings, the entries of arrays are *mutable* and can be changed freely, e
 
 ---
 
-### Manipulate arrays with .push()  
+### Manipulate Arrays with .push()  
 
 An easy way to append data to the end of an array is via the push() function.  
 
@@ -246,7 +246,7 @@ An easy way to append data to the end of an array is via the push() function.
 
 ---
 
-### Manipulate arrays with .pop()  
+### Manipulate Arrays with .pop()  
 
 .pop() is used to pop a value off of the end of an array.  
 
@@ -257,13 +257,13 @@ An easy way to append data to the end of an array is via the push() function.
 
 > The output of `oneDown` is `6`, while `threeArr`is `[1,4]`.  
 
-### Manipulate arrays with .shift()  
+### Manipulate Arrays with .shift()  
 
 .shift() removes the first element.  
 
 ---
 
-### Manipulate arrays with unshift()  
+### Manipulate Arrays with unshift()  
 
 .unshift() works exactly like .push(), but instead of adding the element at the end of the array, unshift() adds the element at the beginning of the array.  
 
@@ -275,7 +275,7 @@ An easy way to append data to the end of an array is via the push() function.
 
 ---
 
-### Write reusable code with Functions  
+### Write Reusable Code with Functions  
 
     function functionName() {  
     console.log("Hello World");  
@@ -285,11 +285,11 @@ An easy way to append data to the end of an array is via the push() function.
 
 ---
 
-### Passing values to functions  
+### Passing Values to Functions  
 
 **Parameters**  
-- Variables that act as placeholders for the values that are to be input to a function when it is called.  
 - When a function is defined, it is typically defined along with one or more parameters.  
+- Variables that act as placeholders for the values that are to be input to a function when it is called.  
 
 **Arguments**  
 - The actual values that are input (or "passed") into a function when it is called.  
@@ -299,4 +299,50 @@ An easy way to append data to the end of an array is via the push() function.
     }  
 
 ---
+
+### Using Return  
+
+You can use a return statement to send a value back out of a function.  
+
+    function plusThree(num) {  
+    return num + 3;  
+    }  
+
+    const answer = plusThree(5);  
+
+> `answer` has the value `8`.  
+
+---
+
+### Global Scope and Functions  
+
+In JavaScript, scope refers to the visibility of variables.   
+Variables defined outside of a function block have *Global* scope.  
+This means, they can be seen everywhere in your JavaScript code.  
+
+Variables declared without the `let` or `const` keywords are automatically created in the global scope.  
+This can create unintended consequences elsewhere in your code or when running a function again.  
+Always declare your variables with `let` or `const`.  
+
+---
+
+### Local scope and functions  
+
+Variables which are declared within a function, as well as the function parameters, have *local* scope.  
+That means they are only visible within that function.  
+
+    function myTest() {  
+    const loc = "foo";  
+    console.log(loc);  
+    }  
+
+    myTest();  
+    console.log(loc);  
+
+> The `myTest()` function call will display the string `foo` in the console.  
+> The console.log(loc) line will throw an error, as `loc` is not defined outside of the function.  
+
+---
+
+### Global vs local scope in functions  
 
