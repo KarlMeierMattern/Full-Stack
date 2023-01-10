@@ -312,7 +312,7 @@ You can use a return statement to send a value back out of a function.
 
 > `answer` has the value `8`.  
 
-In the case that the function doesn't have a return statement, when you call it, the function processes the inner code but the returned value is undefined.
+**Note**: In the case that the function doesn't have a return statement, when you call it, the function processes the inner code but the returned value is undefined.
 
 ---
 
@@ -328,7 +328,7 @@ Always declare your variables with `let` or `const`.
 
 ---
 
-### Local scope and functions  
+### Local Scope and Functions  
 
 Variables which are declared within a function, as well as the function parameters, have *local* scope.  
 That means they are only visible within that function.  
@@ -346,10 +346,49 @@ That means they are only visible within that function.
 
 ---
 
-### Global vs local scope in functions  
+### Global vs Local Scope in Functions  
 
 It is possible to have both local and global variables with the same name.  
 When you do this, the local variable takes precedence over the global variable.  
+
+---
+
+### Understanding Boolean Values  
+
+Booleans may only be one of two values: `true` or `false`.  
+They are basically little on-off switches, where true is on and false is off.  
+These two states are mutually exclusive.  
+
+---
+
+### Conditional logic with if statements  
+
+The keyword `if` tells JavaScript to execute the code in the curly braces under certain conditions, defined in the parentheses.  
+These conditions are known as `Boolean` conditions and they may only be `true` or `false`.  
+
+When the condition evaluates to `true`, the program executes the statement inside the curly braces.  
+When the Boolean condition evaluates to `false`, the statement inside the curly braces will not execute.  
+
+**Pseudocode**:  
+
+    if (condition is true) {  
+        statement is executed  
+    }  
+
+**Example**:  
+
+    function test (myCondition) {  
+        if (myCondition) {  
+            return "It was true";  
+        }  
+        return "It was false";  
+    }  
+
+    test(true);  
+    test(false);  
+
+> `test(true)` returns the string `It was true`.  
+> `test(false)` returns the string `It was false`.  
 
 ---
 
