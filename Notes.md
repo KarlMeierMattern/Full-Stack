@@ -312,6 +312,8 @@ You can use a return statement to send a value back out of a function.
 
 > `answer` has the value `8`.  
 
+In the case that the function doesn't have a return statement, when you call it, the function processes the inner code but the returned value is undefined.
+
 ---
 
 ### Global Scope and Functions  
@@ -345,4 +347,9 @@ That means they are only visible within that function.
 ---
 
 ### Global vs local scope in functions  
+
+It is possible to have both local and global variables with the same name.  
+When you do this, the local variable takes precedence over the global variable.  
+
+---
 
