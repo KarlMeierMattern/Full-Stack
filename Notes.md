@@ -459,5 +459,5 @@ Like the equality operator, these operators will convert data types of values wh
 
 ---
 
-### Comparison with the Less Than and Less Than or Equal to Operators  
+### Comparison with the Logical And Operator  
 
