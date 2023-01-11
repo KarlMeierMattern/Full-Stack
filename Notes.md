@@ -424,9 +424,38 @@ However, unlike the equality operator, which attempts to convert both values bei
     3 ===  3  // true  
     3 === '3' // false  
 
-**Note**: In JavaScript, you can determine the type of a variable or a value with the typeof operator, as follows:
+**Note**: In JavaScript, you can determine the type of a variable or a value with the `typeof` operator, as follows:
 
     typeof 3  
-    typeof '3'  
+    typeof '3'    
 
-> `typeof 3` returns the string `number`, and `typeof '3'` returns the string `string`.
+> `typeof 3` returns the string `number`, and `typeof '3'` returns the string `string`.  
+
+---
+
+### Comparison with the inequality operator  
+
+It means not equal and returns `false` where equality would return `true` and vice versa.  
+
+    1 !=  2    // true  
+    1 != "1"   // false  
+    1 != '1'   // false  
+    1 != true  // false  
+    0 != false // false  
+
+---
+
+### Comparison with the Strict inequality Operator  
+
+The strict inequality operator (`!==`) is the logical opposite of the strict equality operator.  
+The strict inequality operator will not convert data types.  
+
+---
+
+### Comparison with the Greater Than Operator  
+
+The greater than operator (`>`) compares the values of two numbers.  
+Like the equality operator, the greater than operator will convert data types of values while comparing.  
+
+---
+
