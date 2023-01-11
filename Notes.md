@@ -361,7 +361,7 @@ These two states are mutually exclusive.
 
 ---
 
-### Conditional logic with if statements  
+### Conditional Logic with if Statements  
 
 The keyword `if` tells JavaScript to execute the code in the curly braces under certain conditions, defined in the parentheses.  
 These conditions are known as `Boolean` conditions and they may only be `true` or `false`.  
@@ -392,7 +392,7 @@ When the Boolean condition evaluates to `false`, the statement inside the curly 
 
 ---
 
-### Comparison with the equality operator  
+### Comparison with the Equality Operator  
 
 There are many comparison operators in JavaScript. All of these operators return a boolean `true` or `false` value.  
 
@@ -416,3 +416,17 @@ The most basic operator is the equality operator `==`. The equality operator com
 
 ---
 
+### Comparison with the Strict Equality Operator  
+
+Strict equality (`===`) is the counterpart to the equality operator (`==`).  
+However, unlike the equality operator, which attempts to convert both values being compared to a common type, the strict equality operator does not perform a type conversion.  
+
+    3 ===  3  // true  
+    3 === '3' // false  
+
+**Note**: In JavaScript, you can determine the type of a variable or a value with the typeof operator, as follows:
+
+    typeof 3  
+    typeof '3'  
+
+> `typeof 3` returns the string `number`, and `typeof '3'` returns the string `string`.
