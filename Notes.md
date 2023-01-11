@@ -452,10 +452,12 @@ The strict inequality operator will not convert data types.
 
 ---
 
-### Comparison with the Greater Than Operator  
+### Comparison with the Greater/Less Than and Greater/Less Than or Equal to Operators  
 
-The greater than operator (`>`) compares the values of two numbers.  
-Like the equality operator, the greater than operator will convert data types of values while comparing.  
+The greater/less than (`>`/`<`) and greater/less than or equal to operators (`>=`, `<=`) compare the values of two numbers.  
+Like the equality operator, these operators will convert data types of values while comparing.  
 
 ---
+
+### Comparison with the Less Than and Less Than or Equal to Operators  
 
