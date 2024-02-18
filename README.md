@@ -1,2 +1,2 @@
-# JavaScript_notes
+# JavaScript
 Notes for JavaScript courses.
