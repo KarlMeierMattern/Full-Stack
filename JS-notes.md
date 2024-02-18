@@ -1,3 +1,6 @@
+# Learn JS by building a role-playing game  
+- You can start writing JS directly in html using a script element.  
+- This element is used to load JS into your HTML file. You should use an opening <script> and closing </script> tag.  
 
 
 ## BASIC JAVASCRIPT  
