@@ -1,6 +1,11 @@
 # Learn JS by building a role-playing game  
 - You can start writing JS directly in html using a script element.  
 - This element is used to load JS into your HTML file. You should use an opening <script> and closing </script> tag.  
+- The developer console will include errors that are produced by your code, but you can also use it to see values of variables in your code, which is helpful for debugging.
+- It is common practice in JS to end your code lines with semi-colons.  
+
+
+
 
 
 ## BASIC JAVASCRIPT  
