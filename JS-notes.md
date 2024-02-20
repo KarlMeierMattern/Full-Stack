@@ -1,6 +1,6 @@
 # Learn JS by building a role-playing game  
-* You can start writing JS directly in html using a script element.  
-- This element is used to load JS into your HTML file. Should be placed just before the closing `</body>` tag.  
+You can start writing JS directly in html using a script element.  
+This element is used to load JS into your HTML file. Should be placed just before the closing `</body>` tag.  
 
 		  <script src="./script.js"></script>
 - The developer console will include errors that are produced by your code, but you can also use it to see values of variables in your code, which is helpful for debugging.
