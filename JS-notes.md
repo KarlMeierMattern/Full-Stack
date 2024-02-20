@@ -22,8 +22,8 @@
 - In CSS setting `display: none;` will hide the element.
 - Functions are special tools that allow you to run sections of code at specific times. You can declare functions using the `function` keyword.  
 
-	function functionName() {
-	}
+		function functionName() {
+		}
 - Single-line comments can be written with `//` and multi-line comments can be written with `/*` and `*/`.
 - Button elements have a special property called `onclick`, which you can use to determine what happens when someone clicks that button. You can access properties in JS a couple of different ways. The first is with dot notation.
 - Example: when the button is clicked, myFunction will be called.  
