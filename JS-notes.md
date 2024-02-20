@@ -1,10 +1,24 @@
 # Learn JS by building a role-playing game  
 - You can start writing JS directly in html using a script element.  
-- This element is used to load JS into your HTML file. You should use an opening <script> and closing </script> tag.  
+- This element is used to load JS into your HTML file. Should be placed just before the closing `</body>` tag.  
+
+		  <script src="./script.js"></script>
 - The developer console will include errors that are produced by your code, but you can also use it to see values of variables in your code, which is helpful for debugging.
-- It is common practice in JS to end your code lines with semi-colons.  
+- A variable is used to hold a value. To use a variable, you must first *declare* it. The `let` keyword tells JavaScript you are declaring a variable.  
 
+        let myAge;
+- If you assign a variable while you declare it this is called *initialisation*.
 
+        let myAge = 32;
+- JS interacts with the HTML using the *Document Object Model*, or DOM.
+- The DOM is a tree of objects that represents the HTML. You can access the HTML using the document object, which represents your entire HTML document.
+- One method for finding specific elements in your HTML is using the `querySelector()` method, which takes a CSS selector as an argument and returns the first element that matches that selector.
+- Example: create a button1 variable and assign it to the element with id of button1.  
+
+		let button1 = document.querySelector("#button1")
+- If you are not going to assign a new value to a variable it is best practice to use the `const` keyword to declare it instead of the `let` keyword. This will tell JavaScript to throw an error if you accidentally reassign it.
+
+        const myAge = 32;
 
 
 
