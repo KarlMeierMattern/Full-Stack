@@ -19,7 +19,17 @@
 - If you are not going to assign a new value to a variable it is best practice to use the `const` keyword to declare it instead of the `let` keyword. This will tell JavaScript to throw an error if you accidentally reassign it.
 
         const myAge = 32;
+- In CSS setting `display: none;` will hide the element.
+- Functions are special tools that allow you to run sections of code at specific times. You can declare functions using the `function` keyword.  
 
+	function functionName() {
+	}
+- Single-line comments can be written with `//` and multi-line comments can be written with `/*` and `*/`.
+- Button elements have a special property called `onclick`, which you can use to determine what happens when someone clicks that button. You can access properties in JS a couple of different ways. The first is with dot notation.
+- Example: when the button is clicked, myFunction will be called.  
+
+		button.onclick = myFunction;
+- Use dot notation to set the onclick property of your button1 to the function reference of goStore. Note that button1 is already declared, so you don't need to use let or const.
 
 
 ## BASIC JAVASCRIPT  
