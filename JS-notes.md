@@ -26,10 +26,14 @@
 		}
 - Single-line comments can be written with `//` and multi-line comments can be written with `/*` and `*/`.
 - Button elements have a special property called `onclick`, which you can use to determine what happens when someone clicks that button. You can access properties in JS a couple of different ways. The first is with dot notation.
-- Example: when the button is clicked, myFunction will be called.  
+- Example: when the variable button1 (which is the button with id="button1") is clicked, myFunction will be called.  
 
-		button.onclick = myFunction;
-- Use dot notation to set the onclick property of your button1 to the function reference of goStore. Note that button1 is already declared, so you don't need to use let or const.
+		button1.onclick = myFunction;
+- 
+
+
+
+
 
 
 ## BASIC JAVASCRIPT  
