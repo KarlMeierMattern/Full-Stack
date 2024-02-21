@@ -1,17 +1,17 @@
 # Learn JS by building a role-playing game  
-You can start writing JS directly in html using a script element.  
-This element is used to load JS into your HTML file. Should be placed just before the closing `</body>` tag.  
+- You can start writing JS directly in html using a script element.
+- This element is used to load JS into your HTML file. Should be placed just before the closing `</body>` tag.  
 
 		  <script src="./script.js"></script>
-The developer console will include errors that are produced by your code, but you can also use it to see values of variables in your code, which is helpful for debugging.  
-A variable is used to hold a value. To use a variable, you must first *declare* it. The `let` keyword tells JavaScript you are declaring a variable.  
+- The developer console will include errors that are produced by your code, but you can also use it to see values of variables in your code, which is helpful for debugging.
+- A variable is used to hold a value. To use a variable, you must first *declare* it. The `let` keyword tells JavaScript you are declaring a variable.  
 
         let myAge;
 - If you assign a variable while you declare it this is called *initialisation*.
 
         let myAge = 32;
 - JS interacts with the HTML using the *Document Object Model*, or DOM.
-- The DOM is a tree of objects that represents the HTML. You can access the HTML using the document object, which represents your entire HTML document.
+- The DOM is a tree of objects that represents the HTML. You can access the HTML using the `document` object, which represents your entire HTML document.
 - One method for finding specific elements in your HTML is using the `querySelector()` method, which takes a CSS selector as an argument and returns the first element that matches that selector.
 - Example: create a button1 variable and assign it to the element with id of button1.  
 
@@ -29,8 +29,33 @@ A variable is used to hold a value. To use a variable, you must first *declare* 
 - Example: when the variable button1 (which is the button with id="button1") is clicked, myFunction will be called.  
 
 		button1.onclick = myFunction;
-- 
+- The `innerText` property controls the text that appears in an HTML element.
+- Example: change the text of the p element from "Demo" content to "Hello World" when the button is clicked.  
 
+		<p id="info">Demo content</p>
+  
+		const info = document.querySelector("#info"); 
+		info.innerText = "Hello World";
+
+- To wrap text in double quotes you need to escape the quotes using a backslash. Here is an example:  
+
+		const escapedString = "Naomi likes to play \"Zelda\" sometimes.";
+- Functions can take parameters, which are values that are given to the function each time it is run. Here is a function that takes a parameter called param:  
+
+		function myFunction(param) {
+		    console.log(param);
+		}
+- Arrays can store any data type, including objects.
+- Objects are similar to arrays, but with a few differences. One difference is that objects use properties, or keys, to access and modify data. Objects are indicated by curly braces.  
+- Object properties are written as key: value pairs, where key is the name of the property (or the key), and value is the value that property holds.  
+- Just like array values, object properties are separated by a comma.  
+- If a property name has more than one word you'll need to surround it in quotes.  
+
+		const locations = [
+		  {
+		   name: "town square" 
+		  }
+		];
 
 
 
