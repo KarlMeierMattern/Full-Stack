@@ -30,7 +30,7 @@
 
 		button1.onclick = myFunction;
 - The `innerText` property controls the text that appears in an HTML element.
-- Example: change the text of the p element from "Demo" content to "Hello World" when the button is clicked.  
+- Example: change the text of the p element from "Demo" content to "Hello World". Useful when this is preceeded with a button click.  
 
 		<p id="info">Demo content</p>
   
@@ -57,7 +57,33 @@
 		    "button text": []
 		  }
 		];
+- Zero-based indexing versus dot notation:
 
+		location["button functions"][2];
+		location.text;
+- Compound assignment:
+
+		gold += 10;
+- Increasing a value by 1, or incrementing, has a special operator in JavaScript: ++.
+
+		num++
+- Use the push() method to add an object to the end of an array.  
+
+		const arr = ["first"];
+		const next = "second";
+		arr.push(next);
+- Arrays have a length property that returns the number of items in the array.  
+
+		myArray.length
+- Scope is the term used to describe where a variable can be accessed. If a variable is declared inside a block of code, like in an if statement, it is only accessible to the code inside that block. This is called block scope.
+
+		let num = 1;
+		if (num === 1) {
+		  let num = 2; // this num is scoped to the if statement
+		  console.log(num); // expected output: 2
+		}
+		console.log(num); // expected output: 1 (the global variable)
+- 
 
 
 
