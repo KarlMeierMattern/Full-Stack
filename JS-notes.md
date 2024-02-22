@@ -83,7 +83,21 @@
 		  console.log(num); // expected output: 2
 		}
 		console.log(num); // expected output: 1 (the global variable)
-- 
+- The `shift()` method on an array removes the first element in the array and returns it.  
+
+		const numbers = [1, 2, 3];
+		const firstNumber = numbers.shift(); // returns 1
+- If you have hidden an element in your CSS (display: none), you can display the element upon an action being performed (such as a button click) using the `style` and `display` properties. The `style` property is used to access the inline style of an element and the `display` property is used to set the visibility of an element.  
+
+Here is an example of how to update the display for a paragraph element:
+
+	const paragraph = document.querySelector('p');
+	paragraph.style.display = 'block';
+
+
+
+
+
 
 
 
