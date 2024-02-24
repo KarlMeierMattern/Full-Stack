@@ -1,4 +1,7 @@
 # Learn JS by building a role-playing game  
+JS is a powerful scripting language that you can use to make web pages interactive. It's one of the core technologies of the web, along with HTML and CSS.  
+You'll learn how to work with arrays, strings, objects, functions, loops, if/else statements, and more.  
+
 - You can start writing JS directly in html using a script element.  
 - This element is used to load JS into your HTML file. Should be placed just before the closing `</body>` tag.  
 
@@ -128,7 +131,21 @@
 
 		for (let i = 0; x < 5; x++) {
   		}
+- The `.includes()` method determines if an array contains an element and will return either true or false.  
 
+		const numbersArray = [1, 2, 3, 4, 5]
+		const number = 3
+		
+		if (numbersArray.includes(number)) {
+		  console.log("The number is in the array.")
+		}
+
+---
+
+# Learn form validation by building a calorie counter  
+When building a web application you'll need to be able to accept input from a user.  
+You'll learn how to validate user input, perform calculations based on that input, and dynamically update your interface to display the results.  
+In this practice project, you'll learn basic regular expressions, template literals, the `addEventListener()` method, and more.  
 
 
 
