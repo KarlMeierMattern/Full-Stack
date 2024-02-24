@@ -1,35 +1,35 @@
 # Learn JS by building a role-playing game  
-- You can start writing JS directly in html using a script element.
+- You can start writing JS directly in html using a script element.  
 - This element is used to load JS into your HTML file. Should be placed just before the closing `</body>` tag.  
 
-		  <script src="./script.js"></script>
-- The developer console will include errors that are produced by your code, but you can also use it to see values of variables in your code, which is helpful for debugging.
+		<script src="./script.js"></script>
+- The developer console will include errors that are produced by your code, but you can also use it to see values of variables in your code, which is helpful for debugging.  
 - A variable is used to hold a value. To use a variable, you must first *declare* it. The `let` keyword tells JavaScript you are declaring a variable.  
 
-        let myAge;
-- If you assign a variable while you declare it this is called *initialisation*.
+		let myAge;
+- If you assign a variable while you declare it this is called *initialisation*.  
 
-        let myAge = 32;
-- JS interacts with the HTML using the *Document Object Model*, or DOM.
-- The DOM is a tree of objects that represents the HTML. You can access the HTML using the `document` object, which represents your entire HTML document.
-- One method for finding specific elements in your HTML is using the `querySelector()` method, which takes a CSS selector as an argument and returns the first element that matches that selector.
+		let myAge = 32;
+- JS interacts with the HTML using the *Document Object Model*, or DOM.  
+- The DOM is a tree of objects that represents the HTML. You can access the HTML using the `document` object, which represents your entire HTML document.  
+- One method for finding specific elements in your HTML is using the `querySelector()` method, which takes a CSS selector as an argument and returns the first element that matches that selector.  
 - Example: create a button1 variable and assign it to the element with id of button1.  
 
 		let button1 = document.querySelector("#button1")
-- If you are not going to assign a new value to a variable it is best practice to use the `const` keyword to declare it instead of the `let` keyword. This will tell JavaScript to throw an error if you accidentally reassign it.
+- If you are not going to assign a new value to a variable it is best practice to use the `const` keyword to declare it instead of the `let` keyword. This will tell JavaScript to throw an error if you accidentally reassign it.  
 
-        const myAge = 32;
-- In CSS setting `display: none;` will hide the element.
+		const myAge = 32;
+- In CSS setting `display: none;` will hide the element.  
 - Functions are special tools that allow you to run sections of code at specific times. You can declare functions using the `function` keyword.  
 
 		function functionName() {
 		}
-- Single-line comments can be written with `//` and multi-line comments can be written with `/*` and `*/`.
-- Button elements have a special property called `onclick`, which you can use to determine what happens when someone clicks that button. You can access properties in JS a couple of different ways. The first is with dot notation.
+- Single-line comments can be written with `//` and multi-line comments can be written with `/*` and `*/`.  
+- Button elements have a special property called `onclick`, which you can use to determine what happens when someone clicks that button. You can access properties in JS a couple of different ways. The first is with dot notation.  
 - Example: when the variable button1 (which is the button with id="button1") is clicked, myFunction will be called.  
 
 		button1.onclick = myFunction;
-- The `innerText` property controls the text that appears in an HTML element.
+- The `innerText` property controls the text that appears in an HTML element.  
 - Example: change the text of the p element from "Demo" content to "Hello World". Useful when this is preceeded with a button click.  
 
 		<p id="info">Demo content</p>
@@ -45,7 +45,7 @@
 		function myFunction(param) {
 		    console.log(param);
 		}
-- Arrays can store any data type, including objects.
+- Arrays can store any data type, including objects.  
 - Objects are similar to arrays, but with a few differences. One difference is that objects use properties, or keys, to access and modify data. Objects are indicated by curly braces.  
 - Object properties are written as key: value pairs, where key is the name of the property (or the key), and value is the value that property holds.  
 - Just like array values, object properties are separated by a comma.  
@@ -57,14 +57,14 @@
 		    "button text": []
 		  }
 		];
-- Zero-based indexing versus dot notation:
+- Zero-based indexing versus dot notation:  
 
 		location["button functions"][2];
 		location.text;
-- Compound assignment:
+- Compound assignment:  
 
 		gold += 10;
-- Increasing a value by 1, or incrementing, has a special operator in JavaScript: ++.
+- Increasing a value by 1, or incrementing, has a special operator in JavaScript: ++.  
 
 		num++
 - Use the push() method to add an object to the end of an array.  
@@ -75,7 +75,7 @@
 - Arrays have a length property that returns the number of items in the array.  
 
 		myArray.length
-- Scope is the term used to describe where a variable can be accessed. If a variable is declared inside a block of code, like in an if statement, it is only accessible to the code inside that block. This is called block scope.
+- Scope is the term used to describe where a variable can be accessed. If a variable is declared inside a block of code, like in an if statement, it is only accessible to the code inside that block. This is called block scope.  
 
 		let num = 1;
 		if (num === 1) {
@@ -87,13 +87,67 @@
 
 		const numbers = [1, 2, 3];
 		const firstNumber = numbers.shift(); // returns 1
-- If you have hidden an element in your CSS (display: none), you can display the element upon an action being performed (such as a button click) using the `style` and `display` properties. The `style` property is used to access the inline style of an element and the `display` property is used to set the visibility of an element.  
+- If you have hidden an element in your CSS (`display: none`), you can display the element upon an action being performed (such as a button click) using the `style` and `display` properties. The `style` property is used to access the inline style of an element and the `display` property is used to set the visibility of an element.  
 
 		const paragraph = document.querySelector('p');
 		paragraph.style.display = 'block';
-- 
+- The `Math` object in JavaScript contains static properties and methods for mathematical constants and functions. One of those is `Math.random()`, which generates a random number from 0 (inclusive) to 1 (exclusive). Another is `Math.floor()`, which rounds a given number down to the nearest integer. For example, this generates a random number between 1 and 5:  
 
-<code>hello</code>
+		Math.floor(Math.random() * 5) + 1;.
+- The strict equality `===` operator checks if the values are equal and if they are the same data type.  
+
+		if (num === 5)
+- The `innerHTML` property allows you to access or modify the content inside an HTML element using JavaScript.  
+- Functions run specific blocks of code when they are called, but they can also return a value. This value can be assigned to a variable and used elsewhere in your code.  
+- The ternary operator is a conditional operator and can be used as a one-line if-else statement. The syntax is: condition ? expressionIfTrue : expressionIfFalse.  
+
+		if (num > 5) {
+		  return 'num is greater than 5';
+		} else {
+		  return 'num is smaller than or equal to 5';
+		}
+  
+		// or you can write:
+		return num > 5 ? 'num is greater than 5' : 'num is smaller than or equal to 5';
+- The logical OR operator `||`.  
+- The `pop()` method on an array removes the last element in the array and returns it.  
+- The logical AND `&&` operator checks if two statements are true.  
+- Not equal `!==`.  
+
+		if (Math.random() <= .1 && inventory.length !== 1)
+- A while loop accepts a condition, and will run the code in the block until the condition is no longer true.  
+
+		while (i < 5)
+- The new line escape character `\n`.  
+- A `for` loop runs for a specific number of times.  
+- `for` loops are declared with three expressions separated by semicolons. `for (a; b; c)`, where `a` is the initialization expression, `b` is the condition, and `c` is the final expression.  
+- The initialization expression is executed only once, before the loop starts, and is often used to define and set up the loop variable. Think of it like declaring a counter to use in your loop.  
+- Many for loops use `i` as the counter and start from 0.  
+- The second statement in a `for` loop, the condition statement, is evaluated at the beginning of every loop iteration. The loop will continue as long as the condition evaluates to be true.  
+- The last statement in a `for` loop, the final expression, is executed at the end of each loop iteration.  
+
+		for (let i = 0; x < 5; x++) {
+  		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
