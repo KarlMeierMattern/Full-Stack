@@ -171,15 +171,6 @@ In this practice project, you'll learn basic regular expressions, template liter
 
 
 
-## BASIC JAVASCRIPT  
-
-### Comments
-
-Use // for inline comments    
-Use /* for multiline comments */  
-
----
-
 ### Data Types  
 
 JavaScript provides eight different data types which are:  
