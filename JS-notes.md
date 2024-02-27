@@ -129,7 +129,7 @@ You'll learn how to work with arrays, strings, objects, functions, loops, if/els
 - The second statement in a `for` loop, the condition statement, is evaluated at the beginning of every loop iteration. The loop will continue as long as the condition evaluates to be true.  
 - The last statement in a `for` loop, the final expression, is executed at the end of each loop iteration.  
 
-		for (let i = 0; x < 5; x++) {
+		for (let i = 0; i < 5; i++) {
   		}
 - The `.includes()` method determines if an array contains an element and will return either true or false.  
 
@@ -146,6 +146,47 @@ You'll learn how to work with arrays, strings, objects, functions, loops, if/els
 When building a web application you'll need to be able to accept input from a user.  
 You'll learn how to validate user input, perform calculations based on that input, and dynamically update your interface to display the results.  
 In this practice project, you'll learn basic regular expressions, template literals, the `addEventListener()` method, and more.  
+
+- Setting the button element type attribute to `button` prevents automatic form submission. This allows for more control over the form submission process to implement custom behaviors as needed. Form submission can then be handled via JS (such as through AJAX).  
+- Setting the button element type attribute to `submit` will submit the form.
+- To access an HTML element with a given id name, you can use the `getElementById()` method.  
+
+		<h1 id="title">Main title</h1>
+		const mainTitleElement = document.getElementById('title');
+- In programming, it is standard practice to prefix a variable with `is` or `has` to indicate that the variable is a boolean.  
+
+		let isRunning = true;
+		let hasCompleted = false;
+- You can use the `split()` method to split a string into an array of substrings. You can pass in an optional separator which tells the method where each split should happen.  
+
+		const str = 'Hello World';
+		const strArray = str.split('');
+		// ["H", "e", "l", "l", "o", " ", "W", "o", "r", "l", "d"]
+- The `.includes()` method returns true if the array contains the character, and false if not. The logical NOT operator `!` will return the opposite of the value of the `.includes()` method.
+- Here is an example checking if the current character is not in the vowels array. If it is not, that current character is pushed into the consonantArray:
+
+		const inputString = "Hello World";
+		const charArray = inputString.split('');
+		const consonantArray = [];
+		
+		for (let i = 0; i < charArray.length; i++) {
+		  if (!['a', 'e', 'i', 'o', 'u'].includes(charArray[i])) {
+		    consonantArray.push(charArray[i]);
+		  }
+		}
+- 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
