@@ -174,14 +174,51 @@ In this practice project, you'll learn basic regular expressions, template liter
 		    consonantArray.push(charArray[i]);
 		  }
 		}
+- Using Regular Expressions (referred to as "regex") to match specific characters is more inefficient (for memory and runtime performance) than creating a new array by looping through the string.  
+- Regex in JavaScript is indicated by a pattern wrapped in forward slashes.  
+
+		const regex = /hello/;
+- In regex, shorthand character classes allow you to match specific characters without having to write those characters in your pattern. Shorthand character classes are preceded with a backslash (\). The character class `\s` will match any whitespace character.  
+- Your current pattern won't work just yet. `/+-\s/` looks for `+`, `-`, and a space in order. This would match `+- hello` but would not match `+hello`.  
+- To tell the pattern to match each of these characters individually, you need to turn them into a character class. This is done by wrapping the characters you want to match in brackets. For example, this pattern will match the characters h, e, l, or o:  
+
+		const regex = /[helo]/;
+- Regex can also take specific flags to alter the pattern matching behavior. Flags are added after the closing `/`. The `g` flag, which stands for "global", will tell the pattern to continue looking after it has found a match.  
+
+		const helloRegex = /hello/g;
+- Strings have a `.replace()` method which takes two arguments. The first is the character sequence to replace – this can either be a string or a regex pattern. The second is the string to replace that sequence with.  
+
+		"hello".replace(/l/g, "1");
+  		// replaces all instances of l with 1
+- The regex `i` flag stands for "insensitive" and makes your pattern case-insensitive.  
+
+		const regex = /Hello/i;
+		// matches hello, Hello, HELLO, and even hElLo because of the i flag.
+- The `+` modifier in a regex allows you to match a pattern that occurs one or more times.
+- There is a shorthand character class to match any digit: `\d`. Use this as opposed to the `[0-9]` character class.
+- Strings have a `.match()` method, which takes a regex argument and returns an array of match results – containing either the first match, or all matches if the global flag is used.  
+
+		const str = 'example string';
+		const regex = /example/;
+		const result = str.match(regex);
+  		// Returns ['example']
+- To query the value from a dropdown you can use the `value` property.  
+
+		// get the id from the select element	
+		const entryDropdown = document.getElementById('entry-dropdown');
+
+  		// query the value from the option element
+		function addEntry() {
+		  const targetId = "#" + entryDropdown.value();
+		}
+- Template literals allow you to interpolate variables directly within a string and are denoted with backticks ``, as opposed to single or double quotes. Variables can be passed in to a template literal by surrounding the variable with `${}` – the value of the variable will be inserted into the string.  
+
+		const name = "Naomi";
+		const templateLiteral = `Hello, my name is ${name}~!`;
+		console.log(templateLiteral);
+		// The console will show the string "Hello, my name is Naomi~!".
+- To get all of the inputs, you can use the `querySelectorAll()` method, which returns a NodeList of all the elements that match the selector. A NodeList is an array-like object, so you can access the elements using bracket notation.
 - 
-
-
-
-
-
-
-
 
 
 
