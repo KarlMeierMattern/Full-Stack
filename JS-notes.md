@@ -217,9 +217,40 @@ In this practice project, you'll learn basic regular expressions, template liter
 		const templateLiteral = `Hello, my name is ${name}~!`;
 		console.log(templateLiteral);
 		// The console will show the string "Hello, my name is Naomi~!".
-- To get all of the inputs, you can use the `querySelectorAll()` method, which returns a NodeList of all the elements that match the selector. A NodeList is an array-like object, so you can access the elements using bracket notation.
-- 
+- To get all of the inputs, you can use the `querySelectorAll()` method, which returns a NodeList of all the elements that match the selector. A NodeList is an array-like object, so you can access the elements using bracket notation.  
+- The `innerHTML` property controls the HTML elements that appear on your page.  
 
+		// HTML code
+		<form id="form">
+		  <label for="first-name">First name</label>
+		  <input id="first-name" type="text">
+		</form>
+  
+		// JS code
+  		// If you want to add another label and input element inside the form use the innerHTML property
+		const formElement = document.getElementById("form");
+		const formContent = `
+		  <label for="last-name">Last name</label>
+		  <input id="last-name" type="text">
+		`;
+		formElement.innerHTML += formContent;
+- Similar to the a button's `onclick` property you can also edit an element's behavior by adding an `addEventListener` method to add a click event to a button. This method takes two arguments. The first is the event to listen to. (Ex. `click`). The second is the callback function that runs when the event is triggered. Note: the function is not called using the `()` but rather the function reference is used. This is because we don't want to exectute the function immediately, but rather call it.  
+
+		// HTML code
+		<button class="btn">Print name</button>
+
+  		// JS code
+		const button = document.querySelector('.btn');
+
+  		function printName() {
+		  console.log("Jessica");
+		}
+
+  		button.addEventListener('click', printName);
+- Using `innerHTML` alone does not preserve your input content when multiple events take place one after another (such as click events). Using `insertAdjacentHTML()` method takes two arguments. The first argument is a string that specifies the position of the inserted element. The second argument is a string containing the HTML to be inserted. The argument `"beforeend"` inserts the new element as the last child.
+
+		targetInputContainer.insertAdjacentHTML("beforeend", HTMLString).innerHTML;
+- 
 
 
 
