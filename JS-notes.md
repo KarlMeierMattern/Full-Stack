@@ -250,6 +250,44 @@ In this practice project, you'll learn basic regular expressions, template liter
 - Using `innerHTML` alone does not preserve your input content when multiple events take place one after another (such as click events). Using `insertAdjacentHTML()` method takes two arguments. The first argument is a string that specifies the position of the inserted element. The second argument is a string containing the HTML to be inserted. The argument `"beforeend"` inserts the new element as the last child.
 
 		targetInputContainer.insertAdjacentHTML("beforeend", HTMLString).innerHTML;
+- A `for/of` loop is used to iterate over elements in an iterable object like an array or NodeList. The variable declared in the loop represents the current element being iterated over.  
+
+		for (const element of elementArray) {
+		  console.log(element);
+		}
+- `for` - loops through a block of code a number of times.  
+- `for/of` - loops through the values of an iterable object.  
+- In JS values can either be truthy or falsy. A value is truthy if it evaluates to true when converted to a Boolean. A value is falsy if it evaluates to false when converted to a Boolean. null is an example of a falsy value. You can do this by passing the variable directly to your if condition (without a comparison operator). Here's an example of checking the truthiness of helloWorld.  
+
+		if (helloWorld) {
+		
+		}
+- Browsers have a built in `alert()` function, which you can use to display a pop-up message to the user. The message to display is passed as the argument to the alert() function.
+
+		if (invalidInputMatch) {
+		      alert(`Invalid Input: ${invalidInputMatch[0]}`);
+		    }
+- If your `if` statement returns a value, you do not need to explicitly define an else statement.  
+- The `Number` constructor is a function that converts a value to a number. If the value cannot be converted, it returns NaN which stands for "Not a Number".
+
+		Number('10'); // returns the number 10
+		Number('abc'); // returns NaN
+- `getElementById` returns an element. If you want to return a NodeList you can use `[]`. A NodeList is array-like, which means you can iterate through it and it shares some common methods with an array.
+
+		const budgetNumberInput = document.getElementById('budget');
+		const budgetCalories = getCaloriesFromInputs([budgetNumberInput]); // square brackets creates a NodeList
+- When you need to lower case a string, you can use the `toLowerCase()` method.  
+
+		const firstName = 'JESSICA';
+		console.log(firstName.toLowerCase()); // Output: jessica
+- `Math.abs()` is a built-in JavaScript method that will return the absolute value of a number.  
+
+		const num = -5;
+		Math.abs(num); // 5
+- `getElementById` returns an element. This element has a `classList` property, which allows you to access the class associated with the id. This property has a `.remove()` method, which accepts a string representing the class to remove from the element.  
+
+		const paragraphElement = document.getElementById('paragraph');
+		paragraphElement.classList.remove('hide');
 - 
 
 
