@@ -284,21 +284,20 @@ In this practice project, you'll learn basic regular expressions, template liter
 
 		const num = -5;
 		Math.abs(num); // 5
-- `getElementById` returns an element. This element has a `classList` property, which allows you to access the class associated with the id. This property has a `.remove()` method, which accepts a string representing the class to remove from the element.  
+- `getElementById` returns an element. This element has a `classList` property, which allows you to access the class associated with the id. This property has `.remove()` and `add()` methods, which accept a string representing the class to remove or add from the element.  
 
 		const paragraphElement = document.getElementById('paragraph');
+
+  		// removes the hide class
 		paragraphElement.classList.remove('hide');
-- 
 
+  		// adds the hide class
+  		paragraphElement.classList.add('hide');
+- The difference between `innerText` and `innerHTML` is that `innerText` will not render HTML elements, but will display the tags and content as raw text.
 
+---
 
-
-
-
-
-
-
-
+# Learn basic string and array methods by building a music player  
 
 
 
