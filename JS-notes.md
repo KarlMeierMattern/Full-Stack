@@ -323,8 +323,131 @@ The project covers fundamental concepts such as handling audio playback, managin
 		const numbers = [1, 2, 3];
 		const doubledNumbers = numbers.map((number) => number * 2);
   		// doubledNumbers will be [2, 4, 6]
-- Notice that the `map()` method takes a function as an argument. This is called a **callback function**, which is a function that is passed to another function as an argument.
+- Notice that the `map()` method takes a function as an argument. This is called a **callback function**, which is a function that is passed to another function as an argument.  
+- The `join()` method is used to concatenate all the elements of an array into a single string. It takes an optional parameter called a separator which is used to separate each element of the array.  
+
+		const exampleArr = ["This", "is", "a", "sentence"];
+		const sentence = exampleArr.join(" "); // Separator takes a space character
+		console.log(sentence); // Output: "This is a sentence"
+
+- You can also chain multiple methods together such as `array.map().join()`.  
+- **Optional chaining** `?.` helps prevent errors when accessing nested properties that might be null or undefined.  
+
+		const user = {
+		  name: "Quincy",
+		  address: {
+		    city: "San Francisco",
+		    state: "CA",
+		    country: "USA",
+		  },
+		};
+		
+		// Accessing nested properties without optional chaining
+		const state = user.address.state; // CA
+		
+		// Accessing a non-existent nested property with optional chaining
+		const zipCode = user.address?.zipCode; // Returns undefined instead of throwing an error
+- The `sort()` method converts elements of an array into strings and sorts them in place based on their values in the UTF-16 encoding.  
+
+		const names = ["Tom", "Jessica", "Quincy", "Naomi"];
+		names.sort() // ["Jessica", "Naomi", "Quincy", "Tom"]
+- In the example  below, the first condition (a.name < b.name) checks if the name of the first fruit is less than the name of the second fruit. If so, the first fruit is sorted before the second fruit. Strings are compared lexicographically which means they are compared character by character. For example, "Apples" is less than "Bananas" because "A" comes before "B" in the alphabet. The reason why this example is returning numbers is because the `sort()` method is expecting a number to be returned. If you return a negative number, the first item is sorted before the second item.
+- The `sort()` method accepts a compare callback function that defines the sort order.  
+
+		const fruits = [
+		  { name: "Apples", price: 0.99 },
+		  { name: "Blueberries", price: 1.49 },
+		  { name: "Grapes", price: 2.99 },
+		];
+		
+		fruits.sort((a, b) => {
+		  if (a.name < b.name) {
+		    return -1;
+		  }
+		
+		  if (a.name > b.name) {
+		    return 1;
+		  }
+		
+		  return 0;
+		});
+- The `find()` method retrieves the first element within an array that fulfills the conditions specified in the provided callback function. If no element satisfies the condition, the method returns undefined.  
+
+		const numbers = [10, 20, 30, 40, 50];
+		
+		// Find the first number greater than 25
+		const foundNumber = numbers.find((number) => number > 25);
+		console.log(foundNumber); // Output: 30
+- The `onclick` property can be added directly to the HTML as well.  
+		
+		<button onclick="playSong(${song.id})" class="playlist-song-info">
+- To get the index of an element in an array you can use the `indexOf()` method, which returns the first index at which a given element can be found in the array, or -1 if the element is not present.  
+
+		const animals = ["dog", "cat", "horse"];
+		animals.indexOf("cat") // 1
+- The `forEach` method is used to loop through an array and perform a function on each element of the array.  
+
+		const numbers = [1, 2, 3, 4, 5];
+		
+		// Using forEach to iterate through the array
+		numbers.forEach((number) => {
+		  console.log(number); // 1, 2, 3, 4, 5
+		});
+- The `removeAttribute()` method removes an attribute from an element.  
+
+		// Remove the href attribute from an <a> element:
+		document.getElementById("myAnchor").removeAttribute("href");
+- `textContent` sets the text, similar to `innerText`, of a node and allows you to set or retrieve the text content of an HTML element. 
+
+		<div id="example">This is some text content</div>
+  
+		const element = document.getElementById('example');
+		console.log(element.textContent);
+  		// Output: This is some text content
+- The `setAttribute()` method adds an attribute to an element. The second argument sets the value of the specified attribute for the element.  
+
+		playButton.setAttribute("aria-label", "Play");
 - 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
