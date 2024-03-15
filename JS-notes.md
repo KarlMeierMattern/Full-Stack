@@ -211,7 +211,7 @@ In this practice project, you'll learn basic regular expressions, template liter
 		function addEntry() {
 		  const targetId = "#" + entryDropdown.value();
 		}
-- Template literals allow you to interpolate variables directly within a string and are denoted with backticks ``, as opposed to single or double quotes. Variables can be passed in to a template literal by surrounding the variable with `${}` – the value of the variable will be inserted into the string.  
+- Template literals allow you to interpolate variables directly within a string and are denoted with backticks `` in JS, as opposed to single or double quotes. You don't need these backticks when using interpolation in HTML. Variables can be passed in to a template literal by surrounding the variable with `${}` – the value of the variable will be inserted into the string.  
 
 		const name = "Naomi";
 		const templateLiteral = `Hello, my name is ${name}~!`;
@@ -407,7 +407,87 @@ The project covers fundamental concepts such as handling audio playback, managin
 - The `setAttribute()` method adds an attribute to an element. The second argument sets the value of the specified attribute for the element.  
 
 		playButton.setAttribute("aria-label", "Play");
-- 
+- The `sort()` method is a type of callback function, which can also be used to randomize an array. One way to do this is to subtract 0.5 from `Math.random()` which produces random values that are either positive or negative. This makes the comparison result a mix of positive and negative values, leading to a random ordering of elements.  
+
+		const names = ["Tom", "Jessica", "Quincy", "Naomi"];
+		names.sort(() => Math.random() - 0.5);
+- The `filter()` method keeps only the elements of an array that satisfy the callback function passed to it.  
+
+		const numArr = [1, 10, 8, 3, 4, 5]
+		const numsGreaterThanThree = numArr.filter((num) => num > 3);
+		
+		console.log(numsGreaterThanThree) // Output: [10, 8, 4, 5]
+- The `createElement()` is a DOM method you can use to dynamically create an element using JS. To use `createElement()`, you call it, then pass in the tag name as a string.
+
+		const divElement = document.createElement('div')
+- The `createTextNode()` method is used to create a text node. To use it, you call it and pass in the text as a string.
+
+		const myText = document.createTextNode("your text")
+- JS provides the id and ariaLabel properties for assigning id and aria-label attributes.   
+
+		document.createElement("button").id = "reset";
+		document.createElement("button").ariaLabel = "Reset playlist";
+- `appendChild()` lets you add a node or an element as the child of another element. In the example below, the text "Click me" would be attached to the button:  
+
+		const parentElement = document.createElement("button")
+		const parentElementText = document.createTextNode("Click me")
+
+		// attach the text "Click me" to the button
+		parentElement.appendChild(parentElementText)
+- Use `remove()` to remove an element completely.  
+
+		const resetButton = document.createElement("button");
+		resetButton.remove();
+
+---
+
+# Learn the date object by building a date formatter  
+Learn how to work with the JS Date object, including its methods and properties.  
+Cover concepts such as the `getDate()`, `getMonth()`, and `getFullYear()` methods.  
+
+- In JS built-in **constructors** are like regular functions but start with a capital letter and initialized with the `new` operator in order to create objects.  
+- For example, you can use the `Date()` constructor with the `new` operator to create a new `Date` object that returns a string with the current date and time.  
+
+		const currentDate = new Date();
+		console.log(currentDate);
+		
+		// Mon Aug 23 2021 15:31:00 GMT-0400 (Eastern Daylight Time)
+- The .getDate() method of the `Date` object returns a number between 1 and 31 that represents the day of the month for that date.  
+
+		const date = new Date();
+		const dayOfTheMonth = date.getDate();
+		console.log(dayOfTheMonth); // 20
+- The `.getMonth()` method of the `Date` object returns a number between 0 and 11. You need to add 1 to it to get the expected month number.  
+- The `.getFullYear()` method of the `Date` object returns a number which represents the year for the provided date.  
+- The `.getHours()` method of the `Date` object returns a number between 0 and 23. This represents the hour for the provided date, where 0 is midnight and 23 is 11 p.m.  
+- The `.getMinutes()` method of the `Date` object returns a number between 0 and 59 which represents the minutes for the provided date.  
+- In JavaScript, the change event is used to detect when the value of an HTML element has changed:
+
+		element.addEventListener("change", () => {
+  		});
+- A `switch` statement is used to compare an expression against multiple possible values and execute different code blocks based on the match. If your `switch` statement is going to have multiple cases it is best practice to include a `break` statement that tells the JS interpreter to stop executing statements. Without adding a `break` statement at the end of each case block the program will execute the code for all matching cases. The `default` case is executed when none of the previous case conditions match the value being evaluated. It serves as a catch-all for any other possible cases.  
+
+		// checks if someVariable='case123'
+		switch (someVariable) {
+		  case 'case123':
+		    // Write your logic here
+		    break; // Terminates the switch statement
+		default:
+		    console.log("It's the weekend!");
+		}
+- The `.reverse()` method is used to reverse an array in place.  
+
+		const array = [1, 2, 3, 4, 5];
+		array.reverse();
+		console.log(array); // [5, 4, 3, 2, 1]
+- The `.join()` method is used to join the reversed array elements into a string and use a "-" for the separator.
+
+---
+
+# Learn modern JS methods by building football team cards  
+Learn how to work with DOM manipulation, object destructuring, event handling, and data filtering.  
+This project will cover concepts like `switch` statements, default parameters, `Object.freeze()`, and the `map()` method.  
+
 
 
 
