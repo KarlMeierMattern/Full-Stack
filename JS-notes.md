@@ -488,11 +488,56 @@ Cover concepts such as the `getDate()`, `getMonth()`, and `getFullYear()` method
 Learn how to work with DOM manipulation, object destructuring, event handling, and data filtering.  
 This project will cover concepts like `switch` statements, default parameters, `Object.freeze()`, and the `map()` method.  
 
+- The method `Object.freeze(obj)` allows you to freeze an object and prevent any changes being made to it.
+- An alternative to dot notation is the object destructuring syntax that allows you to unpack values from arrays and objects.  
 
+		const developerObj = {
+		  name: "Jessica Wilkins",
+		  isDeveloper: true
+		};
 
+		// dot notation
+  		const name = developerObj.name;
+  		const isDeveloper = developerObj.isDeveloper;
+  
+		// Object destructuring
+		const { name, isDeveloper } = developerObj;
+- `map()` function using dot notation and destructuring.  
 
+		players: [
+		    {
+		      name: "Sergio Almirón",
+		      position: "forward",
+		    },
+		    {
+		      name: "Sergio Batista",
+		      position: "midfielder",
+		    }
+  		];
 
+		const roster = document.getElementById("player-list");
 
+  		// map function & dot notation
+  		const renderPlayers = (players) => {
+  			const eachPlayer = players.map((player) => {
+				return `
+  					<p>${player.name}</p>
+  					<p>${player.position}</p>
+  				`;
+  			}).join("");
+  			roster.innerHTML = eachPlayer;
+  		};
+
+		// map function & destructuring
+  		const renderPlayers = (players) => {
+  			const eachPlayer = players.map(( {name, position } ) => {
+  				return `
+  					<p>${name}</p>
+  					<p>${position}</p>
+  				`;
+  			}).join("");
+  			roster.innerHTML = eachPlayer;
+  		};
 
 
 
