@@ -571,14 +571,24 @@ Local storage is a web browser feature that lets web applications store key-valu
 This allows web apps to save data during one session, then retrieve it in a later page session.  
 Learn how to handle form inputs, manage local storage, perform CRUD (Create, Read, Update, Delete) operations on tasks, implement event listeners, and toggle UI elements.  
 
+- Similar to adding and removing classe using `el.classList.add()` and `el.classList.remove()` another method to use with the `classList` property is the `toggle`, which adds the class if it is not present on the element and removes the class if it is present on the element.  
 
+		element.classList.toggle("class-to-toggle");
+- The HTML `<dialog>` element has a `showModal()` method that can be used to display a modal dialog box on a web page.  
 
+		dialogElement.showModal();
+- The HTML `<dialog>` element has a `close()` method that can be used to close a modal dialog box on a web page.  
 
+		dialogElement.close();
+- `preventDefault()` method stops the browser from refreshing the page after submitting the form.  
+- The `findIndex()` array method finds and returns the index of the first element in an array that meets the criteria specified by a provided testing function. If no such element is found, the method returns -1.  
 
-
-
-
-
+		const numbers = [3, 1, 5, 6];
+		const firstNumLargerThanThree = numbers.findIndex((num) => num > 3);
+		
+		console.log(firstNumLargerThanThree); // prints index 2
+- `unshift()` is an array method that is used to add one or more elements to the beginning of an array.
+- 
 
 
 
