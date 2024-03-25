@@ -587,14 +587,8 @@ Learn how to handle form inputs, manage local storage, perform CRUD (Create, Rea
 		const firstNumLargerThanThree = numbers.findIndex((num) => num > 3);
 		
 		console.log(firstNumLargerThanThree); // prints index 2
-- `unshift()` is an array method that is used to add one or more elements to the beginning of an array.
+- `unshift()` is an array method that is used to add one or more elements to the beginning of an array.  
 - 
-
-
-
-
-
-
 
 
 
