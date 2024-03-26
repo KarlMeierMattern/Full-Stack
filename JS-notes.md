@@ -567,7 +567,7 @@ This project will cover concepts like `switch` statements, default parameters, `
 		
 		  switch (e.target.value) {
 		    case "nickname":
-		      setPlayerCards(players.filter((player) => player.nickname !== null)); //filters the players array where nicknames are not null
+					setPlayerCards(players.filter((player) => player.nickname !== null)); //filters the players array where nicknames are not null
 		      break;
 		    case "forward":
 		      setPlayerCards(players.filter((player) => player.position === "forward"));
@@ -614,7 +614,7 @@ Learn how to handle form inputs, manage local storage, perform CRUD (Create, Rea
 		// using forEach
 		taskData.forEach(({ title, date, description }) => {
 			tasksContainer.innerHTML += `
-		 		<p>${title}</p>
+				<p>${title}</p>
 		   		<p>${date}</p>
 			 	<p>${description}</p>
 		  	`
