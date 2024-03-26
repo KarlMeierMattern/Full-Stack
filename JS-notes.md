@@ -632,12 +632,13 @@ Learn how to handle form inputs, manage local storage, perform CRUD (Create, Rea
 		// using map V2
 		const myContainer = taskData.map(({ title, date, description }) =>
 			`
-			 	<p>${title}</p>
+				<p>${title}</p>
 			   	<p>${date}</p>
 				<p>${description}</p>
 		  	`
 		).join("");
 		tasksContainer.innerHTML += myContainer
+
 
 
 
