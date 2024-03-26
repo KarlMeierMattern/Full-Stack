@@ -537,7 +537,7 @@ This project will cover concepts like `switch` statements, default parameters, `
   			roster.innerHTML = eachPlayer;
   		};
 
-		// map function & destructuring
+		// map function V1 & destructuring
   		const renderPlayers = (players) => {
   			const eachPlayer = players.map(( {name, position } ) => {
   				return `
@@ -546,6 +546,15 @@ This project will cover concepts like `switch` statements, default parameters, `
   				`;
   			}).join("");
   			roster.innerHTML = eachPlayer;
+  		};
+
+		// map function V2 & destructuring
+		const renderPlayers = (arr=players) => {
+  			roster.innerHTML += arr.map(({ name, position }) => (
+				`<p>${name}</p>
+  				<p>${position}</p>
+  				`
+  			).join("");
   		};
 
 		// both functions would produce the same result
@@ -588,13 +597,47 @@ Learn how to handle form inputs, manage local storage, perform CRUD (Create, Rea
 		
 		console.log(firstNumLargerThanThree); // prints index 2
 - `unshift()` is an array method that is used to add one or more elements to the beginning of an array.  
-- 
+- `forEach()` vs `map()` can be used to produce the same output:  
 
+		// element from HTML
+		const tasksContainer = document.getElementById("tasks-container");
 
+		// some array
+		const taskData = [
+			{
+				title: "Day1",
+				date: 11.01.2024,
+				description: "Shopping"
+		  	}
+		];
 
+		// using forEach
+		taskData.forEach(({ title, date, description }) => {
+			tasksContainer.innerHTML += `
+		 		<p>${title}</p>
+		   		<p>${date}</p>
+			 	<p>${description}</p>
+		  	`
+		})
 
+		// using map V1
+		tasksContainer.innerHTML += taskData.map(({ title, date, description }) =>
+			`
+			 	<p>${title}</p>
+			   	<p>${date}</p>
+				<p>${description}</p>
+		  	`
+		).join("");
 
-
+		// using map V2
+		const myContainer = taskData.map(({ title, date, description }) =>
+			`
+			 	<p>${title}</p>
+			   	<p>${date}</p>
+				<p>${description}</p>
+		  	`
+		).join("");
+		tasksContainer.innerHTML += myContainer
 
 
 
