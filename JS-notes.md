@@ -671,15 +671,33 @@ Learn how to handle form inputs, manage local storage, perform CRUD (Create, Rea
 		
 		console.log(fruits); // [ 'mango', 'banana', 'apple' ]
 		console.log(removedFruits); // [ 'date', 'cherry' ]
-- `localStorage` offers methods for saving, retrieving, and deleting items. The items you save can be of any JavaScript data type. The `setItem()` method is used to save an item, and the `getItem()` method retrieves the item. To delete a specific item, you can utilize the `removeItem()` method, or if you want to delete all items in the storage, you can use `clear()`. Everything you save in `localStorage` needs to be in string format. To do this wrap the data you're saving in the `JSON.stringify()` method.  
+- `localStorage` offers methods for saving, retrieving, and deleting items. The items you save can be of any JavaScript data type. The `setItem()` method is used to save an item, and the `getItem()` method retrieves the item. To delete a specific item, you can utilize the `removeItem()` method, or if you want to delete all items in the storage, you can use `clear()`. Everything you save in `localStorage` needs to be in string format. To do this wrap the data you're saving in the `JSON.stringify()` method. When you retrieve the item using `getItem()` it will be a string. To view it in its original form before saving, you need to use `JSON.parse()`.  
 
-		// save an item
-  		// value could be string, number, or any other data type
-		localStorage.setItem("key", value);
+		const myTaskArr = [
+		  { task: "Walk the Dog", date: "22-04-2022" },
+		  { task: "Read some books", date: "02-11-2023" },
+		];
+		
+		localStorage.setItem("data", JSON.stringify(myTaskArr));
+		
+		const getTaskArrObj = JSON.parse(localStorage.getItem('data'));
+		console.log(getTaskArrObj);
+- You can use `localStorage.removeItem()` to remove a specific item and `localStorage.clear()` to clear all items in the local storage.
 
-		// retrieve the item from storage
-  		const getTaskArr = localStorage.getItem("data")
-- 
+# Learn recursion by building a decimal to binary converter  
+Recursion is a programming concept where a function calls itself. This can reduce a complex problem into simpler sub-problems, until they become straightforward to solve.  
+Learn the fundamental concepts of recursion, explore the call stack, and build out a visual representation of the recursion process through an animation.  
+
+
+
+
+
+
+
+
+
+
+
 
 
 
