@@ -661,6 +661,9 @@ Learn how to handle form inputs, manage local storage, perform CRUD (Create, Rea
 		// save an item
   		// value could be string, number, or any other data type
 		localStorage.setItem("key", value);
+
+		// retrieve the item from storage
+  		const getTaskArr = localStorage.getItem("data")
 - 
 
 
