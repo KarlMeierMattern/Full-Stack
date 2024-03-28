@@ -580,7 +580,7 @@ Local storage is a web browser feature that lets web applications store key-valu
 This allows web apps to save data during one session, then retrieve it in a later page session.  
 Learn how to handle form inputs, manage local storage, perform CRUD (Create, Read, Update, Delete) operations on tasks, implement event listeners, and toggle UI elements.  
 
-- Similar to adding and removing classe using `el.classList.add()` and `el.classList.remove()` another method to use with the `classList` property is the `toggle`, which adds the class if it is not present on the element and removes the class if it is present on the element.  
+- Similar to adding and removing classes using `el.classList.add()` and `el.classList.remove()` another method to use with the `classList` property is the `toggle`, which adds the class if it is not present on the element and removes the class if it is present on the element.  
 
 		element.classList.toggle("class-to-toggle");
 - The HTML `<dialog>` element has a `showModal()` method that can be used to display a modal dialog box on a web page.  
@@ -638,10 +638,30 @@ Learn how to handle form inputs, manage local storage, perform CRUD (Create, Rea
 		  	`
 		).join("");
 		tasksContainer.innerHTML += myContainer
+- To find the id of a parent element you can use `parentElement`. `this` is a keyword that refers to the current context. In this case, `this` points to the element that triggers the event – the buttons.  
 
+		<div class="task" id="${id}">
+		  <button onclick="deleteTask(this)" type="button" class="btn">Delete</button>
+		</div>
+		
+		const deleteTask = (buttonEl) => {
+		 const dataArrIndex = taskData.findIndex((item) => item.id === buttonEl.parentElement.id);
+		}
+- `splice()` is an array method that modifies arrays by removing, replacing, or adding elements at a specified index, while also returning the removed elements. It can take up to three arguments: the first one is the mandatory index at which to start, the second is the number of items to remove, and the third is an optional replacement element.  
 
+		const fruits = ["mango", "date", "cherry", "banana", "apple"];
+		
+		// Remove date and cherry from the array starting at index 1
+		const removedFruits = fruits.splice(1, 2);
+		
+		console.log(fruits); // [ 'mango', 'banana', 'apple' ]
+		console.log(removedFruits); // [ 'date', 'cherry' ]
+- `localStorage` offers methods for saving, retrieving, and deleting items. The items you save can be of any JavaScript data type. The `setItem()` method is used to save an item, and the `getItem()` method retrieves the item. To delete a specific item, you can utilize the `removeItem()` method, or if you want to delete all items in the storage, you can use `clear()`. Everything you save in `localStorage` needs to be in string format. To do this wrap the data you're saving in the `JSON.stringify()` method.  
 
-
+		// save an item
+  		// value could be string, number, or any other data type
+		localStorage.setItem("key", value);
+- 
 
 
 
