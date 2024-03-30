@@ -582,13 +582,13 @@ This project will cover concepts like `switch` statements, default parameters, `
 		
 		  switch (e.target.value) {
 		    case "nickname":
-					setPlayerCards(players.filter((player) => player.nickname !== null)); //filters the players array where nicknames are not null
-		      break;
+			setPlayerCards(players.filter((player) => player.nickname !== null)); //filters the players array where nicknames are not null
+		      	break;
 		    case "forward":
-		      setPlayerCards(players.filter((player) => player.position === "forward"));
-		      break;
+		      	setPlayerCards(players.filter((player) => player.position === "forward"));
+		      	break;
 		    default:
-		      setPlayerCards();
+		      	setPlayerCards();
 
 # Learn localStorage by building a ToDo app  
 Local storage is a web browser feature that lets web applications store key-value pairs persistently within a user's browser.  
@@ -688,13 +688,27 @@ Learn how to handle form inputs, manage local storage, perform CRUD (Create, Rea
 Recursion is a programming concept where a function calls itself. This can reduce a complex problem into simpler sub-problems, until they become straightforward to solve.  
 Learn the fundamental concepts of recursion, explore the call stack, and build out a visual representation of the recursion process through an animation.  
 
+- The `keydown` event fires every time a user presses a key on their keyboard, and is a good way to add more interactivity to input elements.
+- Remember that `e` is a common parameter name for the **event object**. Whenever an event listener is triggered by an event, an event object is created automatically. You don't always need to use this object, but it can be useful to access information about the event that was triggered.  
+- `key` is one of the properties of evnt objects. It represents the string value of the key that was pressed.  
 
+		numberInput.addEventListener("keydown", (e) => {
+		  if (e.key === "Enter") {
+		    checkUserInput();
+		  }
+		});
 
+- A good way to check and normalize numbers is to use `parseInt()`, which converts a string into an integer or whole number. It takes a string to be converted into an integer, and returns either an integer or NaN.  
 
+		parseInt(2.2); // 2
+		parseInt("2e+3"); // 2
+		parseInt("e") // NaN
+- The `isNaN()` function takes in a string or number as an argument, and returns true if it evaluates to NaN.  
 
-
-
-
+		isNaN("test"); // true
+		isNaN(2); // false
+		isNaN("3.5"); // false
+- 
 
 
 
