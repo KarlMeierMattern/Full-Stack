@@ -708,8 +708,11 @@ Learn the fundamental concepts of recursion, explore the call stack, and build o
 		isNaN("test"); // true
 		isNaN(2); // false
 		isNaN("3.5"); // false
+- Binary numbers are a base-2 number system. These binary digits are called bits, and are the smallest unit of data computers can process. For computers, 0 represents false or "off", and 1 represents true or "on". Binary numbers can be long sequences that start with 0, so they are often represented as strings.  
+- Because bits are often grouped into bytes, it's common to see binary numbers represented in groups of eight, sometimes with leading zeros. For example, the number 52 can be represented as 110100, or 00110100 with leading zeros.
+- A byte can represent any number between 0 and 255. Here are the placement values for each bit in a byte:
+`128 | 64 | 32 | 16 | 8 | 4 | 2 | 1`
 - 
-
 
 
 
