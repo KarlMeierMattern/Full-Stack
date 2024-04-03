@@ -712,6 +712,17 @@ Learn the fundamental concepts of recursion, explore the call stack, and build o
 - Because bits are often grouped into bytes, it's common to see binary numbers represented in groups of eight, sometimes with leading zeros. For example, the number 52 can be represented as 110100, or 00110100 with leading zeros.
 - A byte can represent any number between 0 and 255. Here are the placement values for each bit in a byte:
 `128 | 64 | 32 | 16 | 8 | 4 | 2 | 1`
+- A while loop is used to run a block of code as long as the condition evaluates to true, and the condition is checked before the code block is executed.  
+
+		let i = 0;
+		
+		while (i < 5) {
+		  console.log(i);
+		  i++;
+		}
+- The remainder operator `%` returns the remainder of the division of two numbers.  
+
+		const remainder = 5 % 2; // 1
 - 
 
 
