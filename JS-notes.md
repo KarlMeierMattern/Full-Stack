@@ -723,7 +723,41 @@ Learn the fundamental concepts of recursion, explore the call stack, and build o
 - The remainder operator `%` returns the remainder of the division of two numbers.  
 
 		const remainder = 5 % 2; // 1
-- 
+- A stack is a data structure where items are stored in a LIFO (last-in-first-out) manner. The call stack is a collection of function calls stored in a stack structure. When you call a function, it is added to the top or of the stack, and when it returns, it is removed from the top / end of the stack.  
+- A **recursive function** is a function that calls itself over and over. The base case is when the function stops calling itself.  
+- Recursive functions also have a **recursive case**, which is where the function calls itself.  
+
+		// Version 1
+		const countdown = (number) => {
+		  console.log(number);
+		
+		  if (number === 0) {
+		    return;
+		  } else {
+		    countdown(number - 1);
+		  }
+		};
+
+		countdown(3)
+  		//output 3,2,1,0
+- The output sequence 1, 2, 3 at the end of Version 2 below occurs because the function is recursively calling itself and printing the numbers in ascending order as it returns from each recursive call. When a recursive function unwinds it starts returning from the deepest call back to the original call. In this case, after the base case is reached, the function starts returning from countDownAndUp(0) back to the original call countDownAndUp(3).  
+
+		// Version 2
+		const countDownAndUp = (number) => {
+		  console.log(number);
+		
+		  if (number === 0) {
+		    console.log("Reached base case");
+		    return;
+		  } else {
+		    countDownAndUp(number - 1);
+		    console.log(number);
+		  }
+		};
+		
+		countDownAndUp(3);
+  		// output 3,2,1,0,Reached base case,1,2,3
+  
 
 
 
