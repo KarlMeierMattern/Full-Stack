@@ -690,7 +690,7 @@ Learn the fundamental concepts of recursion, explore the call stack, and build o
 
 - The `keydown` event fires every time a user presses a key on their keyboard, and is a good way to add more interactivity to input elements.
 - Remember that `e` is a common parameter name for the **event object**. Whenever an event listener is triggered by an event, an event object is created automatically. You don't always need to use this object, but it can be useful to access information about the event that was triggered.  
-- `key` is one of the properties of evnt objects. It represents the string value of the key that was pressed.  
+- `key` is one of the properties of event objects. It represents the string value of the key that was pressed.  
 
 		numberInput.addEventListener("keydown", (e) => {
 		  if (e.key === "Enter") {
@@ -757,10 +757,27 @@ Learn the fundamental concepts of recursion, explore the call stack, and build o
 		
 		countDownAndUp(3);
   		// output 3,2,1,0,Reached base case,1,2,3
-  
+- The `setTimeout` function takes two arguments: a callback function and a number representing the time in milliseconds to wait before executing the callback function. `setTimeout()`  is asynchronous, meaning that it doesn't stop the execution of the rest of your code.  
 
+		setTimeout(() => {
+		  console.log("Hello, world!");
+		}, 3000);
 
+---
 
+# Learn basic algorithmic thinking by building a number sorter  
+In computer science, there are fundamental numerical sorting algorithms that all developers should learn including bubble sort, selection sort, and insertion sort.  
+
+- Buttons associated with a form element submit by default. To prevent that behavior you can use `.preventDefault()` on your event listener object.
+- Use `document.getElementsByClassName("class-name")` to access an element by its class. Remember that `.getElementsByClassName()` returns an array-like object. You can use the **spread operator** `...` to convert it into an array and the `map` method to iterate through its elements.  
+
+		const inputValues = [...document.getElementsByClassName("class")].map((elements) => element);
+- A **fallback value** is a default value assigned to a variable or parameter in case no other value is provided. This helps prevent errors or unexpected behavior in code that relies on the presence of a certain value.  
+
+		const updateUI = (array = []) => {
+		
+		};
+- 
 
 
 
