@@ -769,9 +769,13 @@ Learn the fundamental concepts of recursion, explore the call stack, and build o
 In computer science, there are fundamental numerical sorting algorithms that all developers should learn including bubble sort, selection sort, and insertion sort.  
 
 - Buttons associated with a form element submit by default. To prevent that behavior you can use `.preventDefault()` on your event listener object.
-- Use `document.getElementsByClassName("class-name")` to access an element by its class. Remember that `.getElementsByClassName()` returns an array-like object. You can use the **spread operator** `...` to convert it into an array and the `map` method to iterate through its elements.  
+- Use `document.getElementsByClassName("class-name")` to access an element by its class. Remember that `.getElementsByClassName()` returns an array-like object. You can use the **spread operator** `...` to convert it into an array and `forEach` to iterate over the array.  
 
-		const inputValues = [...document.getElementsByClassName("class")].map((elements) => element);
+		const inputValues = [...document.getElementsByClassName("class")];
+		
+		inputValues.forEach((element) => {
+		    // Do something with 'element'
+		});
 - A **fallback value** is a default value assigned to a variable or parameter in case no other value is provided. This helps prevent errors or unexpected behavior in code that relies on the presence of a certain value.  
 
 		const updateUI = (array = []) => {
