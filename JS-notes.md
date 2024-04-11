@@ -781,8 +781,36 @@ In computer science, there are fundamental numerical sorting algorithms that all
 		const updateUI = (array = []) => {
 		
 		};
-- 
+- Bubble sort:  
 
+		const bubbleSort = (array) => {
+		  for (let i = 0; i < array.length; i++) { // iterates over the array
+		    for (let j = 0; j < array.length - 1; j++) { // performs one pass through of the array to compare adjacent elements		
+		      if (array[j] > array[j + 1]) {
+		        const temp = array[j];
+		        array[j] = array[j + 1];
+		        array[j + 1] = temp;
+		      }
+		    }
+		  }
+		  return array;
+		}
+- Selection sort:  
+
+		const selectionSort = (array) => {
+		  for (let i = 0; i < array.length; i++) {
+		    let minIndex = i;
+		    for (let j = i + 1; j < array.length; j++) {
+		      if (array[j] < array[minIndex]) {
+		        minIndex = j;
+		      }
+		    }
+		    const temp = array[i];
+		    array[i] = array[minIndex];
+		    array[minIndex] = temp;
+		  }		
+		  return array;
+		}
 
 
 
