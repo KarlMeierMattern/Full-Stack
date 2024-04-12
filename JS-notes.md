@@ -836,7 +836,16 @@ In computer science, there are fundamental numerical sorting algorithms that all
 		  }
 		  return array;
 		}
-- The built-in method `.sort()` can be used to replace bubble sort, selection sort, and insertion sort.  
+- The built-in method `.sort()` can be used to replace bubble sort, selection sort, and insertion sort.
+
+---
+
+# Learn advanced array methods by building a statistics calculator  
+Array manipulation methods, such as map(), reduce(), and filter().  
+Handling user input, DOM manipulation, and method chaining.  
+Perform statistical calculations like mean, median, mode, variance, and standard deviation.  
+
+
 
 
 
