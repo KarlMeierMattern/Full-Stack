@@ -374,7 +374,8 @@ The project covers fundamental concepts such as handling audio playback, managin
 		  { name: "Blueberries", price: 1.49 },
 		  { name: "Grapes", price: 2.99 },
 		];
-		
+
+		// Version 1
 		fruits.sort((a, b) => {
 		  if (a.name < b.name) {
 		    return -1;
@@ -386,6 +387,11 @@ The project covers fundamental concepts such as handling audio playback, managin
 		
 		  return 0;
 		});
+
+  		// Version 2 produces the same result as Version 1
+  		fruits.sort((a, b) => {
+		  return a - b
+  		}	
 - The `find()` method retrieves the first element within an array that fulfills the conditions specified in the provided callback function. If no element satisfies the condition, the method returns undefined.  
 
 		const numbers = [10, 20, 30, 40, 50];
@@ -781,7 +787,8 @@ In computer science, there are fundamental numerical sorting algorithms that all
 		const updateUI = (array = []) => {
 		
 		};
-- Bubble sort:  
+- The **bubble sort** algorithm starts at the beginning of the array and 'bubbles up' unsorted values towards the end, iterating through the array until it is completely sorted.  
+- Bubble sort can stop one element before the end of the array in the inner loop because the largest elements are bubbled up towards the end after each pass.  
 
 		const bubbleSort = (array) => {
 		  for (let i = 0; i < array.length; i++) { // iterates over the array
@@ -795,8 +802,9 @@ In computer science, there are fundamental numerical sorting algorithms that all
 		  }
 		  return array;
 		}
-- Selection sort:  
-
+- The **selection sort** algorithm works by finding the smallest value in the array, then swapping it with the first value in the array. Then, it finds the next smallest value in the array, and swaps it with the second value in the array. It continues iterating through the array until it is completely sorted.
+- Selection sort needs to consider all elements in the unsorted portion of the array during each pass to find the smallest unsorted element, hence it iterates until the last element.  
+  
 		const selectionSort = (array) => {
 		  for (let i = 0; i < array.length; i++) {
 		    let minIndex = i;
@@ -811,6 +819,35 @@ In computer science, there are fundamental numerical sorting algorithms that all
 		  }		
 		  return array;
 		}
+- The **insertion sort** algorithm works by building up a sorted array at the beginning of the list. It begins the sorted array with the first element. Then it inspects the next element and swaps it backward into the sorted array until it is in a sorted position, and so on. An insertion sort algorithm starts the sort at the beginning of the list, meaning the first element is already sorted.  
+
+		const insertionSort = (array) => {
+		  for (let i = 1; i < array.length; i++) {
+		    const currValue = array[i];
+		    let j = i - 1;
+		
+		    while (j >= 0 && array[j] > currValue) {
+		      console.log(array, array[i], array[j], array[currValue])
+		      array[j + 1] = array[j];
+		      j--;
+		    }
+		    array[j + 1] = currValue;
+		    console.log(array[j+1])
+		  }
+		  return array;
+		}
+- The built-in method `.sort()` can be used to replace bubble sort, selection sort, and insertion sort.  
+
+
+
+
+
+
+
+
+
+
+
 
 
 
