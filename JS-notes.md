@@ -197,7 +197,7 @@ In this practice project, you'll learn basic regular expressions, template liter
 - Your current pattern won't work just yet. `/+-\s/` looks for `+`, `-`, and a space in order. This would match `+- hello` but would not match `+hello`.  
 - To tell the pattern to match each of these characters individually, you need to turn them into a character class. This is done by wrapping the characters you want to match in brackets. For example, this pattern will match the characters h, e, l, or o:  
 
-		const regex = /[helo]/;
+		const regex = /[hello]/;
 - Regex can also take specific flags to alter the pattern matching behavior. Flags are added after the closing `/`. The `g` flag, which stands for "global", will tell the pattern to continue looking after it has found a match.  
 
 		const helloRegex = /hello/g;
@@ -388,8 +388,10 @@ The project covers fundamental concepts such as handling audio playback, managin
 		  return 0;
 		});
 
-  		// Version 2 produces the same result as Version 1
-  		fruits.sort((a, b) => {
+  		// Version 2 - shortcut to sort an array of numbers
+  
+  		const numbers = [30,40,20,70,30];
+  		numbers.sort((a, b) => {
 		  return a - b
   		}	
 - The `find()` method retrieves the first element within an array that fulfills the conditions specified in the provided callback function. If no element satisfies the condition, the method returns undefined.  
@@ -774,8 +776,8 @@ Learn the fundamental concepts of recursion, explore the call stack, and build o
 # Learn basic algorithmic thinking by building a number sorter  
 In computer science, there are fundamental numerical sorting algorithms that all developers should learn including bubble sort, selection sort, and insertion sort.  
 
-- Buttons associated with a form element submit by default. To prevent that behavior you can use `.preventDefault()` on your event listener object.
-- Use `document.getElementsByClassName("class-name")` to access an element by its class. Remember that `.getElementsByClassName()` returns an array-like object. You can use the **spread operator** `...` to convert it into an array and `forEach` to iterate over the array.  
+- Buttons associated with a form element submit by default. To prevent that behavior you can use `.preventDefault()` on your event listener object.  
+- Use `document.getElementsByClassName("class-name")` to access an element by its class. Remember that `.getElementsByClassName()` returns a NodeList, which is an array-like object. The **spread operator** `...` spreads the elements out and the `[]` places them into a new array. `forEach` is used to iterate over the array.  
 
 		const inputValues = [...document.getElementsByClassName("class")];
 		
@@ -845,18 +847,44 @@ Array manipulation methods, such as map(), reduce(), and filter().
 Handling user input, DOM manipulation, and method chaining.  
 Perform statistical calculations like mean, median, mode, variance, and standard deviation.  
 
+- The value of an input element is always a string, even if the input type is `number`.  
+- The `.map()` method, which can only be used on an array, takes a callback function as its first argument. You can use it to convert a string to a number using the `Number()` constructor.  
 
+		const value = document.querySelector("#numbers").value;
+		const array = value.split(/,\s*/g);
+		const numbers = array.map((el) => Number(el));
+- The `Number()` constructor will return NaN if the value passed to it cannot be converted to a number.
+- The `isNaN()` method returns true if the argument is NaN.
+- **Method chaining** involves combining multiple methods together at once.  
 
+		const numbers = array.map(el => Number(el)).filter(el => !isNaN(el));
+- The arry method `.reduce()` takes an array and applies a callback function to condense the array into a single value. The callback takes at least two parameters - an accumulator and the current element in the array. The return value for the callback becomes the value of the accumulator on the next iteration. The `.reduce()` method takes a second argument that is used as the initial value of the accumulator.  
 
+		const getMean = (array) => {
+		  const sum = array.reduce((acc, el) => acc + el, 0);
+		}
+- By default the `.sort()` method converts the elements of an array into strings, then sorts them alphabetically. This works well for strings, but not so well for numbers. For example, 10 comes before 2 when sorted as strings, but 2 comes before 10 when sorted as numbers. To fix this, you can pass in a callback function to the `.sort()` method. The function should return a value less than 0 if the first element should come before the second element, a value greater than 0 if the first element should come after the second element, and 0 if the two elements should remain in their current positions.  
 
+		fruits.sort((a, b) => {
+		  return a - b
+		}
+- A `Set` is a data structure that only allows unique values. If you pass an array into the `Set` constructor, it will remove any duplicate values.
 
+		const counts = { '2': 1, '4': 2, '5': 1 };
+		if (new Set(Object.values(counts)).size === 1) {
+		    return null;
+		}
+  		// Object.values(counts) returns [1, 2, 1]
+  		// new Set(Object.values(counts)) produces [1,2]
+  		// new Set(Object.values(counts)).size produces [2]
+  		// condition evaluates to false since there are different values
+- The `Math` object has a `.min()` and `.max()` method. Any array passed to these methods must must be accompanied by a **spread operator** as these methods expect individual arguments, not an array. By using the spread operator, you're essentially "spreading" the elements of the array into individual arguments. This allows `Math.max()` and `Math.min()` to correctly identify the maximum and minimum values within the array.  
 
-
-
-
-
-
-
+		const numbersArr = [2, 3, 1];
+		
+		console.log(Math.min(...numbersArr));
+		// Expected output: 1
+- 
 
 
 
