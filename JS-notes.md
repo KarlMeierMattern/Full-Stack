@@ -446,7 +446,7 @@ The project covers fundamental concepts such as handling audio playback, managin
 - The `createTextNode()` method is used to create a text node. To use it, you call it and pass in the text as a string.
 
 		const myText = document.createTextNode("your text")
-- JS provides the id and ariaLabel properties for assigning id and aria-label attributes.   
+- JS provides the `id`, `ariaLabel`, and `className` properties for assigning id, aria-label, and class name attributes.   
 
 		document.createElement("button").id = "reset";
 		document.createElement("button").ariaLabel = "Reset playlist";
@@ -884,7 +884,47 @@ Perform statistical calculations like mean, median, mode, variance, and standard
 		
 		console.log(Math.min(...numbersArr));
 		// Expected output: 1
+- To calculate a root exponent such as the square root, you can use the `Math.pow()` function.  
+
+		const standardDeviation = Math.pow(variance,1/2); // square root
+- The `Math` object has a `.sqrt()` method specifically for finding the square root of a number.  
+
+		const standardDeviation = Math.sqrt(variance); // square root
+- The `.sort()` method modifies the array it is called on in place. To fix this, you can chain an empty `.slice()` call before your `.sort()` method, which will make a shallow copy of the array, which you are free to mutate.  
+
+		const sorted = array.slice().sort((a, b) => a - b);
+		// array.slice() creates a shallow copy of the array. Then .sort() method is called on this copy.
+		// original array remains unchanged
+
+# Learn functional programming by building a spreadsheet  
+In Functional Programming code is organised into smaller functions, which are then combined to build complex programs.  
+Learn about parsing and evaluating mathematical expressions, implementing spreadsheet functions, handling cell references, and creating interactive web interfaces.  
+You'll learn how to dynamically update the page based on user input.  
+This project will cover concepts like the `map()` method, `find()` method, `parseInt()`, the `includes()` method.  
+
+- The global `window` object represents the browser window (or tab). It has an `onload` property which allows you to define behavior when the window has loaded the entire page, including stylesheets and scripts.
+- When a function itself needs to reuse logic you can declare a nested function to handle that logic.  
+
+		const outer = () => {
+		  const inner = () => {
+		
+		  };
+		};
+- The `Array()` constructor has a `.fill()` method which can be used to fill an array with a value.
 - 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
