@@ -920,10 +920,10 @@ This project will cover concepts like the `map()` method, `find()` method, `pars
 > [!TIP]
 > An example of efficient programming using implicit return.  
 
-		// Version 1
+		// Efficient
 		const isEven = num => num % 2 === 0;
 		
-		// Version 2
+		// Inefficient
 		const isEven = (num) => {
 		  if (num % 2 === 0) {
 		    return true;
