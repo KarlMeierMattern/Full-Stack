@@ -1,9 +1,6 @@
 > [!NOTE]
 > Useful information that users should know, even when skimming content.
 
-> [!TIP]
-> Helpful advice for doing things better or more easily.
-
 > [!IMPORTANT]
 > Key information users need to know to achieve their goal.
 
@@ -512,6 +509,9 @@ Learn how to work with DOM manipulation, object destructuring, event handling, a
 This project will cover concepts like `switch` statements, default parameters, `Object.freeze()`, and the `map()` method.  
 
 - The method `Object.freeze(obj)` allows you to freeze an object and prevent any changes being made to it.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
 - An alternative to dot notation is the object destructuring syntax that allows you to unpack values from arrays and objects.  
 
 		const developerObj = {
