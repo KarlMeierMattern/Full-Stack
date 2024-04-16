@@ -253,7 +253,8 @@ In this practice project, you'll learn basic regular expressions, template liter
 		  <input id="last-name" type="text">
 		`;
 		formElement.innerHTML += formContent;
-- Similar to the a button's `onclick` property you can also edit an element's behavior by adding an `addEventListener` method to add a click event to a button. This method takes two arguments. The first is the event to listen to. (Ex. `click`). The second is the callback function that runs when the event is triggered. Note: the function is not called using the `()` but rather the function reference is used. This is because we don't want to exectute the function immediately, but rather call it.  
+> [!IMPORTANT]  
+> Similar to the button's `onclick` property you can also edit an element's behavior by adding an `addEventListener` method to add a click event to a button. This method takes two arguments. The first is the event to listen to. (Ex. `click`). The second is the callback function that runs when the event is triggered. Note: the function is not called using the `()` but rather the function reference is used. This is because we don't want to exectute the function immediately, but rather call it.  
 
 		// HTML code
 		<button class="btn">Print name</button>
@@ -493,7 +494,8 @@ Cover concepts such as the `getDate()`, `getMonth()`, and `getFullYear()` method
 
 		element.addEventListener("change", () => {
   		});
-- A `switch` statement is used to compare an expression against multiple possible values and execute different code blocks based on the match. If your `switch` statement is going to have multiple cases it is best practice to include a `break` statement that tells the JS interpreter to stop executing statements. Without adding a `break` statement at the end of each case block the program will execute the code for all matching cases. The `default` case is executed when none of the previous case conditions match the value being evaluated. It serves as a catch-all for any other possible cases.  
+> [!TIP]
+> A `switch` statement is used to compare an expression against multiple possible values and execute different code blocks based on the match. If your `switch` statement is going to have multiple cases it is best practice to include a `break` statement that tells the JS interpreter to stop executing statements. Without adding a `break` statement at the end of each case block the program will execute the code for all matching cases. The `default` case is executed when none of the previous case conditions match the value being evaluated. It serves as a catch-all for any other possible cases.  
 
 		// checks if someVariable='case123'
 		switch (someVariable) {
@@ -950,8 +952,18 @@ This project will cover concepts like the `map()` method, `find()` method, `pars
 		};
 		
 		console.log(user); // { userId: 1, firstName: 'John' }
+> [!TIP]
+> The `onchange` property is an alternative to the `change` event listener with both being related to detecting changes in elements (such as `input`, `select`, or `textarea` elements).  
 
-  
+		// onchange - HTML code
+		<input type="text" onchange="update()">
+		
+		// onchange - JavaScript code
+		input.onchange = update;
+		
+		// change
+		const input = document.getElementById('myInput');
+		input.addEventListener('change', update);
 
 
 
