@@ -1,13 +1,17 @@
-> [!NOTE]
-> notes
+> [!NOTE]  
+> Highlights information that users should take into account, even when skimming.
 
 > [!TIP]
+> Optional information to help a user be more successful.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
+> Crucial information necessary for users to succeed.
 
-> [!WARNING]
+> [!WARNING]  
+> Critical content demanding immediate user attention due to potential risks.
 
 > [!CAUTION]
+> Negative potential consequences of an action.
 
 # Learn JS by building a role-playing game  
 JS is a powerful scripting language that you can use to make web pages interactive. It's one of the core technologies of the web, along with HTML and CSS.  
@@ -224,7 +228,9 @@ In this practice project, you'll learn basic regular expressions, template liter
 		function addEntry() {
 		  const targetId = "#" + entryDropdown.value();
 		}
-- Template literals allow you to interpolate variables directly within a string and are denoted with backticks `` in JS, as opposed to single or double quotes. You don't need these backticks when using interpolation in HTML. Variables can be passed in to a template literal by surrounding the variable with `${}` – the value of the variable will be inserted into the string.  
+
+> [!IMPORTANT]  
+> Template literals allow you to interpolate variables directly within a string and are denoted with backticks `` in JS, as opposed to single or double quotes. You don't need these backticks when using interpolation in HTML. Variables can be passed in to a template literal by surrounding the variable with `${}` – the value of the variable will be inserted into the string.  
 
 		const name = "Naomi";
 		const templateLiteral = `Hello, my name is ${name}~!`;
@@ -482,7 +488,8 @@ Cover concepts such as the `getDate()`, `getMonth()`, and `getFullYear()` method
 - The `.getFullYear()` method of the `Date` object returns a number which represents the year for the provided date.  
 - The `.getHours()` method of the `Date` object returns a number between 0 and 23. This represents the hour for the provided date, where 0 is midnight and 23 is 11 p.m.  
 - The `.getMinutes()` method of the `Date` object returns a number between 0 and 59 which represents the minutes for the provided date.  
-- In JavaScript, the change event is used to detect when the value of an HTML element has changed:
+> [!NOTE]  
+> In JavaScript, the change event is used to detect when the value of an HTML element has changed:  
 
 		element.addEventListener("change", () => {
   		});
@@ -931,9 +938,20 @@ This project will cover concepts like the `map()` method, `find()` method, `pars
 		    return false;
 		  }
 		};
-- `Math.ceil()` is used to round up.  
+- `Math.ceil()` is used to round up.
+- Object properties consist of key/value pairs. You can use shorthand property names when declaring an object literal. When using the shorthand property name syntax, the name of the variable becomes the property key and its value the property value.
 
+		const userId = 1;
+		const firstName = "John";
+		
+		const user = {
+		  userId,
+		  firstName
+		};
+		
+		console.log(user); // { userId: 1, firstName: 'John' }
 
+  
 
 
 
