@@ -917,7 +917,6 @@ This project will cover concepts like the `map()` method, `find()` method, `pars
 		element.setAttribute("aria-label", "Play");
   		// or
 		element.ariaLabel = "Play";
-
 > [!TIP]
 > An example of efficient programming using implicit return.  
 
