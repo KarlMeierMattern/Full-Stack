@@ -511,8 +511,7 @@ This project will cover concepts like `switch` statements, default parameters, `
 - The method `Object.freeze(obj)` allows you to freeze an object and prevent any changes being made to it.
 
 > [!TIP]
-> Helpful advice for doing things better or more easily.
-- An alternative to dot notation is the object destructuring syntax that allows you to unpack values from arrays and objects.  
+> An alternative to dot notation is the object destructuring syntax that allows you to unpack values from arrays and objects.  
 
 		const developerObj = {
 		  name: "Jessica Wilkins",
