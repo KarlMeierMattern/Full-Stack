@@ -113,8 +113,10 @@ You'll learn how to work with arrays, strings, objects, functions, loops, if/els
 
 		if (num === 5)
 - The `innerHTML` property allows you to access or modify the content inside an HTML element using JavaScript.  
-- Functions run specific blocks of code when they are called, but they can also return a value. This value can be assigned to a variable and used elsewhere in your code.  
-- The **ternary operator** is a conditional operator and can be used as a one-line if-else statement. The syntax is: condition ? expressionIfTrue : expressionIfFalse.  
+- Functions run specific blocks of code when they are called, but they can also return a value. This value can be assigned to a variable and used elsewhere in your code.
+
+> [!TIP]
+> The **ternary operator** is a conditional operator and can be used as a one-line if-else statement. The syntax is: condition ? expressionIfTrue : expressionIfFalse.  
 
 		if (num > 5) {
 		  return 'num is greater than 5';
@@ -915,7 +917,9 @@ This project will cover concepts like the `map()` method, `find()` method, `pars
 		element.setAttribute("aria-label", "Play");
   		// or
 		element.ariaLabel = "Play";
-- An example of efficient programming using implicit return.  
+
+> [!TIP]
+> An example of efficient programming using implicit return.  
 
 		// Version 1
 		const isEven = num => num % 2 === 0;
