@@ -911,13 +911,26 @@ This project will cover concepts like the `map()` method, `find()` method, `pars
 		  };
 		};
 - The `Array()` constructor has a `.fill()` method which can be used to fill an array with a value.
-- 
+- Instead of using the `setAttribute` method another way to update an attribute in JavaScript is to use the syntax `el.attribute = value;`. The property names for hyphenated HTML attribute values, such as `aria-label`, follow camel case, becoming `ariaLabel`.  
 
+		element.setAttribute("aria-label", "Play");
+  		// or
+		element.ariaLabel = "Play";
+- An example of efficient programming using implicit return.  
 
-
-
-
-
+		// Version 1
+		const isEven = num => num % 2 === 0;
+		
+		// Version 2
+		const isEven = (num) => {
+		  if (num % 2 === 0) {
+		    return true;
+		  }
+		  else {
+		    return false;
+		  }
+		};
+- `Math.ceil()` is used to round up.  
 
 
 
