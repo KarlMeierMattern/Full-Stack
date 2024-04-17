@@ -964,7 +964,15 @@ This project will cover concepts like the `map()` method, `find()` method, `pars
 		// change
 		const input = document.getElementById('myInput');
 		input.addEventListener('change', update);
+> [!TIP] Regular expressions
+> Regular expressions:  
+> g = global  
+> i = case-insensitive  
+> () = capture group is stored separately, allowing you to retrieve it later  
 
+		const rangeRegex = /([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi;
+		// g = global
+  		
 
 
 
