@@ -964,16 +964,39 @@ This project will cover concepts like the `map()` method, `find()` method, `pars
 		// change
 		const input = document.getElementById('myInput');
 		input.addEventListener('change', update);
-> [!TIP] Regular expressions
-> Regular expressions:  
-> g = global  
-> i = case-insensitive  
-> () = capture group is stored separately, allowing you to retrieve it later  
+> [!NOTE]
+> Regular expressions:
+> `//` contains the regular expression  
+> `g` = global  
+> `i` = case-insensitive  
+> `()` is a capture group, which is stored separately, allowing you to retrieve it later
+> `\d` is a shorthand character class that matches any digit from 0 to 9. It's equivalent to the character class `[0-9]`, but `\d` is shorter and more commonly used.  
+> `\s` matches individual whitespace characters  
+> `\s*` matches sequences of whitespace characters as well as individual ones
+> 
 
 		const rangeRegex = /([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi;
-		// g = global
-  		
+- The concept of returning a function within a function is called `currying`. This approach allows you to create a variable that holds a function to be called later, but with a reference to the parameters of the outer function call.  
 
+		const innerOne = elemValue(1);
+		const final = innerOne("A");
+		// innerOne would be your inner function, with num set to 1
+  		// final would have the value of the cell with the id of A1
+  		// This is possible because functions have access to all variables declared at their creation. This is called closure.
+- When using arrow syntax you can implicitly return a function.  
+
+		const curry = soup => veggies => {};
+		// curry is a function which takes a soup parameter
+  		// and returns a function which takes a veggies parameter
+- You can pass a **function reference** (i.e. function name without brackets) as a callback parameter.  
+
+		const myFunc = (val) => `value: ${val}`;
+		const array = [1, 2, 3];
+		const newArray = array.map(myFunc);
+		// The .map() method here will call the myFunc function, passing the same arguments that a .map() callback takes
+  		// The first argument is the value of the array at the current iteration, so newArray would be [value: 1, value: 2, value: 3].
+- In JavaScript it is common convention to prefix an unused parameter with an underscore `_`.
+- 
 
 
 
