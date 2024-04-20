@@ -343,7 +343,8 @@ The project covers fundamental concepts such as handling audio playback, managin
 		const numbers = [1, 2, 3];
 		const doubledNumbers = numbers.map((number) => number * 2);
   		// doubledNumbers will be [2, 4, 6]
-- Notice that the `map()` method takes a function as an argument. This is called a **callback function**, which is a function that is passed to another function as an argument.  
+> [!NOTE]  
+> Notice that the `map()` method takes a function as an argument. This is called a **callback function**, which is a function that is passed to another function as an argument.  
 - The `join()` method is used to concatenate all the elements of an array into a single string. It takes an optional parameter called a separator which is used to separate each element of the array.  
 
 		const exampleArr = ["This", "is", "a", "sentence"];
@@ -521,7 +522,7 @@ This project will cover concepts like `switch` statements, default parameters, `
 - The method `Object.freeze(obj)` allows you to freeze an object and prevent any changes being made to it.
 
 > [!TIP]
-> An alternative to dot notation is the object destructuring syntax that allows you to unpack values from arrays and objects.  
+> An alternative to dot notation is the **object destructuring** syntax that allows you to unpack values from arrays and objects.  
 
 		const developerObj = {
 		  name: "Jessica Wilkins",
