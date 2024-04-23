@@ -965,16 +965,15 @@ This project will cover concepts like the `map()` method, `find()` method, `pars
 		// change
 		const input = document.getElementById('myInput');
 		input.addEventListener('change', update);
-> [!NOTE]
-> Regular expressions:
-> `//` contains the regular expression  
-> `g` = global  
-> `i` = case-insensitive  
-> `()` is a capture group, which is stored separately, allowing you to retrieve it later
+> [!NOTE]  
+> Regular expressions:  
+> `//` contains the regular expression.  
+> `g` = global.  
+> `i` = case-insensitive.  
+> `()` is a capture group, which is stored separately, allowing you to retrieve it later.  
 > `\d` is a shorthand character class that matches any digit from 0 to 9. It's equivalent to the character class `[0-9]`, but `\d` is shorter and more commonly used.  
-> `\s` matches individual whitespace characters  
-> `\s*` matches sequences of whitespace characters as well as individual ones
-> 
+> `\s` matches individual whitespace characters.  
+> `\s*` matches sequences of whitespace characters as well as individual ones.  
 
 		const rangeRegex = /([A-J])([1-9][0-9]?):([A-J])([1-9][0-9]?)/gi;
 - The concept of returning a function within a function is called `currying`. This approach allows you to create a variable that holds a function to be called later, but with a reference to the parameters of the outer function call.  
@@ -997,9 +996,25 @@ This project will cover concepts like the `map()` method, `find()` method, `pars
 		// The .map() method here will call the myFunc function, passing the same arguments that a .map() callback takes
   		// The first argument is the value of the array at the current iteration, so newArray would be [value: 1, value: 2, value: 3].
 - In JavaScript it is common convention to prefix an unused parameter with an underscore `_`.
+- To access the children of an element use `.children`.  
+
+		document.getElementById("container").children);
+- Arrays have a `.some()` method that will return true if the callback function returns true for at least one element in the array.  
+
+		const arr = ["A", "b", "C"];
+		arr.some(letter => letter === letter.toUpperCase())
+  		// Checks if any element in the array is an uppercase letter
+- Arrays have an `.every()` method that will return true if the callback function returns true for all elements in the array.  
+
+		const arr = ["A", "b", "C"];
+		arr.every(letter => letter === letter.toUpperCase());
+		// Checks if all elements in the array are uppercase letters
 - 
 
 
+
+
+  
 
 
 
