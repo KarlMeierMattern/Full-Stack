@@ -13,6 +13,16 @@
 > [!CAUTION]
 > Negative potential consequences of an action.
 
+# Learn introductory JS by building a pyramid generator  
+JS is used to make web pages interactive.  
+Learn the fundamentals of programming concepts like arrays, strings, functions, loops, and if/else statements.  
+
+- Declare variables using the `let` keyword.  
+- Variable naming follows specific rules: names can include letters, numbers, dollar signs, and underscores, but cannot contain spaces and must not begin with a number.
+
+
+---
+
 # Learn JS by building a role-playing game  
 JS is a powerful scripting language that you can use to make web pages interactive. It's one of the core technologies of the web, along with HTML and CSS.  
 You'll learn how to work with arrays, strings, objects, functions, loops, if/else statements, and more.  
