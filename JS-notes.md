@@ -19,6 +19,25 @@ Learn the fundamentals of programming concepts like arrays, strings, functions, 
 
 - Declare variables using the `let` keyword.  
 - Variable naming follows specific rules: names can include letters, numbers, dollar signs, and underscores, but cannot contain spaces and must not begin with a number.
+- JS has seven primitive data types, with String being one of them. Note that strings are immutable, which means once they are created, they cannot be changed.  
+- The console allows you to print and view JS using `console.log()`.
+- When a variable is declared with the `let` keyword, you can reassign that variable later on, however you do not use the let keyword.  
+- An array `[]` is a non-primitive data type that can hold a series of values. Non-primitive data types differ from primitive data types in that they can hold more complex data. Primitive data types like strings and numbers can only hold one value at a time.  
+- You can access the values inside an array using the index of the value and bracket notation, such as `array[0]`.  
+- Arrays are mutable meaning you can change the value at an index directly such as `array[1] = 25`.  
+- The `.length` property of an array can be used to acceess the last element of any array using `array[array.length - 1]`. By subtracting 1, you get the index of the last element in the array.  
+- A **method** is a function that's associated with certain objects. The `.push()` method, associated with array objects, allows you to "push" a value to the end of an array.
+- The `.pop()` method removes the last element from an array and returns that element.  
+- The `const` variable cannot be reassigned like a `let` variable and cannot be uninitialized.
+- 
+
+
+
+
+
+
+
+
 
 
 ---
@@ -148,11 +167,11 @@ You'll learn how to work with arrays, strings, objects, functions, loops, if/els
 - A while loop accepts a condition, and will run the code in the block until the condition is no longer true.  
 
 		while (i < 5)
-- The new line escape character `\n`.  
-- A `for` loop runs for a specific number of times.  
-- `for` loops are declared with three expressions separated by semicolons. `for (a; b; c)`, where `a` is the initialization expression, `b` is the condition, and `c` is the final expression.  
-- The initialization expression is executed only once, before the loop starts, and is often used to define and set up the loop variable. Think of it like declaring a counter to use in your loop.  
-- Many for loops use `i` as the counter and start from 0.  
+- The new line escape character `\n`.
+> [!IMPORTANT]  
+> `for` loops are declared with three expressions separated by semicolons.
+> `for ("iterator"; "condition"; "iteration") {};`.
+- Many for loops use `i` as the iterator and start from 0.  
 - The second statement in a `for` loop, the condition statement, is evaluated at the beginning of every loop iteration. The loop will continue as long as the condition evaluates to be true.  
 - The last statement in a `for` loop, the final expression, is executed at the end of each loop iteration.  
 
