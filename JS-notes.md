@@ -29,9 +29,33 @@ Learn the fundamentals of programming concepts like arrays, strings, functions, 
 - A **method** is a function that's associated with certain objects. The `.push()` method, associated with array objects, allows you to "push" a value to the end of an array.
 - The `.pop()` method removes the last element from an array and returns that element.  
 - The `const` variable cannot be reassigned like a `let` variable and cannot be uninitialized.
-- 
+- The `.repeat()` method is available to strings. This method accepts a number as an argument, specifying the number of times to repeat the target string.  
 
+		const activity = "Code! ";
+		activity.repeat(3);
+		// "Code! Code! Code!"
+- By default, functions return *undefined* as their value. In order to return something else, you need to use the `return` keyword.
+- **Parameters** are special variables that are given a value when you call the function, and can be used in your function to dynamically change the result of the function's code.
+- When you pass a value to a function call, that value is referred to as an **argument**.  
 
+		// Calling a demo function and passing "Naomi" as the argument for the name parameter
+		function demo(name) {
+		  return name;
+		}
+		demo("Naomi");
+- Where a variable is declared determines where in your code it can be used. Variables that are declared outside of any "block" like a function or for loop are in the **global scope**. When a variable is in the global scope, a function can access it in its definition.  
+
+		const title = "Professor ";
+  
+		function demo(name) {
+		  return title + name;
+		}
+  
+		demo("Naomi")
+  		// "Professor Naomi"
+- Variables declared inside a function are in the **local scope**, or *block scope*. If you try to access these variables outside the function you will get undefined or an error.  
+> [!CAUTION]  
+> An important thing to know about the return keyword is that it does not just define a value to be returned from your function, it also stops the execution of your function code. This means that any code after a return statement will not run.  
 
 
 
