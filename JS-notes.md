@@ -18,23 +18,23 @@ JS is used to make web pages interactive.
 Learn the fundamentals of programming concepts like arrays, strings, functions, loops, and if/else statements.  
 
 - Declare variables using the `let` keyword.  
-- Variable naming follows specific rules: names can include letters, numbers, dollar signs, and underscores, but cannot contain spaces and must not begin with a number.
+- Variable naming follows specific rules: names can include letters, numbers, dollar signs, and underscores, but cannot contain spaces and must not begin with a number.  
 - JS has seven primitive data types, with String being one of them. Note that strings are immutable, which means once they are created, they cannot be changed.  
-- The console allows you to print and view JS using `console.log()`.
+- The console allows you to print and view JS using `console.log()`.  
 - When a variable is declared with the `let` keyword, you can reassign that variable later on, however you do not use the let keyword.  
 - An array `[]` is a non-primitive data type that can hold a series of values. Non-primitive data types differ from primitive data types in that they can hold more complex data. Primitive data types like strings and numbers can only hold one value at a time.  
 - You can access the values inside an array using the index of the value and bracket notation, such as `array[0]`.  
 - Arrays are mutable meaning you can change the value at an index directly such as `array[1] = 25`.  
 - The `.length` property of an array can be used to acceess the last element of any array using `array[array.length - 1]`. By subtracting 1, you get the index of the last element in the array.  
-- A **method** is a function that's associated with certain objects. The `.push()` method, associated with array objects, allows you to "push" a value to the end of an array.
+- A **method** is a function that's associated with certain objects. The `.push()` method, associated with array objects, allows you to "push" a value to the end of an array.  
 - The `.pop()` method removes the last element from an array and returns that element.  
-- The `const` variable cannot be reassigned like a `let` variable and cannot be uninitialized.
+- The `const` variable cannot be reassigned like a `let` variable and cannot be uninitialized.  
 - The `.repeat()` method is available to strings. This method accepts a number as an argument, specifying the number of times to repeat the target string.  
 
 		const activity = "Code! ";
 		activity.repeat(3);
 		// "Code! Code! Code!"
-- By default, functions return *undefined* as their value. In order to return something else, you need to use the `return` keyword.
+- By default, functions return *undefined* as their value. In order to return something else, you need to use the `return` keyword.  
 - **Parameters** are special variables that are given a value when you call the function, and can be used in your function to dynamically change the result of the function's code.
 - When you pass a value to a function call, that value is referred to as an **argument**.  
 
@@ -55,14 +55,24 @@ Learn the fundamentals of programming concepts like arrays, strings, functions, 
   		// "Professor Naomi"
 - Variables declared inside a function are in the **local scope**, or *block scope*. If you try to access these variables outside the function you will get undefined or an error.  
 > [!CAUTION]  
-> An important thing to know about the return keyword is that it does not just define a value to be returned from your function, it also stops the execution of your function code. This means that any code after a return statement will not run.  
+> An important thing to know about the `return` keyword is that it does not just define a value to be returned from your function, it also stops the execution of your function code. This means that any code after a return statement will not run.  
+- Returning a value from a function brings that value into the scope where the function was called i.e. move from local to global scope.  
 
-
-
-
-
-
-
+		function padRow() {
+		  const test = "Testing";
+		  return test;
+		}
+		padRow();
+		// Bring "Testing" value from the padRow function into the global scope
+- **Additional assignment operator** `+=`.  
+- The **increment operator** `++` increases the value of a variable by 1.  
+- A **truthy** value is a value that is considered true when evaluated as a boolean. Most of the values you encounter in JavaScript will be truthy.  
+- A **falsy•• value is the opposite - a value considered false when evaluated as a boolean. JavaScript has a defined list of falsy values. Some of them include false, 0, "", null, undefined, and NaN.  
+- The equality operator can lead to some strange behavior in JavaScript. For example, `"0" == 0` is true, even though one is a string and one is a number.  
+- The **strict equality operator** `===` is used to check if two values are equal and share the same type. This is the equality operator you should always use.  
+- The **strict inequality operator** `!==`.  
+- **Subtraction assignment operator** `-=`.  
+- **Decrement operator** `--`.  
 
 ---
 
