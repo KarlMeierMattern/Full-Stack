@@ -1091,11 +1091,79 @@ In OOP developers use objects and classes to structure their code. Learn how to 
 		    this.ram += amount;
 		  }
 		}
+- To instantiate a new class object use the `new` keyword when instantiating the object.  
+
+		class Computer {};
+		const myComputer = new Computer();
+- When you want to inspect the console to determine the properties of the `event` object, then log the event object to the console.  
+
+		btn.addEventListener("click", (event) => {
+		      console.log(event)
+		});
+- Using the **ternary operator** to write concise code:  
+
+		// Concise version
+		showHideCartSpan.textContent = isCartShowing ? "Hide" : "Show";
+		
+		// Verbose version
+		return isCartShowing === true
+		? showHideCartSpan.textContent = "Hide"
+		: showHideCartSpan.textContent = "Show"
+- Because of the way computers store and work with numbers, calculations involving decimal numbers can result in some strange behavior. For example, 0.1 + 0.2 is not equal to 0.3. This is because computers store decimal numbers as binary fractions, and some binary fractions cannot be represented exactly as decimal fractions. The `.toFixed()` method with 2 passed as an argument will round the number to two decimal places and return a string. Pass the result as an argument to `parseFloat()` to convert back to a number.  
+- `.textContent` sets or returns the text content of an element, including all HTML tags. `.innerText` sets or returns the visible text content of an element, excluding hidden elements and considering CSS styling. It respects CSS styling, so it will not return text inside elements with `display: none;`. If you need to work with the exact text content of an element regardless of styling or hidden elements, you should use `.textContent`. If you want to deal with the visible text content that respects styling and excludes hidden elements, you should use `.innerText`.  
+
+		// textContent
+		<div id="exampleDiv">
+		  This <span style="display: none;">is</span> a text.
+		</div>
+		
+		const div = document.getElementById('exampleDiv');
+		console.log(div.textContent); // Output: This is a text.
+		
+		// innerText
+		<div id="exampleDiv">
+		  This <span style="display: none;">is</span> a text.
+		</div>
+		
+		const div = document.getElementById('exampleDiv');
+		console.log(div.innerText); // Output: This a text.
+- Remember that 0 is a falsy value, so you can use the ! operator to check if an array is empty.  
+
+		// if array.length equals 0 that is falsy
+  		// therefore !falsy means it is true
+  		// so if the array length is 0 then output the alert
+  
+		if (!array.length) {
+			alert("Your shopping cart is already empty");
+		};
+- Browsers have a built-in `confirm()` function which displays a confirmation prompt to the user. `confirm()` accepts a string, which is the message displayed to the user. It returns `true` if the user confirms, and `false` if the user cancels.
+
+---
+
+# Learn intermediate OOP by building a platformer game  
+Learn about classes, objects, inheritance, and encapsulation. Learn how to design and organize game elements efficiently and gain insights into problem-solving and code reusability.  
+
 - 
 
 
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
