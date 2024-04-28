@@ -1072,8 +1072,26 @@ This project will cover concepts like the `map()` method, `find()` method, `pars
 		const arr = ["A", "b", "C"];
 		arr.every(letter => letter === letter.toUpperCase());
 		// Checks if all elements in the array are uppercase letters
-- 
 
+---
+
+# Learn basic OOP by building a shopping cart  
+In OOP developers use objects and classes to structure their code. Learn how to define classes and create class instances. Learn about the ternary operator, the spread operator, and the `this` keyword.  
+
+- A `class` is a blueprint for creating objects. It allows you to define a set of properties and methods, and instantiate (or create) new objects with those properties and methods.  
+- Classes have a `constructor` method, which is called when a new instance of the class is created. The constructor method is a great place to initialize properties of the class.  
+- The `this` keyword in JavaScript is used to refer to the current object. In the case of a class it refers to the instance of the object being constructed. You can use the this keyword to set the properties of the object being instantiated.  
+
+		class Computer {
+		  constructor() {
+		    this.ram = 16;
+		  }
+		
+		  addRam(amount) { //method
+		    this.ram += amount;
+		  }
+		}
+- 
 
 
 
