@@ -846,6 +846,55 @@ Learn the fundamental concepts of recursion, explore the call stack, and build o
 
 ---
 
+# Learn regular expressions by building a spam filter  
+"Regex" are patterns that help programmers match, search, and replace text. Regular expressions are powerful, but can be difficult to understand because they use so many special characters.  
+Learn about capture groups, positive lookaheads, negative lookaheads, and other techniques to match any text you want.  
+
+- An example of using a **ternary operator** to assign an element's text content:  
+
+		el.textContent = condition ? "Use this text if the condition is true" : "Use this text if the condition is false";
+  		// if the condition evaluates to true then do the following
+- Using the `.match()` method or the `.test()` method of a regular expression to test if a string matches the pattern. Unlike `.match()`, `.test()` returns a boolean value indicating whether or not the string matches the pattern.  
+
+		// Both produce similar results
+		const helpRegex = /please help/i;
+		const msg = "Please Help";
+
+  		msg.match(helpRegex)
+		helpRegex.test();
+- The alternate sequence `|` can be used to match either the text on the left or the text on the right of the `|`.  
+
+		const helpRegex = /please help|assist me/i;
+- **Character classes** are defined by square brackets and make it easier to match ranges. Instead of `0|1|2` you can use `[0-2]`. For example, `[aeiou]` matches any character in the list `aeiou`. You can also define a range of characters to match using a hyphen. For example, `[a-z]` matches any character from a to z.  
+- The `+` quantifier can be used to match one or more consecutive occurrences. For example, the regular expression `/a+/` matches one or more consecutive `a` characters.  
+- **Capture groups** are a way to define a part of the expression that should be captured and saved for later reference. You can define a capture group by wrapping a part of your expression in `()`. For example, `/h(i|ey) camper/` would match either `hi camper` or `hey camper`, and would capture `i` or `ey` in a group.  
+- To mark a pattern as an optional match use the `?` quantifier, which matches zero or one occurrences of the preceding character or group. For example, the regular expression `/colou?r/` matches both `color` and `colour`, because the `u` is optional.  
+- A **non-capturing group** allows you to group the characters together without preserving the result. This is `?:` after the opening parenthesis of a group. For instance, `(?:a|b)` will match either `a` or `b`, but it will not capture the result.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
 # Learn basic algorithmic thinking by building a number sorter  
 In computer science, there are fundamental numerical sorting algorithms that all developers should learn including bubble sort, selection sort, and insertion sort.  
 
