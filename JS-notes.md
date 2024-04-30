@@ -1192,10 +1192,18 @@ In OOP developers use objects and classes to structure their code. Learn how to 
 # Learn intermediate OOP by building a platformer game  
 Learn about classes, objects, inheritance, and encapsulation. Learn how to design and organize game elements efficiently and gain insights into problem-solving and code reusability.  
 
+- To target a child `p` element inside an element where the class sits use the **child combinator** `>`.
+
+		const checkpointMessage = document.querySelector(".checkpoint-screen > p")
+- The Canvas API can be used to create graphics in games using JS and the HTML `<canvas>` element. Use the `getContext` method to provide the context for where the graphics will be rendered.  
+
+		canvas.getContext("2d");
+- The canvas element has a `width` property which is a positive number that represents the width of the canvas.  
+
+		canvas.width
+- The `innerWidth` property is a number that represents the interior width of the browser window.
+- The `innerHeight` property is a number that represents the interior height of the browser window.
 - 
-
-
-
 
 
 
