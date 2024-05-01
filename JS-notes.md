@@ -1203,10 +1203,29 @@ Learn about classes, objects, inheritance, and encapsulation. Learn how to desig
 		canvas.width
 - The `innerWidth` property is a number that represents the interior width of the browser window.
 - The `innerHeight` property is a number that represents the interior height of the browser window.
+- The `requestAnimationFrame()` web API, takes in a callback and is used to update the animation on the screen.  
+- The `clearRect()` Web API clears the canvas before rendering the next frame of the animation. It takes in an x, y, width, and height arguments.  
+
+
+
+- `key` is one of the properties of event objects. It represents the string value of the key that was pressed.  
+
+		numberInput.addEventListener("keydown", (e) => {
+		  if (e.key === "Enter") {
+		    checkUserInput();
+		  }
+		});
+- The `keydown` event is triggered when a key on the keyboard is pressed down, while the `keyup` event is triggered when the key is released.  
+
+		// usess destructuring assignment to get the key property from the event object
+		window.addEventListener("keydown", ({ key }) => {
+		  movePlayer(key, 8, true);
+		});
+		
+		window.addEventListener("keyup", ({ key }) => {
+		  movePlayer(key, 0, false);
+		});
 - 
-
-
-
 
 
 
