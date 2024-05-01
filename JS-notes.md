@@ -1225,25 +1225,33 @@ Learn about classes, objects, inheritance, and encapsulation. Learn how to desig
 		window.addEventListener("keyup", ({ key }) => {
 		  movePlayer(key, 0, false);
 		});
+- When working with objects where the property name and value are the same, you can use the shorthand property name syntax. This syntax allows you to omit the property value if it is the same as the property name.  
+
+		// using shorthand property name syntax
+		obj = {
+		  a, b, c
+		}
+
+  		// The following code is equivalent
+		obj = {
+		  a: a,
+		  b: b,
+		  c: c
+		}
+- In JS the canvas rendering operation is used to create dynamic graphics and animations on web pages. `.getContext` retrieves the 2D rendering context of the `canvas` element. The canvas element is a rectangular area on an HTML page where graphics can be drawn dynamically using JavaScript.  
+- `.fillRect` is used to draw a rectangle on the canvas. The parameters passed to `fillRect()` specify the position and dimensions of the rectangle to be drawn, specifically the x, y, width, and height parameters.  
+- `.fillStyle` sets the fill color that will be used for drawing operations.  
+
+		// HTML
+		<canvas id="canvas"></canvas>
+		
+		// JS
+		const canvas = document.getElementById("canvas");
+		const ctx = canvas.getContext("2d");
+		
+		ctx.fillStyle = "#acd157";
+		ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
 - 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
