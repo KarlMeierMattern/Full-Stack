@@ -870,28 +870,19 @@ Learn about capture groups, positive lookaheads, negative lookaheads, and other 
 - **Capture groups** are a way to define a part of the expression that should be captured and saved for later reference. You can define a capture group by wrapping a part of your expression in `()`. For example, `/h(i|ey) camper/` would match either `hi camper` or `hey camper`, and would capture `i` or `ey` in a group.  
 - To mark a pattern as an optional match use the `?` quantifier, which matches zero or one occurrences of the preceding character or group. For example, the regular expression `/colou?r/` matches both `color` and `colour`, because the `u` is optional.  
 - A **non-capturing group** allows you to group the characters together without preserving the result. This is `?:` after the opening parenthesis of a group. For instance, `(?:a|b)` will match either `a` or `b`, but it will not capture the result.  
+- **Non-capturing groups** are denoted by `(?:)` allowing you to group patterns together without capturing them in the match result.  
+- `(?:^|\s)` is a non-capturing group that matches either the start of the string `^` or a whitespace character `\s`.  
+- `(?:$|\s)` is a non-capturing group that matches either the end of the string `$` or a whitespace character `\s`.  
+- The `^` symbol has two different meanings depending on its position in the pattern. When used at the beginning of the pattern it is used to match patterns that occur at the beginning of a string or line. However, when `^` appears inside a character class `[]`, it is used to negate the character class. It matches any character that is not part of the character class.  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		// Beginnning of a pattern
+		/^Hello/ will match the string "Hello world" but not "My Hello".
+		/^[a-z]/ will match any string that starts with a lowercase letter.
+		
+		// Negate character class
+		/[^aeiou]/ will match any character that is not a vowel.
+		/[^0-9]/ will match any character that is not a digit.
+- The following regex will match `stock` or `st0ck` >>> `/st[o0]ck/`.  
 
 ---
 
