@@ -1102,12 +1102,14 @@ This project will cover concepts like the `map()` method, `find()` method, `pars
 - To access the children of an element use `.children`.  
 
 		document.getElementById("container").children);
-- Arrays have a `.some()` method that will return true if the callback function returns true for at least one element in the array.  
+> [!TIP]  
+> Arrays have a `.some()` method that will return true if the callback function returns true for at least one element in the array.  
 
 		const arr = ["A", "b", "C"];
 		arr.some(letter => letter === letter.toUpperCase())
   		// Checks if any element in the array is an uppercase letter
-- Arrays have an `.every()` method that will return true if the callback function returns true for all elements in the array.  
+> [!TIP]  
+> Arrays have an `.every()` method that will return true if the callback function returns true for all elements in the array.  
 
 		const arr = ["A", "b", "C"];
 		arr.every(letter => letter === letter.toUpperCase());
