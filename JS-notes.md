@@ -339,7 +339,6 @@ In this practice project, you'll learn basic regular expressions, template liter
 		  console.log(element);
 		}
 - `for` - loops through a block of code a number of times.  
-- `for/of` - loops through the values of an iterable object.  
 - In JS values can either be truthy or falsy. A value is truthy if it evaluates to true when converted to a Boolean. A value is falsy if it evaluates to false when converted to a Boolean. null is an example of a falsy value. You can do this by passing the variable directly to your if condition (without a comparison operator). Here's an example of checking the truthiness of helloWorld.  
 
 		if (helloWorld) {
