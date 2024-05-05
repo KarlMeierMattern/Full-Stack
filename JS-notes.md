@@ -1101,7 +1101,7 @@ This project will cover concepts like the `map()` method, `find()` method, `pars
 - In JavaScript it is common convention to prefix an unused parameter with an underscore `_`.
 - To access the children of an element use `.children`.  
 
-		document.getElementById("container").children);
+		document.getElementById("container").children;
 > [!TIP]  
 > Arrays have a `.some()` method that will return true if the callback function returns true for at least one element in the array.  
 
@@ -1244,7 +1244,28 @@ Learn about classes, objects, inheritance, and encapsulation. Learn how to desig
 		
 		ctx.fillStyle = "#acd157";
 		ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+
+---
+
+# Learn intermediate algorithmic thinking by building a dice game  
+Algorithmic thinking involves the ability to break down complex problems into a sequence of well-defined, step-by-step instructions.  
+Learn how to manage game state, implement game logic for rolling dice, keeping score, and applying rules for various combinations.  
+Covers concepts such as event handling, array manipulation, conditional logic, and updating the user interface dynamically based on game state.  
+
+- To target the `p` element inside a `div` element with `id` of `score-options` use the following syntax:  
+
+		const scoreInputs = document.querySelectorAll("#score-options input");
 - 
+
+
+
+
+
+
+
+
+
+
 
 
 
