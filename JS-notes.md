@@ -1254,14 +1254,22 @@ Covers concepts such as event handling, array manipulation, conditional logic, a
 - To target the `p` element inside a `div` element with `id` of `score-options` use the following syntax:  
 
 		const scoreInputs = document.querySelectorAll("#score-options input");
-- 
+- Use `Object.values` to extract values from an object and use the `.includes` method to test inclusion in that array.  
 
+		counts = {
+			1:2,
+		 	3:4,
+		  	5:2,
+		}
+		Object.values(counts).includes(2);
+		// Output is True as at least one 2 is present
 
+- When using a `Set()` object you need to convert it back into an array to utilise array based methods.  
 
-
-
-
-
+		const checkForStraights = (arr) => {
+		  const sortedNumbersArr = arr.sort((a, b) => a - b);
+		  const uniqueNumbersArr = [...new Set(sortedNumbersArr)];
+		};
 
 
 
