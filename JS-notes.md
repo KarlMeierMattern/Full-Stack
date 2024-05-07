@@ -1285,26 +1285,55 @@ Also learn how to paginate data so you can load results in batches.
 - The `fetch()` method returns a **Promise**, which is a placeholder object that will either be fulfilled if your request is successful, or rejected if your request is unsuccessful.  
 - If the Promise is fulfilled, it resolves to a **Response object**, and you can use the `.then()` method to access the Response.  
 
+		// Makes a GET request to the specified URL and returns a Promise
 		fetch("sample-url-goes-here")
-		  .then((res) => res)
+- If the Promise is fulfilled, it resolves to a **Response object**, and you can use the `.then()` method to access the Response.  
 - The data you get from a GET request is not usable at first. To make the data usable, you can use the `.json()` method on the Response object to parse it into JSON.  
 
+		// then method chained to the Promise returned by fetch takes the Response object (res)...
+  		// calls the .json() method on it, which returns another Promise that resolves with the JSON data from the response
 		fetch("sample-url-goes-here")
 		  .then((res) => res.json())
+- When working with Promises, you need to chain multiple `.then()` calls to handle the resolved values of Promises that are returned from previous Promise operations.  
+- If we didn't have the second `.then()` we wouldn't be able to access the parsed JSON data returned by `.json()`.  
+
+		// Another then method chained to the Promise returned by res.json()
+  		// When the Promise resolves with the JSON data, this callback function is executed
+		fetch('sample-url-goes-here')
+		  .then((res) => res.json())
+		  .then((data) => {
+		    authorDataArr = data;
+		    displayAuthors(authorDataArr.slice(startingIndex, endingIndex));  
+		  })
 - The `.catch()` method is another asynchronous JS method you can use to handle errors. This is useful in case the Promise gets rejected.  
-- `console.error()` can be used to log possible errors to the console.
-- You can pass a starting (inclusive) and ending index (exclusive) to the `slice()` method.
+
+		fetch('sample-url-goes-here')
+		  .then((res) => res.json())
+		  .then((data) => {
+		    authorDataArr = data;
+		    displayAuthors(authorDataArr.slice(startingIndex, endingIndex));  
+		  })
+		  .catch((err) => {
+		   authorContainer.innerHTML = '<p class="error-msg">There was an error loading the authors</p>';
+		  });
+- `console.error()` can be used to log possible errors to the console.  
+- You can pass a starting (inclusive) and ending index (exclusive) to the `slice()` method.  
 
 		array = [4,10,6,9.12];
 		
 		array.slice(1,3);
 		// output [10, 6]
-- To disable a button use the following:
+- To disable a button use the following:  
 
 		loadMoreBtn.disabled = true;
 - To change the cursor to a "not-allowed" symbol use the style property and set the cursor to not-allowed.  
 
 		loadMoreBtn.style.cursor = "not-allowed";
+
+---
+
+# Learn asynchronous programming by building a leaderboard  
+JS is an asynchronous programming language. This project will cover the Fetch API, promises, Async/Await, and the try..catch statement.  
 
 
 
