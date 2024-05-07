@@ -1273,7 +1273,7 @@ Covers concepts such as event handling, array manipulation, conditional logic, a
 
 ---
 
-# Learn fetch and promises by building an fCC authors page  
+# Learn fetch and promises by building an authors page  
 Learn how to fetch data from an external API, then work with asynchronous JavaScript.  
 Learn to use the fetch method, then dynamically update the DOM to display the fetched data.  
 Also learn how to paginate data so you can load results in batches.  
@@ -1282,16 +1282,30 @@ Also learn how to paginate data so you can load results in batches.
 
 		// GET request with the fetch() method
 		fetch("url-goes-here")
-- The `fetch()` method returns a **Promise**, which is a placeholder object that will either be fulfilled if your request is successful, or rejected if your request is unsuccessful.
+- The `fetch()` method returns a **Promise**, which is a placeholder object that will either be fulfilled if your request is successful, or rejected if your request is unsuccessful.  
 - If the Promise is fulfilled, it resolves to a **Response object**, and you can use the `.then()` method to access the Response.  
 
 		fetch("sample-url-goes-here")
 		  .then((res) => res)
-- The data you get from a GET request is not usable at first. To make the data usable, you can use the `.json()` method on the Response object to parse it into JSON.
+- The data you get from a GET request is not usable at first. To make the data usable, you can use the `.json()` method on the Response object to parse it into JSON.  
 
 		fetch("sample-url-goes-here")
 		  .then((res) => res.json())
-- 
+- The `.catch()` method is another asynchronous JS method you can use to handle errors. This is useful in case the Promise gets rejected.  
+- `console.error()` can be used to log possible errors to the console.
+- You can pass a starting (inclusive) and ending index (exclusive) to the `slice()` method.
+
+		array = [4,10,6,9.12];
+		
+		array.slice(1,3);
+		// output [10, 6]
+- To disable a button use the following:
+
+		loadMoreBtn.disabled = true;
+- To change the cursor to a "not-allowed" symbol use the style property and set the cursor to not-allowed.  
+
+		loadMoreBtn.style.cursor = "not-allowed";
+
 
 
 
