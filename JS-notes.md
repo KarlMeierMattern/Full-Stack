@@ -1271,6 +1271,31 @@ Covers concepts such as event handling, array manipulation, conditional logic, a
 		  const uniqueNumbersArr = [...new Set(sortedNumbersArr)];
 		};
 
+---
+
+# Learn fetch and promises by building an fCC authors page  
+Learn how to fetch data from an external API, then work with asynchronous JavaScript.  
+Learn to use the fetch method, then dynamically update the DOM to display the fetched data.  
+Also learn how to paginate data so you can load results in batches.  
+
+- The **Fetch API** is a built-in JavaScript interface to make network requests to a server. It has a `fetch()` method you can use to make GET, POST, PUT, or PATCH requests.  
+
+		// GET request with the fetch() method
+		fetch("url-goes-here")
+- The `fetch()` method returns a **Promise**, which is a placeholder object that will either be fulfilled if your request is successful, or rejected if your request is unsuccessful.
+- If the Promise is fulfilled, it resolves to a **Response object**, and you can use the `.then()` method to access the Response.  
+
+		fetch("sample-url-goes-here")
+		  .then((res) => res)
+- The data you get from a GET request is not usable at first. To make the data usable, you can use the `.json()` method on the Response object to parse it into JSON.
+
+		fetch("sample-url-goes-here")
+		  .then((res) => res.json())
+- 
+
+
+
+
 
 
 
