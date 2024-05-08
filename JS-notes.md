@@ -1335,7 +1335,27 @@ Also learn how to paginate data so you can load results in batches.
 # Learn asynchronous programming by building a leaderboard  
 JS is an asynchronous programming language. This project will cover the Fetch API, promises, Async/Await, and the try..catch statement.  
 
+- An **asynchronous operation** means that tasks execute independently of the main program flow. You can use the `async` keyword to create an asynchronous function, which returns a promise.  
 
+		const example = async () => {
+		  console.log("this is an example");
+		};
+- The `try` block is designed to handle potential errors, and the code inside the `catch` block will be executed in case an error occurs.  
+
+		try {
+		  const name = "freeCodeCamp";
+		  name = "fCC";
+		} catch (err) {
+		  console.log(err); // TypeError: Assignment to constant variable.
+		}
+- You can use the `await` keyword to handle the asynchronous nature of the `fetch()` method. The `await` keyword waits for a promise to resolve and returns the result. Using `fetch()` with the `.then()` method performs similar logic after the promise is resolved.  
+
+		// The .json() method of your res variable returns a promise, which means you will need to await it
+		const example = async () => {
+			const res = await fetch("https://example.com/api");
+			const data = await res.json();
+			console.log(data);
+		}
 
 
 
