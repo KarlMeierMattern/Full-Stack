@@ -1355,7 +1355,27 @@ JS is an asynchronous programming language. This project will cover the Fetch AP
 			const res = await fetch("https://example.com/api");
 			const data = await res.json();
 			console.log(data);
-		}
+		}  
+- `new Date()` is a way to get the current date and time in JS. The resulting `Date` object has methods and properties that allow you to manipulate and format the date and time as needed.
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
