@@ -36,11 +36,32 @@ By framework, we mean Next.js handles the tooling and configuration needed for R
 - When a user visits a web page, the server returns an HTML file to the browser.  
 - The browser reads the HTML and constructs the Document Object Model (DOM).  
 - The DOM is an object representation of the HTML elements.  
-- It acts as a bridge between your code and the user interface, and has a tree-like structure with parent and child relationships.  
+- It acts as a bridge between your code and the user interface, and has a tree-like structure with parent and child relationships.
 
+## Imperative vs. declarative programming  
+Imperative programming is writing the steps for how the user interface should be updated.  
+Declarative programming you declare what they want to show instead of having to write DOM methods.  
+React is a popular declarative library that you can use build user interfaces.  
 
+## Syntax  
+react is the core React library.  
+react-dom provides DOM-specific methods that enable you to use React with the DOM.  
 
-
+<html>
+  <body>
+    <div id="app"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script type="text/javascript">
+      const app = document.getElementById('app');
+      const header = document.createElement('h1');
+      const text = 'Develop. Preview. Ship.';
+      const headerContent = document.createTextNode(text);
+      header.appendChild(headerContent);
+      app.appendChild(header);
+    </script>
+  </body>
+</html>
 
 
 
