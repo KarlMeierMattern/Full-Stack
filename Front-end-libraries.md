@@ -47,21 +47,21 @@ React is a popular declarative library that you can use build user interfaces.
 react is the core React library.  
 react-dom provides DOM-specific methods that enable you to use React with the DOM.  
 
-<html>
-  <body>
-    <div id="app"></div>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script type="text/javascript">
-      const app = document.getElementById('app');
-      const header = document.createElement('h1');
-      const text = 'Develop. Preview. Ship.';
-      const headerContent = document.createTextNode(text);
-      header.appendChild(headerContent);
-      app.appendChild(header);
-    </script>
-  </body>
-</html>
+    <html>
+      <body>
+        <div id="app"></div>
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script type="text/javascript">
+          const app = document.getElementById('app');
+          const header = document.createElement('h1');
+          const text = 'Develop. Preview. Ship.';
+          const headerContent = document.createTextNode(text);
+          header.appendChild(headerContent);
+          app.appendChild(header);
+        </script>
+      </body>
+    </html>
 
 
 
