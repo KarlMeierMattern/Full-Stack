@@ -43,7 +43,10 @@ Imperative programming is writing the steps for how the user interface should be
 Declarative programming you declare what they want to show instead of having to write DOM methods.  
 React is a popular declarative library that you can use build user interfaces.  
 
-## Syntax  
+## JSX  
+JSX is a syntax extension for JavaScript that allows you to describe your UI in a familiar HTML-like syntax.  
+But browsers don't understand JSX out of the box, so you'll need a JavaScript compiler, such as a Babel, to transform your JSX code into regular JavaScript.  
+
 react is the core React library:  
 <code><script src="https://unpkg.com/react@18/umd/react.development.js"></script></code>  
 
@@ -52,13 +55,24 @@ react-dom provides DOM-specific methods that enable you to use React with the DO
 
 Browsers don't understand JSX out of the box, so you'll need a JavaScript compiler, such as a Babel, to transform your JSX code into regular JavaScript:  
 <code><script src="https://unpkg.com/@babel/standalone/babel.min.js"></script></code>  
+In addition, you will need to inform Babel what code to transform by changing the script type to <code>type=text/jsx</code>.  
 
-    // Imperative
-    <html>
-      <body>
-        <div id="app"></div>
-        
-        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+## Declarative programming  
+Declarative programming you declare what they want to show instead of having to write DOM methods.  
+React is a popular declarative library that you can use build user interfaces.  
+
+        // Declarative
+        <script type="text/jsx">
+          const domNode = document.getElementById("app")
+          const root = ReactDOM.createRoot(domNode);
+          root.render(<h1>Develop. Preview. Ship.</h1>);
+        </script>
+
+## Imperative programming  
+Imperative programming is writing the steps for how the user interface should be updated.  
+
+        // Imperative
         <script type="text/javascript">
           const app = document.getElementById('app');
           const header = document.createElement('h1');
@@ -67,33 +81,6 @@ Browsers don't understand JSX out of the box, so you'll need a JavaScript compil
           header.appendChild(headerContent);
           app.appendChild(header);
         </script>
-      </body>
-    </html>
-
-    // Declarative
-    <html>
-      <body>
-        <div id="app"></div>
-        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-       
-        <!--Inform Babel what code to transform by changing the script type to type=text/jsx.-->
-        <script type="text/jsx">
-          const domNode = document.getElementById('app');
-          const root = ReactDOM.createRoot(domNode);
-          root.render(<h1>Develop. Preview. Ship.</h1>);
-        </script>
-      </body>
-    </html>
-
-## JSX  
-JSX is a syntax extension for JavaScript that allows you to describe your UI in a familiar HTML-like syntax.  
-But browsers don't understand JSX out of the box, so you'll need a JavaScript compiler, such as a Babel, to transform your JSX code into regular JavaScript.  
-
-
-
-
-
 
 
 
