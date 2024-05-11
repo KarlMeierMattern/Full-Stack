@@ -44,18 +44,16 @@ Declarative programming you declare what they want to show instead of having to 
 React is a popular declarative library that you can use build user interfaces.  
 
 ## Syntax  
-react is the core React library.  
-<code>
-<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-</code>
-
-react-dom provides DOM-specific methods that enable you to use React with the DOM.  
+react is the core React library:  
+<code><script src="https://unpkg.com/react@18/umd/react.development.js"></script></code>
+react-dom provides DOM-specific methods that enable you to use React with the DOM:  
+<code><script src="https://unpkg.com/react@18/umd/react.development.js"></script></code>
 
     // Before
     <html>
       <body>
         <div id="app"></div>
-        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        
         <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
         <script type="text/javascript">
           const app = document.getElementById('app');
