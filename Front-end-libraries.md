@@ -47,6 +47,7 @@ React is a popular declarative library that you can use build user interfaces.
 react is the core React library.  
 react-dom provides DOM-specific methods that enable you to use React with the DOM.  
 
+    // Before
     <html>
       <body>
         <div id="app"></div>
@@ -63,7 +64,26 @@ react-dom provides DOM-specific methods that enable you to use React with the DO
       </body>
     </html>
 
+    // After
+    <html>
+      <body>
+        <div id="app"></div>
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <!-- Babel Script -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <!--Inform Babel what code to transform by changing the script type to type=text/jsx.-->
+        <script type="text/jsx">
+          const domNode = document.getElementById('app');
+          const root = ReactDOM.createRoot(domNode);
+          root.render(<h1>Develop. Preview. Ship.</h1>);
+        </script>
+      </body>
+    </html>
 
+## JSX  
+JSX is a syntax extension for JavaScript that allows you to describe your UI in a familiar HTML-like syntax.  
+But browsers don't understand JSX out of the box, so you'll need a JavaScript compiler, such as a Babel, to transform your JSX code into regular JavaScript.  
 
 
 
