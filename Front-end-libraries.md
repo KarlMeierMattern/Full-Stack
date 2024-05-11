@@ -45,6 +45,10 @@ React is a popular declarative library that you can use build user interfaces.
 
 ## Syntax  
 react is the core React library.  
+<code>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+</code>
+
 react-dom provides DOM-specific methods that enable you to use React with the DOM.  
 
     // Before
