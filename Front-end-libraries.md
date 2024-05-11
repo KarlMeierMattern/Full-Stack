@@ -45,11 +45,15 @@ React is a popular declarative library that you can use build user interfaces.
 
 ## Syntax  
 react is the core React library:  
-<code><script src="https://unpkg.com/react@18/umd/react.development.js"></script></code>
-react-dom provides DOM-specific methods that enable you to use React with the DOM:  
-<code><script src="https://unpkg.com/react@18/umd/react.development.js"></script></code>
+<code><script src="https://unpkg.com/react@18/umd/react.development.js"></script></code>  
 
-    // Before
+react-dom provides DOM-specific methods that enable you to use React with the DOM:  
+<code><script src="https://unpkg.com/react@18/umd/react.development.js"></script></code>  
+
+Browsers don't understand JSX out of the box, so you'll need a JavaScript compiler, such as a Babel, to transform your JSX code into regular JavaScript:  
+<code><script src="https://unpkg.com/@babel/standalone/babel.min.js"></script></code>  
+
+    // Imperative
     <html>
       <body>
         <div id="app"></div>
@@ -66,14 +70,13 @@ react-dom provides DOM-specific methods that enable you to use React with the DO
       </body>
     </html>
 
-    // After
+    // Declarative
     <html>
       <body>
         <div id="app"></div>
         <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
         <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-        <!-- Babel Script -->
-        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+       
         <!--Inform Babel what code to transform by changing the script type to type=text/jsx.-->
         <script type="text/jsx">
           const domNode = document.getElementById('app');
