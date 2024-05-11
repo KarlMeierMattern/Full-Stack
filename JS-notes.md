@@ -1356,11 +1356,14 @@ JS is an asynchronous programming language. This project will cover the Fetch AP
 			const data = await res.json();
 			console.log(data);
 		}  
-- `new Date()` is a way to get the current date and time in JS. The resulting `Date` object has methods and properties that allow you to manipulate and format the date and time as needed.
+- `new Date()` is a way to get the current date and time in JS. The resulting `Date` object has methods and properties that allow you to manipulate and format the date and time as needed.  
+- The `hasOwnProperty()` method is used in JS to determine whether an object has a property with a specific name.  
+
+		// Checks if the object has a property named id
+		if (allCategories.hasOwnProperty(id)) {
+		    // Your code here
+		}
 - 
-
-
-
 
 
 
