@@ -1363,30 +1363,4 @@ JS is an asynchronous programming language. This project will cover the Fetch AP
 		if (allCategories.hasOwnProperty(id)) {
 		    // Your code here
 		}
-- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- The `startsWith()` method is a JS string method that checks whether a string starts with the characters of a specified string.
