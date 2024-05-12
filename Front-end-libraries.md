@@ -46,6 +46,11 @@ React is a popular declarative library that you can use build user interfaces.
 ## JSX  
 JSX is a syntax extension for JavaScript that allows you to describe your UI in a familiar HTML-like syntax.  
 But browsers don't understand JSX out of the box, so you'll need a JavaScript compiler, such as a Babel, to transform your JSX code into regular JavaScript.  
+Use curly braces to enter "JavaScript land" while you are in "JSX land". You can add any JavaScript expression (something that evaluates to a single value) inside curly braces.  
+
+        function MyComponent() {
+          return <h1>This is a simple JSX example</h1>
+        }
 
 react is the core React library:  
 <code><script src="https://unpkg.com/react@18/umd/react.development.js"></script></code>  
@@ -56,7 +61,6 @@ react-dom provides DOM-specific methods that enable you to use React with the DO
 Browsers don't understand JSX out of the box, so you'll need a JavaScript compiler, such as a Babel, to transform your JSX code into regular JavaScript:  
 <code><script src="https://unpkg.com/@babel/standalone/babel.min.js"></script></code>  
 In addition, you will need to inform Babel what code to transform by changing the script type to <code>type=text/jsx</code>.  
-
 
 ## Declarative programming  
 Declarative programming you declare what they want to show instead of having to write DOM methods.  
@@ -81,6 +85,85 @@ Imperative programming is writing the steps for how the user interface should be
           header.appendChild(headerContent);
           app.appendChild(header);
         </script>
+
+## React core concepts  
+1. Components: allow you to build self-contained, reusable snippets of code.  
+- First, React components should be capitalized to distinguish them from plain HTML and JavaScript.
+- Second, you use React components the same way you'd use regular HTML tags, with angle brackets <>.  
+        
+        function Header() {
+            return <h1>Develop. Preview. Ship.</h1>
+        }
+
+        const app = document.getElementById("app")
+        const root = ReactDOM.createRoot(app);
+        root.render(<Header/>);
+
+2. Props: you can design components that accept custom arguments (properties) that change the component's behavior or what is visibly shown when it's rendered to the screen.
+- You can pass down these props from parent components to child components.  
+- Note: In React, data flows down the component tree. This is referred to as one-way data flow.  
+
+        function Header({ title }) {
+          return <h1>{`Cool ${title}`}</h1>;
+        }
+
+5. State:
+- In React, event names are camelCased.  
+- The `onClick` event is one of many possible events you can use to respond to user interaction.  
+- You can use `onChange` for input fields or `onSubmit` for forms.  
+
+        function HomePage() {
+        
+            function HandleClick() {
+                console.log("increment like count")
+            }
+            
+            return <button onClick={HandleClick}>Like</button>
+        }
+- React has a set of functions called hooks. Hooks allow you to add additional logic such as state to your components. You can think of state as any information in your UI that changes over time, usually triggered by user interaction.  
+- You can use state to store and increment the number of times a user has clicked a "Like" button for example.  
+- The React hook used to manage state is called `useState()`.
+
+Example  
+- The first item in the array is the state value, which you can name anything. It's recommended to name it something descriptive.  
+- The second item in the array is a function to update the value. You can name the update function anything, but it's common to prefix it with set followed by the name of the state variable you're updating.  
+- You can also take the opportunity to add the initial value of your likes state to 0.
+- Clicking the button will now call the handleClick function, which calls the setLikes state updater function with a single argument of the current number of likes + 1.  
+
+        function HomePage() {
+            // ...
+            const [likes, setLikes] = React.useState(0);
+        
+            function handleClick() {
+                setLikes(likes + 1);
+            }
+        
+            return (
+            <div>
+              {/* ... */}
+              <button onClick={handleClick}>Likes ({likes})</button>
+            </div>
+            );
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
