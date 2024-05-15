@@ -66,11 +66,27 @@ In this course, you'll learn how to use jQuery to select, remove, clone, and mod
 
         // Copy target2 from our left-well to our right-well using function chaining
         $("#target2").clone().appendTo("#right-well");
-- 
+- jQuery has a function called `.parent()` that allows you to access the parent of whichever element you've selected.  
 
+        // Give the parent element of the left-well element a background color of blue
+        $("#left-well").parent().css("background-color", "blue")
+- jQuery has a function called `.children()` that allows you to access the children of whichever element you've selected.  
 
+        $("#left-well").children().css("color", "blue")
+- The `.target:nth-child(n)` CSS selector allows you to select all the nth elements with the target class or element type.  
 
+        // Select the 3rd element with the target class
+        $(".target:nth-child(3)").addClass("animated bounce");
+- You can target elements based on their positions using `:odd` or `:even` selectors. Note that jQuery is zero-indexed which means the first element in a selection has a position of 0. This can be a little confusing as, counter-intuitively, :odd selects the second element (position 1), fourth element (position 3), and so on.  
 
+        $(".target:odd").addClass("animated shake");
+- jQuery can target the body element as well.  
+
+        // entire body fade out
+        $("body").addClass("animated fadeOut");
+        
+        // entire body hinge
+        $("body").addClass("animated hinge");
 
 
 
