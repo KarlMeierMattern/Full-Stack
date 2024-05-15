@@ -38,7 +38,43 @@ In this course, you'll learn how to use jQuery to select, remove, clone, and mod
 - You can remove classes with jQuery's `removeClass()` function.  
 
         $("button").removeClass("btn-default");
+- jQuery has a function called `.css()` that allows you to change the CSS of an element. This is slightly different from a normal CSS declaration, because the CSS property and its value are in quotes, and separated with a comma instead of a colon.  
+
+        $("#target1").css("color", "blue");
+- jQuery has a function called `.prop()` that allows you to adjust the properties of elements.
+
+        // Disable all buttons
+        $("button").prop("disabled", true);
+- jQuery has a function called `.html()` that lets you add HTML tags and text within an element. Any content previously within the element will be completely replaced with the content you provide using this function.  
+
+        // Rewrite and emphasize the text of a heading
+        $("h3").html("<em>jQuery Playground</em>");
+- jQuery has a function called `.text()` that only alters text without adding tags.
+
+> [!NOTE]  
+> Note that while the `<i>` tag has traditionally been used to emphasize text, it has since been adopted for use as a tag for icons.
+> The `<em>` tag is now widely accepted as the tag for emphasis.  
+
+- jQuery has a function called `.remove()` that will remove an HTML element entirely.  
+
+        $("#target4").remove();
+- jQuery has a function called `.appendTo()` that allows you to select HTML elements and append them to another element.  
+
+        // move target4 from our right well to our left well
+        $("#target4").appendTo("#left-well");
+- jQuery has a function called `.clone()` that makes a copy of an element.  
+
+        // Copy target2 from our left-well to our right-well using function chaining
+        $("#target2").clone().appendTo("#right-well");
 - 
+
+
+
+
+
+
+
+
 
 
 
