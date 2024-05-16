@@ -14,7 +14,9 @@
 > Negative potential consequences of an action.
 
 # React  
-React is a JavaScript library (consisting of APIs) for building interactive user interfaces.  
+React is a JavaScript library (consisting of APIs) for building reusable, component-driven user interfaces for web pages or applications.  
+React combines HTML with JavaScript functionality into its own markup language called JSX.  
+
 Building blocks of a web application:  
 - User Interface - how users will consume and interact with your application.  
 - Routing - how users navigate between different parts of your application.  
@@ -35,9 +37,9 @@ Declarative programming you declare what they want to show instead of having to 
 React is a popular declarative library that you can use build user interfaces.  
 
 ## JSX  
-JSX is a syntax extension for JavaScript that allows you to describe your UI in a familiar HTML-like syntax.  
-But browsers don't understand JSX out of the box, so you'll need a JavaScript compiler, such as a Babel, to transform your JSX code into regular JavaScript.  
-Use curly braces to enter "JavaScript land" while you are in "JSX land". You can add any JavaScript expression (something that evaluates to a single value) inside curly braces.  
+- React uses a syntax extension of JavaScript called JSX that allows you to write HTML directly within JavaScript.  
+- But browsers don't understand JSX out of the box, so you'll need a JavaScript transpiler, such as a Babel, to transform your JSX code into regular JavaScript.  
+- Use curly braces to enter "JavaScript land" while you are in "JSX land". You can add any JavaScript expression (something that evaluates to a single value) inside curly braces.  
 
         function MyComponent() {
           return <h1>This is a simple JSX example</h1>
@@ -58,16 +60,25 @@ Declarative programming you declare what they want to show instead of having to 
 React is a popular declarative library that you can use build user interfaces.  
 
         // Declarative
+        <div id="app"></div>
+        
         <script type="text/jsx">
           const domNode = document.getElementById("app")
           const root = ReactDOM.createRoot(domNode);
           root.render(<h1>Develop. Preview. Ship.</h1>);
         </script>
 
+> [!NOTE]
+> The above can be shortened to `ReactDOM.render(<h1>Develop. Preview. Ship.</h1>, document.getElementById("app"))`.
+> The syntax is: `ReactDOM.render(componentToRender, targetNode)`.
+> The first argument is the React element or component that you want to render, and the second argument is the DOM node that you want to render the component to.  
+
 ## Imperative programming  
 Imperative programming is writing the steps for how the user interface should be updated.  
 
         // Imperative
+        <div id="app"></div>
+        
         <script type="text/javascript">
           const app = document.getElementById('app');
           const header = document.createElement('h1');
@@ -137,6 +148,28 @@ Example
             </div>
             );
         }
+
+> [!CAUTION]  
+> JSX must return a single element. This one parent element would wrap all of the other levels of nested elements.  
+> For instance, several JSX elements written as siblings with no parent wrapper element will not transpile.  
+
+        // Valid JSX:
+        <div>
+          <p>Paragraph One</p>
+          <p>Paragraph Two</p>
+          <p>Paragraph Three</p>
+        </div>
+        
+        // Invalid JSX:
+        <p>Paragraph One</p>
+        <p>Paragraph Two</p>
+        <p>Paragraph Three</p>
+
+> [!TIP]  
+> To put comments inside JSX, you use the syntax `{/* */}` to wrap around the comment text.
+
+
+---
 
 # Next.js  
 React framework that gives you building blocks to create fully interactive, highly dynamic, and performant web applications.  
