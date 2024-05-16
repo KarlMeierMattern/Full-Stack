@@ -39,6 +39,8 @@ React is a popular declarative library that you can use build user interfaces.
 ## JSX  
 - React uses a syntax extension of JavaScript called JSX that allows you to write HTML directly within JavaScript.  
 - But browsers don't understand JSX out of the box, so you'll need a JavaScript transpiler, such as a Babel, to transform your JSX code into regular JavaScript.  
+- In JSX you can't use the word `class` to define HTML classes as this is a reserved word in JavaScript. Instead, JSX uses `className`.  
+- The naming convention for all HTML attributes and event references in JSX become camelCase. For example, `onClick`, `onChange` etc.  
 - Use curly braces to enter "JavaScript land" while you are in "JSX land". You can add any JavaScript expression (something that evaluates to a single value) inside curly braces.  
 
         function MyComponent() {
