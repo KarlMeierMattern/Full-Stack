@@ -1,18 +1,3 @@
-> [!NOTE]  
-> Highlights information that users should take into account, even when skimming.
-
-> [!TIP]
-> Optional information to help a user be more successful.
-
-> [!IMPORTANT]  
-> Crucial information necessary for users to succeed.
-
-> [!WARNING]  
-> Critical content demanding immediate user attention due to potential risks.
-
-> [!CAUTION]
-> Negative potential consequences of an action.
-
 # Bootstrap  
 Bootstrap is a front end framework used to design responsive web pages and applications.  
 It takes a mobile-first approach to web development, and includes pre-built CSS styles and classes, plus some JavaScript functionality.  
