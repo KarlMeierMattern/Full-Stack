@@ -1,4 +1,4 @@
-# SaaS  
+# Saas  
 "Syntactically Awesome StyleSheets" is a language extension of CSS.  
 It adds features that aren't available in basic CSS, which make it easier for you to simplify and maintain the style sheets for your projects.  
 
@@ -82,11 +82,15 @@ It adds features that aren't available in basic CSS, which make it easier for yo
 
         import the "_mixins.scss" into the "main.scss" file
         @import 'mixins'
+- Sass has a feature called `@extend` that makes it easy to borrow the CSS rules from one element and build upon them in another.  
 
-
-
-
-
-
-
-
+        .panel{
+          height: 70px;
+          border: 2px solid green;
+        }
+  
+        // Extend the .panel properties, but also add a width property
+        .big-panel{
+          @extend .panel;
+          width: 150px;
+        }
