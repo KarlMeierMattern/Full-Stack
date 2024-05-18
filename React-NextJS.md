@@ -40,11 +40,42 @@ React is a popular declarative library that you can use build user interfaces.
 - React uses a syntax extension of JavaScript called JSX that allows you to write HTML directly within JavaScript.  
 - But browsers don't understand JSX out of the box, so you'll need a JavaScript transpiler, such as a Babel, to transform your JSX code into regular JavaScript.  
 - In JSX you can't use the word `class` to define HTML classes as this is a reserved word in JavaScript. Instead, JSX uses `className`.  
-- The naming convention for all HTML attributes and event references in JSX become camelCase. For example, `onClick`, `onChange` etc.  
+- The naming convention for all HTML attributes and event references in JSX become camelCase. For example, `onClick`, `onChange` etc.
+- JSX elements must be written with a self-closing tag. A `<div>` can be written as `<div></div>` in most instances or `<div />`, when it has no children.
+
+## Components in JSX  
+- Everything in React is a component.  
+- There are two ways to create a React component. The first way is to use a JavaScript function.  
+- Defining a component in this way creates a **stateless component**, which can receive data and render it, but does not manage or track changes to that data.  
+- React requires function names to begin with a capital letter.  
 - Use curly braces to enter "JavaScript land" while you are in "JSX land". You can add any JavaScript expression (something that evaluates to a single value) inside curly braces.  
 
+        // Normal function
         function MyComponent() {
-          return <h1>This is a simple JSX example</h1>
+            return <h1>This is a simple JSX example</h1>;
+        }
+
+        // Arrow function
+        const MyComponent = () => {
+          return <h1>This is a simple JSX example</h1>;
+        }
+
+- The other way to define a React component is with the **ES6 class syntax**.
+- This is done by extending the `React.Component` class so that the class has access to many useful React features, such as local state and lifecycle hooks.
+- The class also has a `constructor` defined within it that calls `super()`, which is used to call the constructor of the parent class, in this case `React.Component`.
+- The constructor is a special method used during the initialisation of objects that are created with the `class` keyword.
+- It is best practice to call a component's constructor with `super`, and pass `props` to both. This makes sure the component is initialized properly.  
+
+        class Kitten extends React.Component {
+          constructor(props) {
+            super(props);
+          }
+        
+          render() {
+            return (
+              <h1>Hi</h1>
+            );
+          }
         }
 
 react is the core React library:  
@@ -102,6 +133,15 @@ Imperative programming is writing the steps for how the user interface should be
         const app = document.getElementById("app")
         const root = ReactDOM.createRoot(app);
         root.render(<Header/>);
+- To render a component as a child in a React component, you include the component name written as a custom HTML tag in the JSX.  
+- When React encounters a custom HTML tag that references another component (a component name wrapped in `< />`), it renders the markup for that component in the location of the tag.  
+
+        // within the parent component
+        return (
+         <div>
+          <ChildComponent/>
+         </div>
+        )
 
 2. Props: you can design components that accept custom arguments (properties) that change the component's behavior or what is visibly shown when it's rendered to the screen.
 - You can pass down these props from parent components to child components.  
@@ -233,7 +273,8 @@ The RSC payload contains:
 - Placeholders (or holes) for where Client Components should be rendered and references to their JavaScript files.  
 - React uses this information to consolidate the Server and Client Components and update the DOM on the client.
 
-To make a component a **Client Component** add the React `"use client"` directive at the top of the file. This tells React to render the component on the client.  
+> [!TIP]
+> To make a component a **Client Component** add the React `"use client"` directive at the top of the file. This tells React to render the component on the client.  
 
 
 
