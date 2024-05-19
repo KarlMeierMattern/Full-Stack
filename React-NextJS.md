@@ -122,7 +122,8 @@ Imperative programming is writing the steps for how the user interface should be
         </script>
 
 ## React core concepts  
-1. Components: allow you to build self-contained, reusable snippets of code.  
+### 1. Components  
+- Allow you to build self-contained, reusable snippets of code.  
 - First, React components should be capitalized to distinguish them from plain HTML and JavaScript.
 - Second, you use React components the same way you'd use regular HTML tags, with angle brackets <>.  
         
@@ -159,7 +160,8 @@ Imperative programming is writing the steps for how the user interface should be
         
         ReactDOM.render(<MyComponent/>, document.getElementById("challenge-node"))
 
-2. Props: you can design components that accept custom arguments (properties) that change the component's behavior or what is visibly shown when it's rendered to the screen.
+### 2. Props  
+- You can design components that accept custom arguments (properties) that change the component's behavior or what is visibly shown when it's rendered to the screen.  
 - You can pass down these props from parent components to child components.  
 - Note: In React, data flows down the component tree. This is referred to as one-way data flow.  
 
@@ -175,9 +177,9 @@ Imperative programming is writing the steps for how the user interface should be
         
         // Define propTypes for the Items component to require quantity as a prop and verify that it is of type number
         Items.propTypes = { quantity: PropTypes.number.isRequired }
-- Default props.
+- `defaultProps` sets the default properties.  
 
-        //if you render the Camper component without passing a name prop, it will display "CamperBot"
+        // if you render the Camper component without passing a name prop, it will display "CamperBot"
         Camper.defaultProps = { name: "CamperBot" };
 - If the component that you're passing a prop to is an ES6 class component, rather than a stateless functional component you must use the `this` keyword anytime you refer to a class component within itself.  
 
@@ -194,7 +196,7 @@ Imperative programming is writing the steps for how the user interface should be
           }
         };
 
-3. State:  
+### 3. State  
 - Props are read-only information that's passed to components. State is information that can change over time, usually triggered by user interaction.  
 - You want your apps to respond to state changes and present an updated UI when necessary.  
 - In React, event names are camelCased.  
@@ -221,7 +223,10 @@ Imperative programming is writing the steps for how the user interface should be
             );
           }
         };
-You have access to the state object throughout the life of your component. You can update it, render it in your UI, and pass it as props to child components. The state object can be as complex or as simple as you need it to be. Note that you must create a class component by extending React.Component in order to create state like this.
+> [!NOTE]  
+> If you make a component stateful its state is local to that component and no other components are aware of its state.  
+> Unless you pass state data to a child component as props.  
+
 - The `onClick` event is one of many possible events you can use to respond to user interaction.  
 - You can use `onChange` for input fields or `onSubmit` for forms.  
 
@@ -233,6 +238,12 @@ You have access to the state object throughout the life of your component. You c
             
             return <button onClick={HandleClick}>Like</button>
         }
+- React expects you to never modify state directly. Instead always use `this.setState()` when state changes occur passing in an object with key-value pairs.  
+- The keys are your state properties and the values are the updated state data.  
+
+        this.setState({
+          username: 'Lewis'
+        });
 - React has a set of functions called hooks. Hooks allow you to add additional logic such as state to your components. You can think of state as any information in your UI that changes over time, usually triggered by user interaction.  
 - You can use state to store and increment the number of times a user has clicked a "Like" button for example.  
 - The React hook used to manage state is called `useState()`.
@@ -280,6 +291,13 @@ Example
 
 > [!TIP]  
 > To put comments inside JSX, you use the syntax `{/* */}` to wrap around the comment text.
+
+### Methods  
+- You can also define methods for your component class.  
+- A class method typically needs to use the `this` keyword so it can access properties on the class (such as state and props) inside the scope of the method.  
+- One common way is to explicitly bind this in the constructor so this becomes bound to the class methods when the component is initialised.
+- Example: `this.handleClick = this.handleClick.bind(this)`.  
+- Then, when you call a function within your class method, `this` refers to the class and will not be undefined.  
 
 
 ---
