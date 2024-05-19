@@ -166,10 +166,62 @@ Imperative programming is writing the steps for how the user interface should be
         function Header({ title }) {
           return <h1>{`Cool ${title}`}</h1>;
         }
+- React provides useful type-checking features to verify that components receive props of the correct type using `propTypes`.  
+- This will throw a useful warning when the data is of any other type. It's considered a best practice to set `propTypes` when you know the type of a prop ahead of time.  
 
-5. State:  
+        const Items = (props) => {
+          return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+        };
+        
+        // Define propTypes for the Items component to require quantity as a prop and verify that it is of type number
+        Items.propTypes = { quantity: PropTypes.number.isRequired }
+- Default props.
+
+        //if you render the Camper component without passing a name prop, it will display "CamperBot"
+        Camper.defaultProps = { name: "CamperBot" };
+- If the component that you're passing a prop to is an ES6 class component, rather than a stateless functional component you must use the `this` keyword anytime you refer to a class component within itself.  
+
+        class Welcome extends React.Component {
+          constructor(props) {
+            super(props);
+          }
+          render() {
+            return (
+                <div>
+                  <p>Hello, <strong>{this.props.name}</strong>!</p>
+                </div>
+            );
+          }
+        };
+
+3. State:  
 - Props are read-only information that's passed to components. State is information that can change over time, usually triggered by user interaction.  
+- You want your apps to respond to state changes and present an updated UI when necessary.  
 - In React, event names are camelCased.  
+- You create state in a React component by declaring a state property on the component class in its constructor.  
+- This initializes the component with state when it is created.  
+- The state property must be set to a JavaScript object. Declaring it looks like this.
+- If you want to access a state value within the return of the render method, you have to enclose the value in curly braces.  
+
+        class StatefulComponent extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = {
+              firstName: "Karl",
+            }
+          }
+        
+          render() {
+            return (
+            <div>
+            { /* Change code below this line */ }
+            <p>{this.state.name}</p>
+            { /* Change code above this line */ }
+            </div>
+            );
+          }
+        };
+You have access to the state object throughout the life of your component. You can update it, render it in your UI, and pass it as props to child components. The state object can be as complex or as simple as you need it to be. Note that you must create a class component by extending React.Component in order to create state like this.
 - The `onClick` event is one of many possible events you can use to respond to user interaction.  
 - You can use `onChange` for input fields or `onSubmit` for forms.  
 
@@ -206,6 +258,9 @@ Example
             </div>
             );
         }
+- A **stateless functional component** is any function you write which accepts props and returns JSX.  
+- A **stateless component**, on the other hand, is a class that extends `React.Component`, but does not use internal state.  
+- Finally, a **stateful component** is a class component that does maintain its own internal state. You may see stateful components referred to simply as components or React components.  
 
 > [!CAUTION]  
 > JSX must return a single element. This one parent element would wrap all of the other levels of nested elements.  
