@@ -28,9 +28,6 @@ Building blocks of a web application:
 - Scalability - how your application adapts as your team, data, and traffic grow.  
 - Developer Experience - your team's experience building and maintaining your application.
 
-> [!IMPORTANT]  
-> For each part of your application, you will need to decide whether you will build a solution yourself or use other tools, such as packages, libraries, and frameworks.  
-
 ## Imperative vs. declarative programming  
 Imperative programming is writing the steps for how the user interface should be updated.  
 Declarative programming you declare what they want to show instead of having to write DOM methods.  
@@ -47,8 +44,10 @@ React is a popular declarative library that you can use build user interfaces.
 - Everything in React is a component.  
 - There are two ways to create a React component. The first way is to use a JavaScript function.  
 - Defining a component in this way creates a **stateless component**, which can receive data and render it, but does not manage or track changes to that data.  
-- React requires function names to begin with a capital letter.  
-- Use curly braces to enter "JavaScript land" while you are in "JSX land". You can add any JavaScript expression (something that evaluates to a single value) inside curly braces.  
+- React requires function names to begin with a capital letter.
+
+> [!TIP]  
+> Use curly braces to enter "JavaScript land" while you are in "JSX land". You can add any JavaScript expression (something that evaluates to a single value) inside curly braces.  
 
         // Normal function
         function MyComponent() {
@@ -295,9 +294,31 @@ Example
 ### Methods  
 - You can also define methods for your component class.  
 - A class method typically needs to use the `this` keyword so it can access properties on the class (such as state and props) inside the scope of the method.  
-- One common way is to explicitly bind this in the constructor so this becomes bound to the class methods when the component is initialised.
+- One common way is to explicitly bind this in the constructor so this becomes bound to the class methods when the component is initialised.  
 - Example: `this.handleClick = this.handleClick.bind(this)`.  
 - Then, when you call a function within your class method, `this` refers to the class and will not be undefined.  
+
+> [!TIP]  
+> By using an arrow function, you don't need to bind a method in the constructor.  
+
+        reset = () => {
+          this.setState((prevState) => ({ count: 0 }));
+        }
+
+> [!TIP]  
+> Call `event.preventDefault()` in the submit handler (method), to prevent the default form submit behavior which will refresh the web page.  
+
+> [!IMPORTANT]  
+> **Unidirectional data flow** refers to state which flows in one direction down the tree of your application's components, from the stateful parent component to child components.  
+> Generally state management (parent) should be handled separately to UI rendering (children).  
+
+### Pass state as props to child components  
+
+        // In the parent component's render method we're passing the name state as a prop to the Navbar component
+        <Navbar names={this.state.name} />
+        
+        // Then, in the Navbar component's render method, we're accessing the names prop instead of trying to access the state directly
+        <h1>Hello, my name is: {this.props.names}</h1>
 
 
 ---
