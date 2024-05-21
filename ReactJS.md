@@ -1,18 +1,8 @@
-> [!NOTE]
-
-> [!TIP]  
-
-> [!IMPORTANT]  
-
-> [!WARNING]  
-
-> [!CAUTION]
-
 # React  
 React is a JavaScript library (consisting of APIs) for building reusable, component-driven user interfaces for web pages or applications.  
 React combines HTML with JavaScript functionality into its own markup language called JSX.  
 
-Building blocks of a web application:  
+## Building blocks of a web application:  
 - User Interface - how users will consume and interact with your application.  
 - Routing - how users navigate between different parts of your application.  
 - Data Fetching - where your data lives and how to get it.  
@@ -114,6 +104,28 @@ Imperative programming is writing the steps for how the user interface should be
           header.appendChild(headerContent);
           app.appendChild(header);
         </script>
+
+
+> [!CAUTION]  
+> JSX must return a single element. This one parent element would wrap all of the other levels of nested elements.  
+> For instance, several JSX elements written as siblings with no parent wrapper element will not transpile.  
+
+        // Valid JSX:
+        <div>
+          <p>Paragraph One</p>
+          <p>Paragraph Two</p>
+          <p>Paragraph Three</p>
+        </div>
+        
+        // Invalid JSX:
+        <p>Paragraph One</p>
+        <p>Paragraph Two</p>
+        <p>Paragraph Three</p>
+
+> [!TIP]  
+> To put comments inside JSX, you use the syntax `{/* */}` to wrap around the comment text.
+
+---
 
 ## React core concepts  
 ### 1. Components  
@@ -232,12 +244,21 @@ Imperative programming is writing the steps for how the user interface should be
             
             return <button onClick={HandleClick}>Like</button>
         }
-- React expects you to never modify state directly. Instead always use `this.setState()` when state changes occur passing in an object with key-value pairs.  
-- The keys are your state properties and the values are the updated state data.  
+
+> [!CAUTION]  
+> React expects you to never modify state directly. Instead always use `this.setState()` when state changes occur passing in an object with key-value pairs.  
+> The keys are your state properties and the values are the updated state data.  
 
         this.setState({
           username: 'Lewis'
         });
+
+- A **stateless functional component** is any function you write which accepts props and returns JSX.  
+- A **stateless component**, on the other hand, is a class that extends `React.Component`, but does not use internal state.  
+- Finally, a **stateful component** is a class component that does maintain its own internal state. You may see stateful components referred to simply as components or React components.
+
+---
+
 - React has a set of functions called hooks. Hooks allow you to add additional logic such as state to your components. You can think of state as any information in your UI that changes over time, usually triggered by user interaction.  
 - You can use state to store and increment the number of times a user has clicked a "Like" button for example.  
 - The React hook used to manage state is called `useState()`.
@@ -263,28 +284,8 @@ Example
             </div>
             );
         }
-- A **stateless functional component** is any function you write which accepts props and returns JSX.  
-- A **stateless component**, on the other hand, is a class that extends `React.Component`, but does not use internal state.  
-- Finally, a **stateful component** is a class component that does maintain its own internal state. You may see stateful components referred to simply as components or React components.  
 
-> [!CAUTION]  
-> JSX must return a single element. This one parent element would wrap all of the other levels of nested elements.  
-> For instance, several JSX elements written as siblings with no parent wrapper element will not transpile.  
-
-        // Valid JSX:
-        <div>
-          <p>Paragraph One</p>
-          <p>Paragraph Two</p>
-          <p>Paragraph Three</p>
-        </div>
-        
-        // Invalid JSX:
-        <p>Paragraph One</p>
-        <p>Paragraph Two</p>
-        <p>Paragraph Three</p>
-
-> [!TIP]  
-> To put comments inside JSX, you use the syntax `{/* */}` to wrap around the comment text.
+---
 
 ### Methods  
 - You can also define methods for your component class.  
@@ -318,10 +319,14 @@ Example
 ### Lifecycle methods  
 - Lifecycle methods/hooks are special methods that provide opportunities to perform actions at specific points in the lifecycle of a component.  
 - They allow you to catch components at certain points in time. This can be before they are rendered, before they update, before they receive props, before they unmount, and so on.  
-- Examples include `componentWillMount()`, `componentDidMount()`, `shouldComponentUpdate()`, `componentDidUpdate()`, `componentWillUnmount()`.  
-- `componentDidMount()` is useful to use when executing API calls. When you call an API in this method, and call `setState()` with the data that the API returns, it will trigger an update/re-rendering once you receive the data.  
-- `shouldComponentUpdate()`, which takes `nextProps` and `nextState` as parameters, is a lifecycle method you can call when child components receive new state or props, and declare specifically if the components should update or not.  
-- The method must return a boolean value that tells React whether or not to update the component. You can compare the current props (`this.props`) to `nextProps` to determine if you need to update or not, and return true or false.  
+- Examples include `componentWillMount()`, `componentDidMount()`, `shouldComponentUpdate()`, `componentDidUpdate()`, `componentWillUnmount()`.
+
+> [!TIP]
+> `componentDidMount()` is useful to use when executing API calls. When you call an API in this method, and call `setState()` with the data that the API returns, it will trigger an update/re-rendering once you receive the data.  
+
+> [!IMPORTANT]
+> `shouldComponentUpdate()`, which takes `nextProps` and `nextState` as parameters, is a lifecycle method you can call when child components receive new state or props, and declare specifically if the components should update or not.   
+> The method must return a boolean value that tells React whether or not to update the component. You can compare the current props (`this.props`) to `nextProps` to determine if you need to update or not, and return true or false.  
 
         shouldComponentUpdate(nextProps, nextState) {
             console.log('Should I update?');
@@ -331,6 +336,48 @@ Example
         }
 
 ---
+
+### Inline styles  
+- JSX elements use the style attribute, but because of the way JSX is transpiled, you can't set the value to a string. Instead, you set it equal to a JavaScript object using `{{}}`.  
+- Hyphenated words like `font-size` are invalid syntax for JavaScript object properties, so React uses camel case. As a rule, any hyphenated style properties are written using camel case in JSX.
+- All property value length units (like `height`, `width`, and `fontSize`) are assumed to be in px unless otherwise specified. If you want to use em, for example, you wrap the value and the units in quotes, like `{fontSize: "4em"}`.  
+
+        // camelcase fontSize
+        // You can optionally set the font size to be a number, omitting the units px, or write it as "72px".
+        <div style={{color:"red", fontSize: "72px"}}>Big Red</div>
+
+> [!TIP]  
+> If you have a large set of styles, you can assign a style object to a constant to keep your code organised.
+
+        const styles = {
+          color: "purple",
+          fontSize: 40,
+          border: "2px solid purple"
+        }
+        
+        class Colorful extends React.Component {
+          render() {
+            return (
+              <div style={styles}>Style Me!</div>
+            );
+          }
+        };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
