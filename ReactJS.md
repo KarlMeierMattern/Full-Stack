@@ -1,17 +1,8 @@
 > [!NOTE]  
-> Highlights information that users should take into account, even when skimming.
-
 > [!TIP]
-> Optional information to help a user be more successful.
-
 > [!IMPORTANT]  
-> Crucial information necessary for users to succeed.
-
 > [!WARNING]  
-> Critical content demanding immediate user attention due to potential risks.
-
 > [!CAUTION]
-> Negative potential consequences of an action.
 
 # React  
 React is a JavaScript library (consisting of APIs) for building reusable, component-driven user interfaces for web pages or applications.  
@@ -324,9 +315,18 @@ Example
 - Lifecycle methods/hooks are special methods that provide opportunities to perform actions at specific points in the lifecycle of a component.  
 - They allow you to catch components at certain points in time. This can be before they are rendered, before they update, before they receive props, before they unmount, and so on.  
 - Examples include `componentWillMount()`, `componentDidMount()`, `shouldComponentUpdate()`, `componentDidUpdate()`, `componentWillUnmount()`.  
-- `componentDidMount()` is useful to use when executing API calls. When you call an API in this method, and call `setState()` with the data that the API returns, it will trigger an update/re-rendering once you receive the data.
-- 
+- `componentDidMount()` is useful to use when executing API calls. When you call an API in this method, and call `setState()` with the data that the API returns, it will trigger an update/re-rendering once you receive the data.  
+- `shouldComponentUpdate()`, which takes `nextProps` and `nextState` as parameters, is a lifecycle method you can call when child components receive new state or props, and declare specifically if the components should update or not.  
+- The method must return a boolean value that tells React whether or not to update the component. You can compare the current props (`this.props`) to `nextProps` to determine if you need to update or not, and return true or false.  
 
+        shouldComponentUpdate(nextProps, nextState) {
+            console.log('Should I update?');
+            if (nextProps.value % 2 === 0) {
+                return true
+            }
+        }
+
+---
 
 
 
