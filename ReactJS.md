@@ -1,7 +1,11 @@
-> [!NOTE]  
-> [!TIP]
+> [!NOTE]
+
+> [!TIP]  
+
 > [!IMPORTANT]  
+
 > [!WARNING]  
+
 > [!CAUTION]
 
 # React  
