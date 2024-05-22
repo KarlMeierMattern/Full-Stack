@@ -252,9 +252,15 @@ Imperative programming is writing the steps for how the user interface should be
           username: 'Lewis'
         });
 
-- A **stateless functional component** is any function you write which accepts props and returns JSX.  
+- A **stateless  component** is any function you write which accepts props and returns JSX.  
 - A **stateless component**, on the other hand, is a class that extends `React.Component`, but does not use internal state.  
-- Finally, a **stateful component** is a class component that does maintain its own internal state. You may see stateful components referred to simply as components or React components.
+
+        const StatelessComponent = (props) => {
+          // Component logic and rendering
+          return <div>Hello, {props.name}</div>;
+        };
+
+- Finally, a **stateful component** is a class component that extends `React.Component` and maintains its own internal state (`this.state`).  
 
 ---
 
@@ -429,19 +435,51 @@ Example
         }
     }
 
-### Map over an array  
+### Map method over an array  
+- When you create an array of elements, each one needs a key attribute set to a unique value. React uses these keys to keep track of which items are added, changed, or removed. This helps make the re-rendering process more efficient when the list is modified in any way.  
 
-    this.state = {
-        toDoList: []
-    }
-    
-    render() {
-        const items = this.state.toDoList.map((item, index) => (
-          <li key={index}>{item}</li>
+        this.state = {
+            toDoList: []
+        }
+        
+        render() {
+            const items = this.state.toDoList.map((item, index) => (
+              <li key={index}>{item}</li>
+            ));
+        }
+
+### Filter method  
+
+    class MyComponent extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          users: [
+            {
+              username: 'Jeff',
+              online: true
+            },
+            {
+              username: 'Alan',
+              online: false
+            },
+            
+          ]
+        };
+      }
+      render() {
+        const usersOnline = this.state.users.filter(user => user.online);
+        const renderOnline = usersOnline.map((item,index) => (
+          <li key={index}>{item.username}</li>
         ));
+        return (
+          <div>
+            <h1>Current Online Users:</h1>
+            <ul>{renderOnline}</ul>
+          </div>
+        );
+      }
     }
-
-
 
 
 
