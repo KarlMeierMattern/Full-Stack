@@ -388,14 +388,14 @@ Example
 
 ### Use && for a more concise conditional  
 
-      render() {
+        render() {
         return (
           <div>
             <button onClick={this.toggleDisplay}>Toggle Display</button>
             {this.state.display && <h1>Displayed!</h1>}
           </div>
         );
-      }
+        }
 
 ### Ternary operator  
 
