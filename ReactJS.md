@@ -481,6 +481,20 @@ Example
       }
     }
 
+### SSR (server side rendering)  
+- There are some use cases where it makes sense to render a React component on the server.
+- Since React is a JavaScript view library you can run JavaScript on the server with Node.
+- React provides a `renderToString()` method you can use for this purpose.  
+
+Two reasons to render on the server:  
+1. SEO: client-side rendering would consist of a relatively empty HTML file and a large bundle of JavaScript when initially loaded to the browser. This is not ideal for search engines content indexing. If you render the initial HTML markup on the server and send this to the client, the initial page load contains all the rendered content that can be crawled by search engines.  
+2. Inital load performance: with SSR the initial HTML payload is pre-rendered on the server and sent to the client, reducing the initial load time and providing a faster initial page load experience.  
+
+- Search engines crawl the HTML that is sent to the client's browser, not the server-side code itself.
+- When a React application is rendered entirely on the client-side (using `ReactDOM.render`), the initial HTML sent to the browser is minimal, usually just a root `<div>` element where React will later attach the rendered content.  
+- Search engines crawling this initial HTML will not see any meaningful content, making it difficult for them to understand and index the application's pages effectively.  
+- However, with SSR (using `ReactDOMServer.renderToString(<App/>`), the initial HTML payload sent to the browser contains the fully rendered markup of the React components, including their content and structure. This pre-rendered HTML, which represents the initial state of the application, is what search engines can crawl and index.  
+
 
 
 
