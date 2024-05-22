@@ -241,7 +241,6 @@ Imperative programming is writing the steps for how the user interface should be
             function HandleClick() {
                 console.log("increment like count")
             }
-            
             return <button onClick={HandleClick}>Like</button>
         }
 
@@ -297,9 +296,9 @@ Example
 > [!TIP]  
 > By using an arrow function, you don't need to bind a method in the constructor.  
 
-        reset = () => {
-          this.setState((prevState) => ({ count: 0 }));
-        }
+    reset = () => {
+      this.setState((prevState) => ({ count: 0 }));
+    }
 
 > [!TIP]  
 > Call `event.preventDefault()` in the submit handler (method), to prevent the default form submit behavior which will refresh the web page.  
@@ -310,11 +309,11 @@ Example
 
 ### Pass state as props to child components  
 
-        // In the parent component's render method we're passing the name state as a prop to the Navbar component
-        <Navbar names={this.state.name} />
-        
-        // Then, in the Navbar component's render method, we're accessing the names prop instead of trying to access the state directly
-        <h1>Hello, my name is: {this.props.names}</h1>
+    // In the parent component's render method we're passing the name state as a prop to the Navbar component
+    <Navbar names={this.state.name} />
+    
+    // Then, in the Navbar component's render method, we're accessing the names prop instead of trying to access the state directly
+    <h1>Hello, my name is: {this.props.names}</h1>
 
 ### Lifecycle methods  
 - Lifecycle methods/hooks are special methods that provide opportunities to perform actions at specific points in the lifecycle of a component.  
@@ -328,12 +327,12 @@ Example
 > `shouldComponentUpdate()`, which takes `nextProps` and `nextState` as parameters, is a lifecycle method you can call when child components receive new state or props, and declare specifically if the components should update or not.   
 > The method must return a boolean value that tells React whether or not to update the component. You can compare the current props (`this.props`) to `nextProps` to determine if you need to update or not, and return true or false.  
 
-        shouldComponentUpdate(nextProps, nextState) {
-            console.log('Should I update?');
-            if (nextProps.value % 2 === 0) {
-                return true
-            }
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('Should I update?');
+        if (nextProps.value % 2 === 0) {
+            return true
         }
+    }
 
 ---
 
@@ -349,19 +348,19 @@ Example
 > [!TIP]  
 > If you have a large set of styles, you can assign a style object to a constant to keep your code organised.
 
-        const styles = {
-          color: "purple",
-          fontSize: 40,
-          border: "2px solid purple"
-        }
-        
-        class Colorful extends React.Component {
-          render() {
-            return (
-              <div style={styles}>Style Me!</div>
-            );
-          }
-        };
+    const styles = {
+      color: "purple",
+      fontSize: 40,
+      border: "2px solid purple"
+    }
+    
+    class Colorful extends React.Component {
+      render() {
+        return (
+          <div style={styles}>Style Me!</div>
+        );
+      }
+    };
 
 ### If/else  
 - Use if/else to tie elements that are rendered to a condition.  
@@ -388,24 +387,24 @@ Example
 
 ### Use && for a more concise conditional  
 
-        render() {
-        return (
-          <div>
-            <button onClick={this.toggleDisplay}>Toggle Display</button>
-            {this.state.display && <h1>Displayed!</h1>}
-          </div>
-        );
-        }
+    render() {
+    return (
+      <div>
+        <button onClick={this.toggleDisplay}>Toggle Display</button>
+        {this.state.display && <h1>Displayed!</h1>}
+      </div>
+    );
+    }
 
 ### Ternary operator  
 
-        {
-            this.state.userAge === ''
-            ? buttonOne
-            : this.state.userAge < 18
-            ? buttonThree
-            : buttonTwo
-        }
+    {
+        this.state.userAge === ''
+        ? buttonOne
+        : this.state.userAge < 18
+        ? buttonThree
+        : buttonTwo
+    }
 
 ### &&, ||, ternary  
 
@@ -413,7 +412,13 @@ Example
         return <h1>{this.props.fiftyFifty && "You Win!" || !this.props.fiftyFifty && "You Lose!"}</h1>;
     }
 
+### Counter  
 
+    handleClick() {
+        this.setState(prevState => ({
+            counter: prevState.counter + 1
+        }));
+    }
 
 
 
