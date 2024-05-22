@@ -363,8 +363,49 @@ Example
           }
         };
 
+### If/else  
+- Use if/else to tie elements that are rendered to a condition.  
+- When the condition is true, one view renders. When it's false, it's a different view.
+- if/else statements can't be inserted directly into JSX code. When an if/else statement is required, it is outside the return statement.  
 
+      // Standard if/else
+      render() {
+        if (this.state.display) {
+          return (
+            <div>
+              <button onClick={this.toggleDisplay}>Toggle Display</button>
+              <h1>Displayed!</h1>
+            </div>
+          );
+        } else {
+          return (
+            <div>
+              <button onClick={this.toggleDisplay}>Toggle Display</button>
+            </div>
+          );
+        }
+      }
 
+### Use && for a more concise conditional  
+
+      render() {
+        return (
+          <div>
+            <button onClick={this.toggleDisplay}>Toggle Display</button>
+            {this.state.display && <h1>Displayed!</h1>}
+          </div>
+        );
+      }
+
+### Ternary operator  
+
+        {
+            this.state.userAge === ''
+            ? buttonOne
+            : this.state.userAge < 18
+            ? buttonThree
+            : buttonTwo
+        }
 
 
 
