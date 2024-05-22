@@ -420,9 +420,26 @@ Example
         }));
     }
 
+### Change CSS inline styles  
 
+    render() {
+        let inputStyle = {border: '1px solid black'};
+        if (this.state.input.length > 15) {
+            inputStyle = { border: '3px solid red' };
+        }
+    }
 
+### Map over an array  
 
+    this.state = {
+        toDoList: []
+    }
+    
+    render() {
+        const items = this.state.toDoList.map((item, index) => (
+          <li key={index}>{item}</li>
+        ));
+    }
 
 
 
