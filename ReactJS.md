@@ -407,8 +407,11 @@ Example
             : buttonTwo
         }
 
+### &&, ||, ternary  
 
-
+    render() {
+        return <h1>{this.props.fiftyFifty && "You Win!" || !this.props.fiftyFifty && "You Lose!"}</h1>;
+    }
 
 
 
