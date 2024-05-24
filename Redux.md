@@ -33,12 +33,8 @@ This method takes a reducer function as a required argument.
         }
       };
 
-## Dispatch actions  
-- In Redux all state updates are triggered by dispatching actions.  
-- Dispatching is used to send the action to the Redux store so it can update its state.  
-
-      // With the action creator loginAction, you can dispatch the 'LOGIN' action like this:
-      store.dispatch(loginAction());
+> [!IMPORTANT]
+> Action creators create and return action objects.  
 
 ## Reducers  
 - After an action is created and dispatched, the Redux store needs to know how to respond to that action. This is the job of a reducer function.  
@@ -54,6 +50,19 @@ This method takes a reducer function as a required argument.
         }
       };
 
+> [!IMPORTANT]
+> Reducers update the state based on the action objects.  
+
+## Dispatch actions  
+- In Redux all state updates are triggered by dispatching actions.  
+- Dispatching is used to send the action to the Redux store so it can update its state.  
+
+      // With the action creator loginAction, you can dispatch the 'LOGIN' action like this:
+      store.dispatch(loginAction());
+
+> [!IMPORTANT]
+> The Redux store dispatches actions to the reducers and stores the new state.  
+  
 ## Store listener  
 - The `store.subscribe()` method allows you to subscribe listener functions to the store, which are called whenever an action is dispatched against the store.  
 - One simple use for this method is to subscribe a function to your store that simply logs a message every time an action is received and the store is updated.
@@ -80,22 +89,102 @@ This method takes a reducer function as a required argument.
 
 ## Using middleware  
 - Redux provides middleware designed to handle asynchornous endpoints called **Redux Thunk middleware**.
-- To include Redux Thunk middleware, you pass it as an argument to Redux.applyMiddleware(). This statement is then provided as a second optional parameter to the createStore() function. Take a look at the code at the bottom of the editor to see this. Then, to create an asynchronous action, you return a function in the action creator that takes dispatch as an argument. Within this function, you can dispatch actions and perform asynchronous requests.
+- To include Redux Thunk middleware, you pass it as an argument to `Redux.applyMiddleware()`. This statement is then provided as a second optional parameter to the `createStore()` function.
+- To create an asynchronous action you return a function in the action creator that takes dispatch as an argument. Within this function, you can dispatch actions and perform asynchronous requests.  
 
-In this example, an asynchronous request is simulated with a setTimeout() call. It's common to dispatch an action before initiating any asynchronous behavior so that your application state knows that some data is being requested (this state could display a loading icon, for instance). Then, once you receive the data, you dispatch another action which carries the data as a payload along with information that the action is completed.
+        // asynchronous request is simulated with a setTimeout() call
+        
+        const handleAsync = () => {
+            return function(dispatch) {
+                dispatch(requestingData())
+                setTimeout(function() {
+                    let data = {
+                        users: ['Jeff', 'William', 'Alice']
+                    }
+                    dispatch(receivedData(data))
+                }, 2500);
+            }
+        };
+    
+        const store = Redux.createStore(
+            asyncDataReducer,
+            Redux.applyMiddleware(ReduxThunk.default)
+        );
 
-Remember that you're passing dispatch as a parameter to this special action creator. This is what you'll use to dispatch your actions, you simply pass the action directly to dispatch and the middleware takes care of the rest.
 
+### Full example  
 
+        const ADD_TO_DO = 'ADD_TO_DO';
+        
+        // A list of strings representing tasks to do:
+        const todos = [
+          'Go to the store',
+          'Clean the house',
+          'Cook dinner',
+          'Learn to code',
+        ];
 
+        // Reducer
+        const immutableReducer = (state = todos, action) => {
+          switch(action.type) {
+            case ADD_TO_DO:
+            // Creates a new array that includes all the items from the current state array, followed by the new todo item from the action.todo
+              return [...state, action.todo]
+            default:
+              return state;
+          }
+        };
+        
+        // Action creator
+        // Not directly linked to the reducer immutableReducer but instead is dispatched to the Redux store, which then passes the action object to the reducer function.
+        // Returns an action object with a type property set to ADD_TO_DO and a todo property containing the new todo item
+        const addToDo = (todo) => {
+          return {
+            type: ADD_TO_DO,
+            todo
+          }
+        }
+        
+        const store = Redux.createStore(immutableReducer);
+        console.log(store.getState());
+        
+        // To add a new todo item to the state, you need to dispatch the action object returned by addToDo to the Redux store
+        // When an action is dispatched to the store, the store calls the root reducer function immutableReducer and passes the current state and the dispatched action object as arguments
+        store.dispatch(addToDo("get eggs"));
+        console.log(store.getState());
 
+## Copying objects  
+- Return a new state object with the status property set to 'online' for actions with type 'ONLINE', you can use `Object.assign()` method in the reducer.  
+- Use `Object.assign()` to create a new object based on the current state object, but with the status property set to 'online'.  
+- `Object.assign()` creates a new object by copying the properties from the state object and then overriding the `status` property with the value 'online'.  
 
-
-
-
-
-
-
+        const defaultState = {
+          user: 'CamperBot',
+          status: 'offline',
+          friends: '732,982',
+          community: 'freeCodeCamp'
+        };
+        
+        const immutableReducer = (state = defaultState, action) => {
+          switch(action.type) {
+            case 'ONLINE':
+              // Don't mutate state here or the tests will fail
+              return Object.assign({}, state, { status: 'online' }); 
+            default:
+              return state;
+          }
+        };
+        
+        const wakeUp = () => {
+          return {
+            type: 'ONLINE'
+          }
+        };
+        
+        const store = Redux.createStore(immutableReducer);
+        console.log(store.getState());        
+        store.dispatch(wakeUp());
+        console.log(store.getState());
 
 
 
