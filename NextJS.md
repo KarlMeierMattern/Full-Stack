@@ -20,13 +20,13 @@ When you use Next.js in your project, you do not need the following:
 2. Run the command `npm install react@latest react-dom@latest next@latest`.  
 3. Once complete you should see the following inside `package.json`:  
 
-                {
-                  "dependencies": {
-                    "next": "^14.0.3",
-                    "react": "^18.2.0",
-                    "react-dom": "^18.2.0"
-                  }
-                }
+        {
+          "dependencies": {
+            "next": "^14.0.3",
+            "react": "^18.2.0",
+            "react-dom": "^18.2.0"
+          }
+        }
 4. You will also notice a new file called `package-lock.json` file that contains detailed information about the exact versions of each package.
 
 ## Routing in Next.js  
@@ -62,8 +62,7 @@ The RSC payload contains:
 > To make a component a **Client Component** add the React `"use client"` directive at the top of the file. This tells React to render the component on the client.
 
 ## Create Next app  
-`npx create-next-app@latest`
-
+`npx create-next-app@latest`  
 
 ## Tailwind  
 CSS framework that speeds up the development process by allowing you to quickly write utility classes directly in your TSX markup.  
@@ -71,6 +70,24 @@ In Tailwind, you style elements by adding class names.
 
     <h1 className="text-blue-500">I'm blue!</h1>
 When you use `create-next-app` to start a new project, Next.js will ask if you want to use Tailwind. If you select yes, Next.js will automatically install the necessary packages and configure Tailwind in your application.  
+
+## Fonts  
+- Next.js automatically optimizes fonts in the application when you use the `next/font` module.  
+- It downloads font files at build time and hosts them with your other static assets. This means when a user visits your application, there are no additional network requests for fonts which would impact performance.
+- In `/app/ui` folder, create a file called `fonts.ts`. Use this file to keep the fonts that will be used throughout your application.
+
+## Images  
+Next.js can serve static assets, like images, under the top-level `/public` folder. Files inside `/public` can be referenced in your application.  
+The `<Image>` component is an extension of the HTML `<img>` tag, and comes with automatic image optimisation, such as: preventing layout shift, resizing images, and lazy loading.  
+
+    import Image from 'next/image';
+    <Image
+      src="/hero-desktop.png"
+      width={1000}
+      height={760}
+      className="hidden md:block"
+      alt="Screenshots of the dashboard project showing desktop version"
+    />
 
 ## Routes & pages  
 Next.js uses file-system routing where folders are used to create nested routes. Each folder represents a route segment that maps to a URL segment.
