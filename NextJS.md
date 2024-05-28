@@ -100,9 +100,9 @@ The `<Layout />` component receives a children prop. This child can either be a 
 > [!TIP]
 > One benefit of using layouts in Next.js is that on navigation, only the `page` components update while the `layout` won't re-render. This is called partial rendering.  
 
-> [!NOTE]
-> The **root layout** is a requirement and is located at `/app/layout.tsx`.
-> Any UI you add to the root layout will be shared across all pages in your application.
+> [!NOTE]  
+> The **root layout** is a requirement and is located at `/app/layout.tsx`.  
+> Any UI you add to the root layout will be shared across all pages in your application.  
 > However, any `layout.tsx` files added to a folder, such as `/app/dashboard/layout.tsx`, are unique to that folder and its pages.  
 
 
