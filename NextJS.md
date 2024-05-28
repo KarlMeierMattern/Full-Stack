@@ -72,25 +72,38 @@ In Tailwind, you style elements by adding class names.
     <h1 className="text-blue-500">I'm blue!</h1>
 When you use `create-next-app` to start a new project, Next.js will ask if you want to use Tailwind. If you select yes, Next.js will automatically install the necessary packages and configure Tailwind in your application.  
 
-## Creating layouts & pages  
+## Routes & pages  
 Next.js uses file-system routing where folders are used to create nested routes. Each folder represents a route segment that maps to a URL segment.
 
 ![Screenshot 2024-05-28 at 07 14 38](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/096ddf98-4a2e-4e48-ade5-b6840bc411e9)  
 
-`page.tsx` is a special Next.js file that exports a React component, and it's required for the route to be accessible. This is the home page associated with the route `/`.  
-To create a nested route, you can nest folders inside each other and add `page.tsx` files inside them.  
+> [!NOTE]  
+> `page.tsx` is a special Next.js file that exports a React component, and it's required for the route to be accessible.  
+> This is the home page associated with the route `/`.  
+> To create a nested route, you can nest folders inside each other and add `page.tsx` files inside them.  
 
 ![Screenshot 2024-05-28 at 07 18 16](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/116bf0a9-2ce4-4721-a5ec-947ee6fe785a)  
 
-`/app/dashboard/page.tsx` is associated with the `/dashboard` path.  
-This is how you can create different pages in Next.js: create a new route segment using a folder, and add a `page` file inside it.  
-By having a special name for `page` files, Next.js allows you to colocate UI components, test files, and other related code with your routes. Only the content inside the `page` file will be publicly accessible.  
+> [!NOTE]  
+> `/app/dashboard/page.tsx` is associated with the `/dashboard` path.  
+> This is how you can create different pages in Next.js: create a new route segment using a folder, and add a `page` file inside it.  
+> By having a special name for `page` files, Next.js allows you to colocate UI components, test files, and other related code with your routes. Only the content inside the `page` file will be publicly accessible.  
 
+![Screenshot 2024-05-28 at 07 32 56](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/cfc233be-e5e6-46f3-a780-d7fe1493443b)
 
+## Layout  
+In Next.js, you can use a special `layout.tsx` file to create UI that is shared between multiple pages.  
+The `<Layout />` component receives a children prop. This child can either be a page or another layout. The pages inside the folder in which the `layout.tsx` is located will automatically be nested inside a `<Layout />` like so:  
 
+![Screenshot 2024-05-28 at 07 42 49](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/a945649b-fc88-4aa8-b8ff-f0c4c1acf2b9)
 
+> [!TIP]
+> One benefit of using layouts in Next.js is that on navigation, only the `page` components update while the `layout` won't re-render. This is called partial rendering.  
 
-
+> [!NOTE]
+> The **root layout** is a requirement and is located at `/app/layout.tsx`.
+> Any UI you add to the root layout will be shared across all pages in your application.
+> However, any `layout.tsx` files added to a folder, such as `/app/dashboard/layout.tsx`, are unique to that folder and its pages.  
 
 
 
