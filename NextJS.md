@@ -59,4 +59,31 @@ The RSC payload contains:
 - React uses this information to consolidate the Server and Client Components and update the DOM on the client.
 
 > [!TIP]
-> To make a component a **Client Component** add the React `"use client"` directive at the top of the file. This tells React to render the component on the client.  
+> To make a component a **Client Component** add the React `"use client"` directive at the top of the file. This tells React to render the component on the client.
+
+## Create Next app  
+`npx create-next-app@latest`
+
+
+## Tailwind  
+CSS framework that speeds up the development process by allowing you to quickly write utility classes directly in your TSX markup.  
+In Tailwind, you style elements by adding class names.  
+
+    <h1 className="text-blue-500">I'm blue!</h1>
+When you use `create-next-app` to start a new project, Next.js will ask if you want to use Tailwind. If you select yes, Next.js will automatically install the necessary packages and configure Tailwind in your application.  
+
+## Creating layouts & pages  
+Next.js uses file-system routing where folders are used to create nested routes. Each folder represents a route segment that maps to a URL segment.
+
+![Screenshot 2024-05-28 at 07 14 38](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/096ddf98-4a2e-4e48-ade5-b6840bc411e9)
+
+
+
+
+
+
+
+
+
+
+
