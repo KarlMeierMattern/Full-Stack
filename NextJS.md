@@ -149,13 +149,16 @@ If you are using **React Server Components** (fetching data on the server), you 
 
 ### Using server components  
 - Server Components support **promises**, providing a simpler solution for asynchronous tasks like data fetching. You can use `async/await` syntax without reaching out for `useEffect`, `useState` or data fetching libraries.  
+- When a function is an `async` component this allows you to use `await` to fetch data.  
 - Server Components execute on the server, so you can keep expensive data fetches and logic on the server and only send the result to the client.  
 - As mentioned before, since Server Components execute on the server, you can query the database directly without an additional API layer.  
 
+### Request waterfalls  
+- Refers to a sequence of network requests that depend on the completion of previous requests.  
+- In the case of data fetching, each request can only begin once the previous request has returned data.  
 
-
-
-
+![Screenshot 2024-05-29 at 18 00 53](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/00c7079d-5afa-46d4-a320-5390445426fc)
+> We need to wait for `fetchRevenue()` to execute before `fetchLatestInvoices()` can start running.  
 
 
 
