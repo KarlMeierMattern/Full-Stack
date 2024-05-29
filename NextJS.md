@@ -64,6 +64,8 @@ The RSC payload contains:
 ## Create Next app  
 `npx create-next-app@latest`  
 
+---
+
 ## Tailwind  
 CSS framework that speeds up the development process by allowing you to quickly write utility classes directly in your TSX markup.  
 In Tailwind, you style elements by adding class names.  
@@ -71,10 +73,14 @@ In Tailwind, you style elements by adding class names.
     <h1 className="text-blue-500">I'm blue!</h1>
 When you use `create-next-app` to start a new project, Next.js will ask if you want to use Tailwind. If you select yes, Next.js will automatically install the necessary packages and configure Tailwind in your application.  
 
+---
+
 ## Fonts  
 - Next.js automatically optimizes fonts in the application when you use the `next/font` module.  
 - It downloads font files at build time and hosts them with your other static assets. This means when a user visits your application, there are no additional network requests for fonts which would impact performance.
 - In `/app/ui` folder, create a file called `fonts.ts`. Use this file to keep the fonts that will be used throughout your application.
+
+---
 
 ## Images  
 Next.js can serve static assets, like images, under the top-level `/public` folder. Files inside `/public` can be referenced in your application.  
@@ -88,6 +94,8 @@ The `<Image>` component is an extension of the HTML `<img>` tag, and comes with 
       className="hidden md:block"
       alt="Screenshots of the dashboard project showing desktop version"
     />
+
+---
 
 ## Routes & pages  
 Next.js uses file-system routing where folders are used to create nested routes. Each folder represents a route segment that maps to a URL segment.
@@ -108,6 +116,8 @@ Next.js uses file-system routing where folders are used to create nested routes.
 
 ![Screenshot 2024-05-28 at 07 32 56](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/cfc233be-e5e6-46f3-a780-d7fe1493443b)
 
+---
+
 ## Layout  
 In Next.js, you can use a special `layout.tsx` file to create UI that is shared between multiple pages.  
 The `<Layout />` component receives a children prop. This child can either be a page or another layout. The pages inside the folder in which the `layout.tsx` is located will automatically be nested inside a `<Layout />` like so:  
@@ -121,6 +131,8 @@ The `<Layout />` component receives a children prop. This child can either be a 
 > The **root layout** is a requirement and is located at `/app/layout.tsx`.  
 > Any UI you add to the root layout will be shared across all pages in your application.  
 > However, any `layout.tsx` files added to a folder, such as `/app/dashboard/layout.tsx`, are unique to that folder and its pages.
+
+---
 
 ## Page navigation  
 - In Next.js, you can use the `<Link />` component to link between pages in your application.  
@@ -137,6 +149,8 @@ The `<Layout />` component receives a children prop. This child can either be a 
             <LinkIcon className="w-6" />
             <p className="hidden md:block">{link.name}</p>
         </Link>
+
+---
 
 ## Fetching data  
 APIs are an intermediary layer between your application code and database. There are a few cases where you might use an API:  
@@ -165,6 +179,8 @@ If you are using **React Server Components** (fetching data on the server), you 
 - A common way to avoid waterfalls is to initiate all data requests at the same time - in parallel.  
 - You can use the `Promise.all()` or `Promise.allSettled()` functions to initiate all promises at the same time.  
 - This can lead to performance gains.  
+
+---
 
 ## Static vs dynamic rendering  
 
@@ -203,6 +219,8 @@ If you are using **React Server Components** (fetching data on the server), you 
 - The problem with dynamic rendering is what happens if one data request is slower than all the others?  
 - With dynamic rendering, your application is only as fast as your slowest data fetch.  
 
+---
+
 ## Streaming  
 Streaming is a data transfer technique that allows you to break down a route into smaller "chunks" and progressively stream them from the server to the client as they become ready.  
 
@@ -214,11 +232,26 @@ Streaming is a data transfer technique that allows you to break down a route int
 ![Screenshot 2024-05-29 at 18 50 48](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/c7c036e5-0b8b-4732-b2ab-53a688c781ba)
 
 There are two ways you implement streaming in Next.js:  
-1. At the page level, with the `loading.tsx` file.  
+1. At the page level, with the `loading.tsx` file.
+- `loading.tsx` is a special Next.js file built on top of Suspense, which allows you to create fallback UI to show as a replacement while page content loads.  
+- The user doesn't have to wait for the page to finish loading before navigating away (this is called interruptable navigation).  
 2. For specific components, with `<Suspense>`.  
 
+### Loading skeletons  
+- This is a simplified version of the UI that acts a placeholder to indicate to users that the content is loading.  
+- Any UI you embed into `loading.tsx` will be embedded as part of the static file, and sent first.
 
+![Screenshot 2024-05-29 at 19 21 31](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/034b1bcb-e9fa-4156-b84f-c8066684bc63)
 
+### Route groups  
+- Route groups allow you to organize files into logical groups without affecting the URL path structure.  
+- When you create a new folder using parentheses (), the name won't be included in the URL path. So `/dashboard/(overview)/page.tsx` becomes `/dashboard`.  
+- You  can also use route groups to separate your application into sections (e.g. (marketing) routes and (shop) routes) or by teams for larger applications.  
+
+### Streaming components  
+- Instead of streaming a whole page you can stream specific components using **React Suspense**.  
+- Suspense allows you to defer rendering parts of your application until some condition is met (e.g. data is loaded).  
+- You can wrap your dynamic components in Suspense. Then, pass it a fallback component to show while the dynamic component loads.  
 
 
 
