@@ -173,12 +173,12 @@ If you are using **React Server Components** (fetching data on the server), you 
 - The result can then be distributed and cached in a Content Delivery Network (CDN). Whenever a user visits your application, the cached result is served.  
 
 > [!NOTE]  
-> Time-based revalidation: Automatically revalidates data after a certain amount of time has passed. Useful for data that changes infrequently and freshness is not as critical.  
-> On-demand revalidation: Manually revalidate data based on an event (e.g. form submission). Useful when you want to ensure the latest data is shown as soon as possible (e.g. when content from your headless CMS is updated).  
+> **Time-based revalidation**: Automatically revalidates data after a certain amount of time has passed. Useful for data that changes infrequently and freshness is not as critical.  
+> **On-demand revalidation**: Manually revalidate data based on an event (e.g. form submission). Useful when you want to ensure the latest data is shown as soon as possible (e.g. when content from your headless CMS is updated).  
 
 ![Screenshot 2024-05-29 at 18 12 58](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/d40364d7-86fa-428f-975c-dc261be3ea81)
 
-Benefits of static rendering:  
+**Benefits of static rendering**  
 - Faster Websites - Prerendered content can be cached and globally distributed. This ensures that users around the world can access your website's content more quickly and reliably.  
 - Reduced Server Load - Because the content is cached, your server does not have to dynamically generate content for each user request.  
 - SEO - Prerendered content is easier for search engine crawlers to index, as the content is already available when the page loads. This can lead to improved search engine rankings.  
@@ -188,7 +188,20 @@ Benefits of static rendering:
 > It might not be a good fit for a dashboard that has personalized data that is regularly updated.
 
 ### Dynamic rendering  
+- With dynamic rendering, content is rendered on the server for each user at request time (when the user visits the page).  
 
+**Benefits of dynamic rendering**  
+- Real-Time Data - Dynamic rendering allows your application to display real-time or frequently updated data. This is ideal for applications where data changes often.  
+- User-Specific Content - It's easier to serve personalized content, such as dashboards or user profiles, and update the data based on user interaction.  
+- Request Time Information - Dynamic rendering allows you to access information that can only be known at request time, such as cookies or the URL search parameters.  
+
+> [!IMPORTANT]  
+> By default, @vercel/postgres doesn't set its own caching semantics. This allows the framework to set its own static and dynamic behavior.  
+> You can use a Next.js API called `unstable_noStore` inside your Server Components or data fetching functions to opt out of static rendering.  
+
+**Drawbacks**  
+The problem with dynamic rendering is what happens if one data request is slower than all the others?  
+With dynamic rendering, your application is only as fast as your slowest data fetch.  
 
 
 
