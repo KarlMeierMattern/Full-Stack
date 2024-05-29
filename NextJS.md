@@ -156,15 +156,38 @@ If you are using **React Server Components** (fetching data on the server), you 
 ### Request waterfalls  
 - Refers to a sequence of network requests that depend on the completion of previous requests.  
 - In the case of data fetching, each request can only begin once the previous request has returned data.  
+- In some cases waterfalls are necessary (fetching user IDs before fetching their list of friends). In other cases this isn't ideal and impacts performance.  
 
 ![Screenshot 2024-05-29 at 18 00 53](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/00c7079d-5afa-46d4-a320-5390445426fc)
 > We need to wait for `fetchRevenue()` to execute before `fetchLatestInvoices()` can start running.  
 
+### Parallel data fetching  
+- A common way to avoid waterfalls is to initiate all data requests at the same time - in parallel.  
+- You can use the `Promise.all()` or `Promise.allSettled()` functions to initiate all promises at the same time.  
+- This can lead to performance gains.  
 
+## Static vs dynamic rendering  
 
+### Static rendering  
+- With static rendering, data fetching and rendering happens on the server at build time (when you deploy) or during revalidation.  
+- The result can then be distributed and cached in a Content Delivery Network (CDN). Whenever a user visits your application, the cached result is served.  
 
+> [!NOTE]  
+> Time-based revalidation: Automatically revalidates data after a certain amount of time has passed. Useful for data that changes infrequently and freshness is not as critical.  
+> On-demand revalidation: Manually revalidate data based on an event (e.g. form submission). Useful when you want to ensure the latest data is shown as soon as possible (e.g. when content from your headless CMS is updated).  
 
+![Screenshot 2024-05-29 at 18 12 58](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/d40364d7-86fa-428f-975c-dc261be3ea81)
 
+Benefits of static rendering:  
+- Faster Websites - Prerendered content can be cached and globally distributed. This ensures that users around the world can access your website's content more quickly and reliably.  
+- Reduced Server Load - Because the content is cached, your server does not have to dynamically generate content for each user request.  
+- SEO - Prerendered content is easier for search engine crawlers to index, as the content is already available when the page loads. This can lead to improved search engine rankings.  
+
+> [!TIP]  
+> Static rendering is useful for UI with no data or data that is shared across users, such as a static blog post or a product page.  
+> It might not be a good fit for a dashboard that has personalized data that is regularly updated.
+
+### Dynamic rendering  
 
 
 
