@@ -200,8 +200,34 @@ If you are using **React Server Components** (fetching data on the server), you 
 > You can use a Next.js API called `unstable_noStore` inside your Server Components or data fetching functions to opt out of static rendering.  
 
 **Drawbacks**  
-The problem with dynamic rendering is what happens if one data request is slower than all the others?  
-With dynamic rendering, your application is only as fast as your slowest data fetch.  
+- The problem with dynamic rendering is what happens if one data request is slower than all the others?  
+- With dynamic rendering, your application is only as fast as your slowest data fetch.  
+
+## Streaming  
+Streaming is a data transfer technique that allows you to break down a route into smaller "chunks" and progressively stream them from the server to the client as they become ready.  
+
+![Screenshot 2024-05-29 at 18 48 31](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/b681289c-af10-4d43-b64e-a6cbc637c93e)
+
+- Streaming prevents slow data requests from blocking your whole page.  
+- This allows the user to see and interact with parts of the page without waiting for all the data to load before any UI can be shown to the user.  
+
+![Screenshot 2024-05-29 at 18 50 48](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/c7c036e5-0b8b-4732-b2ab-53a688c781ba)
+
+There are two ways you implement streaming in Next.js:  
+1. At the page level, with the `loading.tsx` file.  
+2. For specific components, with `<Suspense>`.  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
