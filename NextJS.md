@@ -120,7 +120,49 @@ The `<Layout />` component receives a children prop. This child can either be a 
 > [!NOTE]  
 > The **root layout** is a requirement and is located at `/app/layout.tsx`.  
 > Any UI you add to the root layout will be shared across all pages in your application.  
-> However, any `layout.tsx` files added to a folder, such as `/app/dashboard/layout.tsx`, are unique to that folder and its pages.  
+> However, any `layout.tsx` files added to a folder, such as `/app/dashboard/layout.tsx`, are unique to that folder and its pages.
+
+## Page navigation  
+- In Next.js, you can use the `<Link />` component to link between pages in your application.  
+- `<Link>` allows you to do client-side navigation with JavaScript.  
+- This avoids full page refreshes when navigating between pages.  
+- Whenever `<Link>` components appear in the browser's viewport, Next.js automatically prefetches the code for the linked route in the background. By the time the user clicks the link, the code for the destination page will already be loaded in the background, and this is what makes the page transition near-instant.  
+
+        import Link from 'next/link';
+        <Link
+            key={link.name}
+            href={link.href}
+            className="flex h-[48px]"
+            >
+            <LinkIcon className="w-6" />
+            <p className="hidden md:block">{link.name}</p>
+        </Link>
+
+## Fetching data  
+APIs are an intermediary layer between your application code and database. There are a few cases where you might use an API:  
+1. If you're using 3rd party services that provide an API.  
+2. If you're fetching data from the client, you want to have an API layer that runs on the server to avoid exposing your database secrets to the client i.e. do not query the database directly.  
+
+In Next.js, you can create API endpoints using **Route Handlers**.  
+
+If you are using **React Server Components** (fetching data on the server), you can skip the API layer, and query your database directly without risking exposing your database secrets to the client.  
+
+### Using server components  
+- Server Components support **promises**, providing a simpler solution for asynchronous tasks like data fetching. You can use `async/await` syntax without reaching out for `useEffect`, `useState` or data fetching libraries.  
+- Server Components execute on the server, so you can keep expensive data fetches and logic on the server and only send the result to the client.  
+- As mentioned before, since Server Components execute on the server, you can query the database directly without an additional API layer.  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
