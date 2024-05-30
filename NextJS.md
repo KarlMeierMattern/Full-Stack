@@ -268,6 +268,8 @@ There are two ways you implement streaming in Next.js:
             <CardWrapper />
         </Suspense>
 
+---
+
 ## Partial pre-rendering  
 - Most routes are not fully static or dynamic. You may have a route that has both static and dynamic content.  
 - For example, consider an ecommerce site. You might be able to prerender the majority of the product page, but you may want to fetch the user's cart and recommended products dynamically on-demand.  
@@ -281,7 +283,6 @@ There are two ways you implement streaming in Next.js:
 > - The async holes are streamed in parallel, reducing the overall load time of the page.  
 > This is different from how your application behaves today, where entire routes are either entirely static or dynamic.  
 
-Partial Prerendering leverages React's Concurrent APIs and uses Suspense to defer rendering parts of your application until some condition is met (e.g. data is loaded).
 
 - At build time (or during revalidation), the static parts of the route are prerendered, and the rest is postponed until the user requests the route.  
 - It's worth noting that wrapping a component in Suspense doesn't make the component itself dynamic (`unstable_noStore` achieves this behavior), but rather `Suspense` is used as a boundary between the static and dynamic parts of your route.  
