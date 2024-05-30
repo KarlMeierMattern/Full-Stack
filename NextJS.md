@@ -214,6 +214,7 @@ If you are using **React Server Components** (fetching data on the server), you 
 > [!IMPORTANT]  
 > By default, @vercel/postgres doesn't set its own caching semantics. This allows the framework to set its own static and dynamic behavior.  
 > You can use a Next.js API called `unstable_noStore` inside your Server Components or data fetching functions to opt out of static rendering.  
+> Note: `unstable_noStore` is an experimental API and may change in the future.  
 
 **Drawbacks**  
 - The problem with dynamic rendering is what happens if one data request is slower than all the others?  
@@ -250,13 +251,25 @@ There are two ways you implement streaming in Next.js:
 
 ### Streaming components  
 - Instead of streaming a whole page you can stream specific components using **React Suspense**.  
-- Suspense allows you to defer rendering parts of your application until some condition is met (e.g. data is loaded).  
-- You can wrap your dynamic components in Suspense. Then, pass it a fallback component to show while the dynamic component loads.  
+- `<Suspense />` allows you to defer rendering parts of your application until some condition is met (e.g. data is loaded).  
+- You can wrap your dynamic components in `<Suspense />`. Then, pass it a fallback component to show while the dynamic component loads.  
 
+        <Suspense fallback={<CardsSkeleton />}>
+            <CardWrapper />
+        </Suspense>
 
+## Partial pre-rendering  
+- Most routes are not fully static or dynamic. You may have a route that has both static and dynamic content.  
+- For example, consider an ecommerce site. You might be able to prerender the majority of the product page, but you may want to fetch the user's cart and recommended products dynamically on-demand.  
+- 
+![Screenshot 2024-05-30 at 08 07 59](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/001bda39-bc84-4153-b73c-59a1c41148df)
 
-
-
+> [!NOTE]  
+> When a user visits a route:  
+> - A static route shell is served, ensuring a fast initial load.  
+> - The shell leaves holes where dynamic content will load in asynchronous.  
+> - The async holes are streamed in parallel, reducing the overall load time of the page.  
+> This is different from how your application behaves today, where entire routes are either entirely static or dynamic.  
 
 
 
