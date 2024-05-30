@@ -103,16 +103,16 @@ Next.js uses file-system routing where folders are used to create nested routes.
 ![Screenshot 2024-05-28 at 07 14 38](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/096ddf98-4a2e-4e48-ade5-b6840bc411e9)  
 
 > [!NOTE]  
-> `page.tsx` is a special Next.js file that exports a React component, and it's required for the route to be accessible.  
-> This is the home page associated with the route `/`.  
-> To create a nested route, you can nest folders inside each other and add `page.tsx` files inside them.  
+> - `page.tsx` is a special Next.js file that exports a React component, and it's required for the route to be accessible.  
+> - This is the home page associated with the route `/`.  
+> - To create a nested route, you can nest folders inside each other and add `page.tsx` files inside them.  
 
 ![Screenshot 2024-05-28 at 07 18 16](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/116bf0a9-2ce4-4721-a5ec-947ee6fe785a)  
 
 > [!NOTE]  
-> `/app/dashboard/page.tsx` is associated with the `/dashboard` path.  
-> This is how you can create different pages in Next.js: create a new route segment using a folder, and add a `page` file inside it.  
-> By having a special name for `page` files, Next.js allows you to colocate UI components, test files, and other related code with your routes. Only the content inside the `page` file will be publicly accessible.  
+> - `/app/dashboard/page.tsx` is associated with the `/dashboard` path.  
+> - This is how you can create different pages in Next.js: create a new route segment using a folder, and add a `page` file inside it.  
+> - By having a special name for `page` files, Next.js allows you to colocate UI components, test files, and other related code with your routes. Only the content inside the `page` file will be publicly accessible.  
 
 ![Screenshot 2024-05-28 at 07 32 56](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/cfc233be-e5e6-46f3-a780-d7fe1493443b)
 
@@ -128,9 +128,9 @@ The `<Layout />` component receives a children prop. This child can either be a 
 > One benefit of using layouts in Next.js is that on navigation, only the `page` components update while the `layout` won't re-render. This is called partial rendering.  
 
 > [!NOTE]  
-> The **root layout** is a requirement and is located at `/app/layout.tsx`.  
-> Any UI you add to the root layout will be shared across all pages in your application.  
-> However, any `layout.tsx` files added to a folder, such as `/app/dashboard/layout.tsx`, are unique to that folder and its pages.
+> - The **root layout** is a requirement and is located at `/app/layout.tsx`.  
+> - Any UI you add to the root layout will be shared across all pages in your application.  
+> - However, any `layout.tsx` files added to a folder, such as `/app/dashboard/layout.tsx`, are unique to that folder and its pages.
 
 ---
 
@@ -159,7 +159,11 @@ APIs are an intermediary layer between your application code and database. There
 
 In Next.js, you can create API endpoints using **Route Handlers**.  
 
-If you are using **React Server Components** (fetching data on the server), you can skip the API layer, and query your database directly without risking exposing your database secrets to the client.  
+> [!TIP]  
+> - If you are using **React Server Components** (fetching data on the server), you can skip the API layer, and query your database directly (using SQL) without risking exposing your database secrets to the client.  
+> - Creating a database in the same region as your application code (by using Vercel for example) reduces latency between your server and database.  
+> - Fetching data on the server with **React Server Components** allows you to keep expensive data fetches and logic on the server, reduces the client-side JavaScript bundle, and prevents your database secrets from being exposed to the client.  
+> - Data from the client is sent to the database server and your component queries the database as opposed to querying the client directly.  
 
 ### Using server components  
 - Server Components support **promises**, providing a simpler solution for asynchronous tasks like data fetching. You can use `async/await` syntax without reaching out for `useEffect`, `useState` or data fetching libraries.  
@@ -180,6 +184,12 @@ If you are using **React Server Components** (fetching data on the server), you 
 - You can use the `Promise.all()` or `Promise.allSettled()` functions to initiate all promises at the same time.  
 - This can lead to performance gains.  
 
+        const data = await Promise.all([
+            invoiceCountPromise,
+            customerCountPromise,
+            invoiceStatusPromise,
+        ]);
+    
 ---
 
 ## Static vs dynamic rendering  
@@ -200,8 +210,8 @@ If you are using **React Server Components** (fetching data on the server), you 
 - SEO - Prerendered content is easier for search engine crawlers to index, as the content is already available when the page loads. This can lead to improved search engine rankings.  
 
 > [!TIP]  
-> Static rendering is useful for UI with no data or data that is shared across users, such as a static blog post or a product page.  
-> It might not be a good fit for a dashboard that has personalized data that is regularly updated.
+> - Static rendering is useful for UI with no data or data that is shared across users, such as a static blog post or a product page.  
+> - It might not be a good fit for a dashboard that has personalized data that is regularly updated.  
 
 ### Dynamic rendering  
 - With dynamic rendering, content is rendered on the server for each user at request time (when the user visits the page).  
@@ -212,9 +222,9 @@ If you are using **React Server Components** (fetching data on the server), you 
 - Request Time Information - Dynamic rendering allows you to access information that can only be known at request time, such as cookies or the URL search parameters.  
 
 > [!IMPORTANT]  
-> By default, @vercel/postgres doesn't set its own caching semantics. This allows the framework to set its own static and dynamic behavior.  
-> You can use a Next.js API called `unstable_noStore` inside your Server Components or data fetching functions to opt out of static rendering.  
-> Note: `unstable_noStore` is an experimental API and may change in the future.  
+> - By default, @vercel/postgres doesn't set its own caching semantics. This allows the framework to set its own static and dynamic behavior.  
+> - You can use a Next.js API called `unstable_noStore` inside your Server Components or data fetching functions to opt out of static rendering.  
+> - Note: `unstable_noStore` is an experimental API and may change in the future.  
 
 **Drawbacks**  
 - The problem with dynamic rendering is what happens if one data request is slower than all the others?  
@@ -271,7 +281,11 @@ There are two ways you implement streaming in Next.js:
 > - The async holes are streamed in parallel, reducing the overall load time of the page.  
 > This is different from how your application behaves today, where entire routes are either entirely static or dynamic.  
 
+Partial Prerendering leverages React's Concurrent APIs and uses Suspense to defer rendering parts of your application until some condition is met (e.g. data is loaded).
 
+- At build time (or during revalidation), the static parts of the route are prerendered, and the rest is postponed until the user requests the route.  
+- It's worth noting that wrapping a component in Suspense doesn't make the component itself dynamic (`unstable_noStore` achieves this behavior), but rather `Suspense` is used as a boundary between the static and dynamic parts of your route.  
+- The great thing about Partial Prerendering is that you don't need to change your code to use it. As long as you're using Suspense to wrap the dynamic parts of your route, Next.js will know which parts of your route are static and which are dynamic.
 
 
 
