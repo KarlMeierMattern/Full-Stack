@@ -258,6 +258,8 @@ There are two ways you implement streaming in Next.js:
             <CardWrapper />
         </Suspense>
 
+---
+
 ## Partial pre-rendering  
 - Most routes are not fully static or dynamic. You may have a route that has both static and dynamic content.  
 - For example, consider an ecommerce site. You might be able to prerender the majority of the product page, but you may want to fetch the user's cart and recommended products dynamically on-demand.  
@@ -270,6 +272,38 @@ There are two ways you implement streaming in Next.js:
 > - The shell leaves holes where dynamic content will load in asynchronous.  
 > - The async holes are streamed in parallel, reducing the overall load time of the page.  
 > This is different from how your application behaves today, where entire routes are either entirely static or dynamic.  
+
+---
+
+## Adding search & pagination  
+Learn how to use the Next.js APIs: searchParams, usePathname, and useRouter.
+
+### Benefits of implementing search with URL params  
+- Bookmarkable and Shareable URLs: Since the search parameters are in the URL, users can bookmark the current state of the application, including their search queries and filters, for future reference or sharing.  
+- Server-Side Rendering and Initial Load: URL parameters can be directly consumed on the server to render the initial state, making it easier to handle server rendering.  
+- Analytics and Tracking: Having search queries and filters directly in the URL makes it easier to track user behavior without requiring additional client-side logic.  
+
+These are the Next.js client hooks that you'll use to implement the search functionality:  
+- `useSearchParams`- Allows you to access the parameters of the current URL. For example, the search params for this URL `/dashboard/invoices?page=1&query=pending` would look like this: `{page: '1', query: 'pending'}`.  
+- `usePathname` - Lets you read the current URL's pathname. For example, for the route `/dashboard/invoices`, `usePathname` would return `'/dashboard/invoices'`.  
+- `useRouter` - Enables navigation between routes within client components programmatically. There are multiple methods you can use.  
+
+Here's a quick overview of the implementation steps:  
+1. Capture the user's input.  
+2. Update the URL with the search params.  
+3. Keep the URL in sync with the input field.  
+4. Update the table to reflect the search query.  
+
+> [!TIP]  
+> `"use client"` at the top of a file means this is a Client Component, therefore you can use event listeners and hooks.  
+> `<input>` - This is the search input.  
+- `URLSearchParams` is a Web API that provides utility methods for manipulating the URL query parameters. Instead of creating a complex string literal, you can use it to get the params string like `?page=1&query=a`.  
+
+
+
+
+
+
 
 
 
