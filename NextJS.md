@@ -313,6 +313,24 @@ Here's a quick overview of the implementation steps:
 > `<input>` - This is the search input.  
 - `URLSearchParams` is a Web API that provides utility methods for manipulating the URL query parameters. Instead of creating a complex string literal, you can use it to get the params string like `?page=1&query=a`.  
 
+> [!IMPORTANT]  
+> When to use the `useSearchParams()` hook vs. the `searchParams` prop?  
+> - You might have noticed you used two different ways to extract search params. Whether you use one or the other depends on whether you're working on the client or the server.  
+> - `<Search>` is a Client Component, so you used the `useSearchParams()` hook to access the params from the client.  
+> - `<Table>` is a Server Component that fetches its own data, so you can pass the `searchParams` prop from the page to the component.  
+> As a general rule, if you want to read the params from the client, use the useSearchParams() hook as this avoids having to go back to the server.  
+
+> [!TIP]  
+> - Debouncing is a programming practice that limits the rate at which a function can fire. In our case, you only want to query the database when the user has stopped typing.  
+> How Debouncing Works:  
+> - Trigger Event: When an event that should be debounced (like a keystroke in the search box) occurs, a timer starts.  
+> - Wait: If a new event occurs before the timer expires, the timer is reset.  
+> - Execution: If the timer reaches the end of its countdown, the debounced function is executed.  
+
+
+
+
+
 
 
 
