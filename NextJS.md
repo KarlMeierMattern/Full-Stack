@@ -327,7 +327,48 @@ Here's a quick overview of the implementation steps:
 > - Wait: If a new event occurs before the timer expires, the timer is reset.  
 > - Execution: If the timer reaches the end of its countdown, the debounced function is executed.  
 
+---
 
+## Mutating data  
+
+### React Server Actions  
+- React Server Actions allow you to run asynchronous code directly on the server.  
+- They eliminate the need to create API endpoints to mutate your data.  
+- Instead, you write asynchronous functions that execute on the server and can be invoked from your Client or Server Components.  
+- Server Actions achieve effective security through techniques like `POST` requests, encrypted closures, strict input checks, error message hashing, and host restrictions, all working together to significantly enhance your app's safety.  
+
+### Using forms with Server Actions  
+- In React, you can use the `action` attribute in the `<form>` element to invoke actions.  
+- The action will automatically receive the native `FormData` object, containing the captured data.  
+- An advantage of invoking a Server Action within a Server Component is **progressive enhancement** - forms work even if JavaScript is disabled on the client.  
+
+        // Server Component
+        export default function Page() {
+            // Action
+            async function create(formData: FormData) {
+                'use server';
+                
+                // Logic to mutate data...
+            }
+            
+            // Invoke the action using the "action" attribute
+            return <form action={create}>...</form>;
+        }
+
+> [!TIP]  
+> - By adding `'use server'` you mark all the exported functions within the file as server functions.  
+> - These server functions can then be imported into Client and Server components, making them extremely versatile.  
+> - You can also write Server Actions directly inside Server Components by adding `"use server"` inside the action.  
+
+> [!NOTE]  
+> - In HTML, you'd pass a URL to the `action` attribute. This URL would be the destination where your form data should be submitted (usually an API endpoint).  
+> - However, in React, the `action` attribute is considered a special prop - meaning React builds on top of it to allow actions to be invoked.  
+> - Behind the scenes, Server Actions create a `POST` API endpoint. This is why you don't need to create API endpoints manually when using Server Actions.  
+
+### Dynamic Route Segments  
+- Next.js allows you to create Dynamic Route Segments when you don't know the exact segment name and want to create routes based on data.  
+- This could be blog post titles, product pages, etc.  
+- You can create dynamic route segments by wrapping a folder's name in square brackets. For example, `[id]`, `[post]` or `[slug]`.  
 
 
 
