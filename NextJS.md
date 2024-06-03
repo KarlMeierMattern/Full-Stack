@@ -290,7 +290,7 @@ There are two ways you implement streaming in Next.js:
 ---
 
 ## Adding search & pagination  
-Learn how to use the Next.js APIs: searchParams, usePathname, and useRouter.
+Learn how to use the Next.js APIs: `searchParams`, `usePathname`, and `useRouter`.  
 
 ### Benefits of implementing search with URL params  
 - Bookmarkable and Shareable URLs: Since the search parameters are in the URL, users can bookmark the current state of the application, including their search queries and filters, for future reference or sharing.  
@@ -369,6 +369,39 @@ Here's a quick overview of the implementation steps:
 - Next.js allows you to create Dynamic Route Segments when you don't know the exact segment name and want to create routes based on data.  
 - This could be blog post titles, product pages, etc.  
 - You can create dynamic route segments by wrapping a folder's name in square brackets. For example, `[id]`, `[post]` or `[slug]`.  
+
+---
+
+## Handling errors  
+- Handle errors using JavaScript's `try/catch` statements and Next.js APIs.  
+- Use the special `error.tsx` file to catch errors in your route segments, and show a fallback UI to the user.  
+- Use the `notFound` function and `not-found` file to handle 404 errors (for resources that don’t exist).  
+ 
+### Handling all errors with error.tsx  
+- The `error.tsx` file can be used to define a UI boundary for a route segment.  
+- It serves as a catch-all for unexpected errors and allows you to display a fallback UI to your users.  
+- `error.tsx` needs to be a Client Component i.e. `"use client"`.  
+- It accepts two props:  
+1. `error`: This object is an instance of JavaScript's native `Error` object.  
+2. `reset`: This is a function to reset the error boundary. When executed, the function will try to re-render the route segment.  
+
+![Screenshot 2024-06-03 at 08 34 38](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/840b67c4-804a-490d-9c01-10a3b514a30a)  
+
+### Handling 404 errors with the notFound function  
+- While `error.tsx` is useful for catching all errors, `notFound` can be used when you try to fetch a resource that doesn't exist.  
+- `notFound` will take precedence over `error.tsx`, so you can reach out for it when you want to handle more specific errors.  
+
+![Screenshot 2024-06-03 at 08 40 46](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/5126f65c-df54-42a0-845e-f674dcaec1af)
+
+
+
+
+
+
+
+
+
+
 
 
 
