@@ -393,17 +393,39 @@ Here's a quick overview of the implementation steps:
 
 ![Screenshot 2024-06-03 at 08 40 46](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/5126f65c-df54-42a0-845e-f674dcaec1af)
 
+---
 
+## Improving accessibility  
+- Implement server-side validation with Server Actions.  
+- Show form errors using the useFormState hook.  
+- Use `eslint-plugin-jsx-a11y` with Next.js to implement accessibility best practices.  
+- Use React `useFormState` hook to handle form errors, and display them to the user.  
+- Accessibility refers to designing and implementing web applications that everyone can use, including those with disabilities. It covers areas such as keyboard navigation, semantic HTML, images, colors, videos, etc.  
 
+### ESLint accessibility plugin  
+- By default, Next.js includes the `eslint-plugin-jsx-a11y` plugin to help catch accessibility issues early.  
+- For example, this plugin warns if you have images without `alt` text, use the `aria-*` and role attributes incorrectly, and more.
+- Add `"lint": "next lint"` in your `package.json` file.  
+- Then run `npm run lint` in your terminal.
 
+### Improving accessibility  
+1. **Semantic HTML**: Using semantic elements (`<input>`, `<option>`, etc) instead of `<div>` allows assistive technologies to focus on the input elements and provide appropriate contextual information to the user, making the form easier to navigate and understand.  
+2. **Labelling**: Including `<label>` and the `htmlFor` attribute ensures that each form field has a descriptive text label. This improves AT support by providing context and also enhances usability by allowing users to click on the label to focus on the corresponding input field.  
+3. **Focus Outline**: The fields are properly styled to show an outline when they are in focus. This is critical for accessibility as it visually indicates the active element on the page, helping both keyboard and screen reader users to understand where they are on the form. You can verify this by pressing tab.  
 
+### Client-Side form validation  
+- The simplest way is to rely on the form validation provided by the browser by adding the `required` attribute to the `<input>` and `<select>` elements in your forms.  
 
+        <input required id="amount" name="amount" type="number" placeholder="Enter USD amount" className="peer block w-full rounded-md"/>
 
+### Server-Side validation  
+By validating forms on the server, you can:  
+- Ensure your data is in the expected format before sending it to your database.  
+- Reduce the risk of malicious users bypassing client-side validation.  
+- Have one source of truth for what is considered valid data.  
 
-
-
-
-
+> [!TTIP]  
+> When using hooks like `useFormState` you will need to turn your file into a Client Component using the `"use client"` directive.  
 
 
 
