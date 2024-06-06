@@ -427,6 +427,39 @@ By validating forms on the server, you can:
 > [!TTIP]  
 > When using hooks like `useFormState` you will need to turn your file into a Client Component using the `"use client"` directive.  
 
+---
+
+## Adding authentication  
+- How to add authentication to your app using NextAuth.js.  
+- How to use Middleware to redirect users and protect your routes.  
+- How to use React's `useFormStatus` and `useFormState` to handle pending states and form errors.  
+
+### Authentication vs. Authorization  
+Authentication checks who you are, and authorization determines what you can do or access in the application.  
+- **Authentication** is about making sure the user is who they say they are. You're proving your identity with something you have like a username and password.  
+- **Authorization** is the next step. Once a user's identity is confirmed, authorization decides what parts of the application they are allowed to use.  
+
+### NextAuth.js  
+- Adds authentication to your application by abstracting away much of the complexity involved in managing sessions, sign-in and sign-out, and other aspects of authentication.  
+- Installation: `npm install next-auth@beta`.  
+- Next, generate a secret key for your application to encrypt cookies, ensuring the security of user sessions. Run the following command: `openssl rand -base64 32`.  
+- Then, in your `.env` file, add your generated key to the `AUTH_SECRET` variable.  
+- For auth to work in production, you'll need to update your environment variables in your Vercel project too.  
+
+### Middleware  
+- Middleware sits between the request and the application's core logic, allowing you to execute specific code before the request is fully processed and a response is generated.  
+- When a request comes in, the middleware intercepts it before it reaches the main application logic.  
+- This interception enables you to inspect the request, validate the user's credentials, and potentially perform other tasks related to authentication, such as checking for authorization or setting up session data.  
+- Once the middleware has executed its code it can pass control to the main application logic.  
+
+---
+
+
+
+
+
+
+
 
 
 
