@@ -424,7 +424,7 @@ By validating forms on the server, you can:
 - Reduce the risk of malicious users bypassing client-side validation.  
 - Have one source of truth for what is considered valid data.  
 
-> [!TTIP]  
+> [!TIP]  
 > When using hooks like `useFormState` you will need to turn your file into a Client Component using the `"use client"` directive.  
 
 ---
@@ -461,6 +461,7 @@ Authentication checks who you are, and authorization determines what you can do 
 
 ### Types of metadata  
 Some common types include:  
+
 - **Title Metadata**: responsible for the title of a webpage that is displayed on the browser tab. Crucial for SEO as it helps search engines understand what the webpage is about.  
 
         <title>Page Title</title>
@@ -482,6 +483,28 @@ Some common types include:
 - **Favicon Metadata**: links the favicon (a small icon) to the webpage, displayed in the browser's address bar or tab.  
 
         <link rel="icon" href="path/to/favicon.ico" />
+
+### Adding metadata  
+- Next.js has a Metadata API that can be used to define your application metadata.  
+- There are two ways you can add metadata to your application.  
+- With both these options, Next.js will automatically generate the relevant `<head>` elements for your pages.  
+1. **Config-based**: Export a static metadata object or a dynamic `generateMetadata` function in a `layout.js` or `page.js` file.  
+2. **File-based**: Next.js has a range of special files that are specifically used for metadata purposes:  
+- `favicon.ico`, `apple-icon.jpg`, and `icon.jpg`: Utilized for favicons and icons.  
+- `opengraph-image.jpg` and `twitter-image.jpg`: Employed for social media images.  
+- `robots.txt`: Provides instructions for search engine crawling.  
+- `sitemap.xml`: Offers information about the website's structure.  
+
+> [!IMPORTANT]  
+> Placing these files in the `/app` folder tells Next.js will automatically identify these files.  
+
+### Page title and descriptions  
+- You can also include a `metadata` object from any `layout.js` or `page.js` file to add additional page information like title and description.  
+- These files must be placed in the root `/app` folder.  
+- Any metadata in `layout.js` will be inherited by all pages that use it.  
+- If you want to add a custom title for a specific page you can do this by adding a `metadata` object to the page itself. Metadata in nested pages will override the metadata in the parent.  
+
+---
 
 
 
