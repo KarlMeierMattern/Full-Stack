@@ -31,7 +31,7 @@ React is a popular declarative library that you can use build user interfaces.
 - Defining a component in this way creates a **stateless component**, which can receive data and render it, but does not manage or track changes to that data.  
 
 > [!IMPORTANT]  
-> React requires function names to begin with a capital letter.  
+> React components are regular JavaScript functions, but their names must start with a capital letter or they won’t work!  
 
 > [!TIP]  
 > Use curly braces to enter "JavaScript land" while you are in "JSX land". You can add any JavaScript expression (something that evaluates to a single value) inside curly braces.  
