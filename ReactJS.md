@@ -29,7 +29,9 @@ React is a popular declarative library that you can use build user interfaces.
 - Everything in React is a component.  
 - There are two ways to create a React component. The first way is to use a JavaScript function.  
 - Defining a component in this way creates a **stateless component**, which can receive data and render it, but does not manage or track changes to that data.  
-- React requires function names to begin with a capital letter.
+
+> [!IMPORTANT]  
+> React requires function names to begin with a capital letter.  
 
 > [!TIP]  
 > Use curly braces to enter "JavaScript land" while you are in "JSX land". You can add any JavaScript expression (something that evaluates to a single value) inside curly braces.  
