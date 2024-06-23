@@ -172,6 +172,9 @@ Imperative programming is writing the steps for how the user interface should be
 - You can design components that accept custom arguments (properties) that change the component's behavior or what is visibly shown when it's rendered to the screen.  
 - You can pass down these props from parent components to child components.  
 - Note: In React, data flows down the component tree. This is referred to as one-way data flow.  
+- Props are immutable (meaning “unchangeable”).  
+- When a component needs to change its props (e.g. in response to a user interaction or new data), it will have to “ask” its parent component to pass it different props—a new object.  
+- Don’t try to “change props”. When you need to respond to the user input (like changing the selected color), you will need to “set state”.  
 
         function Header({ title }) {
           return <h1>{`Cool ${title}`}</h1>;
@@ -203,6 +206,14 @@ Imperative programming is writing the steps for how the user interface should be
             );
           }
         };
+
+#### Syntax for destructuring props  
+
+![Screenshot 2024-06-21 at 08 41 24](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/8074a062-784e-4c21-a78d-3db98807915a)  
+
+#### Default values for props  
+
+![Screenshot 2024-06-21 at 08 44 36](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/2975ed3a-ef36-45d1-9558-3b0839e5205a)  
 
 ### 3. State  
 - Props are read-only information that's passed to components. State is information that can change over time, usually triggered by user interaction.  
@@ -403,6 +414,8 @@ Example
       </div>
     );
     }
+    
+![Screenshot 2024-06-23 at 17 01 30](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/f80282c8-be41-4ea0-b0e5-68283930fbd5)  
 
 ### Ternary operator  
 
@@ -496,6 +509,8 @@ Two reasons to render on the server:
 - When a React application is rendered entirely on the client-side (using `ReactDOM.render`), the initial HTML sent to the browser is minimal, usually just a root `<div>` element where React will later attach the rendered content.  
 - Search engines crawling this initial HTML will not see any meaningful content, making it difficult for them to understand and index the application's pages effectively.  
 - However, with SSR (using `ReactDOMServer.renderToString(<App/>`), the initial HTML payload sent to the browser contains the fully rendered markup of the React components, including their content and structure. This pre-rendered HTML, which represents the initial state of the application, is what search engines can crawl and index.  
+
+---
 
 
 
