@@ -463,6 +463,8 @@ Example
             ));
         }
 
+![Screenshot 2024-06-23 at 18 22 45](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/6436b033-79cb-4407-a7f1-ba6c1988fb18)  
+
 ### Filter method  
 
     class MyComponent extends React.Component {
@@ -495,6 +497,8 @@ Example
         );
       }
     }
+
+![Screenshot 2024-06-23 at 17 56 50](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/50af8366-6c74-4d19-8d43-588b29ba110f)  
 
 ### SSR (server side rendering)  
 - There are some use cases where it makes sense to render a React component on the server.
