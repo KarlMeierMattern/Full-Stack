@@ -574,29 +574,29 @@ Two reasons to render on the server:
 
 ### Option 1: default  
 
-        export default function Button() {
-          function handleClick() {
-            alert('You clicked me!');
-          }
-        
-          return (
-            <button onClick={handleClick}>
-              Click me
-            </button>
-          );
-        }
+    export default function Button() {
+      function handleClick() {
+        alert('You clicked me!');
+      }
+    
+      return (
+        <button onClick={handleClick}>
+          Click me
+        </button>
+      );
+    }
 
 ### Option 2: inline in JSX  
 
-        <button onClick={function handleClick() {
-          alert('You clicked me!');
-        }}>
+    <button onClick={function handleClick() {
+      alert('You clicked me!');
+    }}>
 
 ### Option 3: arrow function  
 
-        <button onClick={() => {
-          alert('You clicked me!');
-        }}>
+    <button onClick={() => {
+      alert('You clicked me!');
+    }}>
 
 
 
