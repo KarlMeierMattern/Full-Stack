@@ -516,6 +516,93 @@ Two reasons to render on the server:
 
 ---
 
+## Children components  
+- Children prop in child components: Allows the child component to render dynamic content provided by the parent component.  
+- Children prop in parent components: Allows the parent component to act as a container that can render nested child components or elements.  
+
+### Example: child component renders dynamic content  
+        
+        export default function App() {
+          return (
+            <Toolbar
+              onPlayMovie={() => alert('Playing!')}
+            />
+          );
+        }
+        
+        function Toolbar({ onPlayMovie }) {
+          return (
+            <div>
+              <Button onClick={onPlayMovie}>
+                Play Movie
+              </Button>
+            </div>
+          );
+        }
+        
+        function Button({ onClick, children }) {
+          return (
+            <button onClick={onClick}>
+              {children}
+            </button>
+          );
+        }
+
+### Exmple: parent acts as container  
+
+        function Card({ children }) {
+          return (
+            <div className="card">
+              {children}
+            </div>
+          );
+        }
+        
+        export default function Profile() {
+          return (
+            <Card>
+              <Avatar/>
+            </Card>
+          );
+        }
+---  
+
+## Event handlers  
+- Event handler functions are usually defined inside your components.  
+- By convention, it is common to name event handlers as `handle` followed by the event name.  
+- You’ll often see `onClick={handleClick}`, `onMouseEnter={handleMouseEnter}`, and so on.  
+
+### Option 1: default  
+
+        export default function Button() {
+          function handleClick() {
+            alert('You clicked me!');
+          }
+        
+          return (
+            <button onClick={handleClick}>
+              Click me
+            </button>
+          );
+        }
+
+### Option 2: inline in JSX  
+
+        <button onClick={function handleClick() {
+          alert('You clicked me!');
+        }}>
+
+### Option 3: arrow function  
+
+        <button onClick={() => {
+          alert('You clicked me!');
+        }}>
+
+
+
+
+
+
 
 
 
