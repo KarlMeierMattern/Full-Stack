@@ -592,11 +592,11 @@ Two reasons to render on the server:
       alert('You clicked me!');
     }}>
 
-### Option 3: arrow function  
+### Option 3: arrow/anonymous function  
 
-    <button onClick={() => {
+    <button onClick={() => 
       alert('You clicked me!');
-    }}>
+    }>
 
 
 
