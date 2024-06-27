@@ -215,6 +215,9 @@ Imperative programming is writing the steps for how the user interface should be
 
 ![Screenshot 2024-06-21 at 08 44 36](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/2975ed3a-ef36-45d1-9558-3b0839e5205a)  
 
+> [!TIP]  
+> You can forward all props with `<Avatar {...props} />` JSX spread syntax.  
+
 ### 3. State  
 - Props are read-only information that's passed to components. State is information that can change over time, usually triggered by user interaction.  
 - You want your apps to respond to state changes and present an updated UI when necessary.  
@@ -603,6 +606,7 @@ Two reasons to render on the server:
 ## Event propagation  
 - Event handlers will also catch events from any children your component might have.  
 - We say that an event “bubbles” or “propagates” up the tree: it starts with where the event happened, and then goes up the tree.  
+- `e.stopPropagation()` stops the event handlers attached to the tags above (in parent elements) from firing.  
 
 > [!WARNING]  
 > All events propagate in React except `onScroll`, which only works on the JSX tag you attach it to.  
@@ -619,18 +623,19 @@ Two reasons to render on the server:
 ## Preventing default behavior  
 - Some browser events have default behavior associated with them.  
 - For example, a `<form>` submit event, which happens when a `button` inside of it is clicked, will reload the whole page by default.  
+- `e.preventDefault()` prevents the default browser behavior for the few events that have it.  
 
-    export default function Signup() {
-        return (
+        export default function Signup() {
+          return (
             <form onSubmit={e => {
-                e.preventDefault();
-                alert('Submitting!');
+              e.preventDefault();
+              alert('Submitting!');
             }}>
-                <input />
-                <button>Send</button>
+              <input />
+              <button>Send</button>
             </form>
-        );
-    }
+          );
+        }
 
 
 
