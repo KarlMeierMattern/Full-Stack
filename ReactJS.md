@@ -598,6 +598,58 @@ Two reasons to render on the server:
       alert('You clicked me!');
     }>
 
+---
+
+## Event propagation  
+- Event handlers will also catch events from any children your component might have.  
+- We say that an event “bubbles” or “propagates” up the tree: it starts with where the event happened, and then goes up the tree.  
+
+> [!WARNING]  
+> All events propagate in React except `onScroll`, which only works on the JSX tag you attach it to.  
+> If you want to prevent an event from reaching parent components, you need to call `e.stopPropagation()`.  
+
+    // e.stopPropagation() prevents the event from bubbling up to the parent
+    <button onClick={e => {
+        e.stopPropagation();
+        onSmash();
+    }}>
+
+---
+
+## Preventing default behavior  
+- Some browser events have default behavior associated with them.  
+- For example, a `<form>` submit event, which happens when a `button` inside of it is clicked, will reload the whole page by default.  
+
+        export default function Signup() {
+            return (
+                <form onSubmit={e => {
+                    e.preventDefault();
+                    alert('Submitting!');
+                }}>
+                    <input />
+                    <button>Send</button>
+                </form>
+            );
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
