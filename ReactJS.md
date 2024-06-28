@@ -129,8 +129,7 @@ Imperative programming is writing the steps for how the user interface should be
 
 ---
 
-## React core concepts  
-### 1. Components  
+## Components  
 - Allow you to build self-contained, reusable snippets of code.  
 - First, React components should be capitalized to distinguish them from plain HTML and JavaScript.
 - Second, you use React components the same way you'd use regular HTML tags, with angle brackets <>.  
@@ -168,7 +167,7 @@ Imperative programming is writing the steps for how the user interface should be
         
         ReactDOM.render(<MyComponent/>, document.getElementById("challenge-node"))
 
-### 2. Props  
+## Props  
 - You can design components that accept custom arguments (properties) that change the component's behavior or what is visibly shown when it's rendered to the screen.  
 - You can pass down these props from parent components to child components.  
 - Note: In React, data flows down the component tree. This is referred to as one-way data flow.  
@@ -207,18 +206,20 @@ Imperative programming is writing the steps for how the user interface should be
           }
         };
 
-#### Syntax for destructuring props  
+### Syntax for destructuring props  
 
 ![Screenshot 2024-06-21 at 08 41 24](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/8074a062-784e-4c21-a78d-3db98807915a)  
 
-#### Default values for props  
+### Default values for props  
 
 ![Screenshot 2024-06-21 at 08 44 36](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/2975ed3a-ef36-45d1-9558-3b0839e5205a)  
 
 > [!TIP]  
 > You can forward all props with `<Avatar {...props} />` JSX spread syntax.  
 
-### 3. State  
+---  
+
+## State  
 - Props are read-only information that's passed to components. State is information that can change over time, usually triggered by user interaction.  
 - You want your apps to respond to state changes and present an updated UI when necessary.  
 - In React, event names are camelCased.  
@@ -278,16 +279,20 @@ Imperative programming is writing the steps for how the user interface should be
 
 - Finally, a **stateful component** is a class component that extends `React.Component` and maintains its own internal state (`this.state`).  
 
----
+> [!TIP]  
+> The convention is to name this pair like `const [something, setSomething]`.  
+> You could name it anything you like, but conventions make things easier to understand across projects.  
 
-- React has a set of functions called hooks. Hooks allow you to add additional logic such as state to your components. You can think of state as any information in your UI that changes over time, usually triggered by user interaction.  
-- You can use state to store and increment the number of times a user has clicked a "Like" button for example.  
-- The React hook used to manage state is called `useState()`.
+> [!NOTE]  
+> In React, `useState`, as well as any other function starting with `use`, is called a Hook.  
+> Hooks are special functions that are only available while React is rendering. They let you “hook into” different React features.  
+> Hooks can only be called at the top level of your components or your own Hooks.  
+> You can’t call Hooks inside conditions, loops, or other nested functions.  
+> Hooks are functions, but it’s helpful to think of them as unconditional declarations about your component’s needs.  
+> You “use” React features at the top of your component similar to how you “import” modules at the top of your file.  
 
-Example  
-- The first item in the array is the state value, which you can name anything. It's recommended to name it something descriptive.  
-- The second item in the array is a function to update the value. You can name the update function anything, but it's common to prefix it with set followed by the name of the state variable you're updating.  
-- You can also take the opportunity to add the initial value of your likes state to 0.  
+### Example  
+- The first item in the array is the state variable and the second item is the state setter function to update the state variable.  
 - Clicking the button will now call the `handleClick` function, which calls the `setLikes` state updater function with a single argument of the current number of `likes + 1`.  
 
         function HomePage() {
@@ -305,6 +310,10 @@ Example
             </div>
             );
         }
+
+> [!TIP]  
+> The convention for naming events & their handlers is to name this pair `onSomething` and `handleSomething`.  
+> You could name it anything you like, but conventions make things easier to understand across projects.  
 
 ---
 
