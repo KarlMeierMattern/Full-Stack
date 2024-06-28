@@ -220,38 +220,16 @@ Imperative programming is writing the steps for how the user interface should be
 ---  
 
 ## State  
-- Props are read-only information that's passed to components. State is information that can change over time, usually triggered by user interaction.  
+- State is information that can change over time, usually triggered by user interaction.  
 - You want your apps to respond to state changes and present an updated UI when necessary.  
-- In React, event names are camelCased.  
-- You create state in a React component by declaring a state property on the component class in its constructor.  
-- This initializes the component with state when it is created.  
-- The state property must be set to a JavaScript object. Declaring it looks like this.
-- If you want to access a state value within the return of the render method, you have to enclose the value in curly braces.  
+- If you make a component stateful its state is local to that component and no other components are aware of its state unless you pass state data to a child component as props.  
 
-        class StatefulComponent extends React.Component {
-          constructor(props) {
-            super(props);
-            this.state = {
-              firstName: "Karl",
-            }
-          }
-        
-          render() {
-            return (
-            <div>
-            { /* Change code below this line */ }
-            <p>{this.state.name}</p>
-            { /* Change code above this line */ }
-            </div>
-            );
-          }
-        };
-> [!NOTE]  
-> If you make a component stateful its state is local to that component and no other components are aware of its state.  
-> Unless you pass state data to a child component as props.  
+> [!TIP]  
+> - The convention is to name this pair something like `const [something, setSomething]`.  
+> - The first item in the array is the **state variable**, which is the value stored.  
+> - The second item is the **state setter function** to update the state variable and trigger React to render the component again.  
 
-- The `onClick` event is one of many possible events you can use to respond to user interaction.  
-- You can use `onChange` for input fields or `onSubmit` for forms.  
+The `onClick` event is one of many possible events you can use to respond to user interaction. You can use `onChange` for input fields or `onSubmit` for forms.  
 
         function HomePage() {
         
@@ -261,38 +239,15 @@ Imperative programming is writing the steps for how the user interface should be
             return <button onClick={HandleClick}>Like</button>
         }
 
-> [!CAUTION]  
-> React expects you to never modify state directly. Instead always use `this.setState()` when state changes occur passing in an object with key-value pairs.  
-> The keys are your state properties and the values are the updated state data.  
-
-        this.setState({
-          username: 'Lewis'
-        });
-
-- A **stateless  component** is any function you write which accepts props and returns JSX.  
-- A **stateless component**, on the other hand, is a class that extends `React.Component`, but does not use internal state.  
-
-        const StatelessComponent = (props) => {
-          // Component logic and rendering
-          return <div>Hello, {props.name}</div>;
-        };
-
-- Finally, a **stateful component** is a class component that extends `React.Component` and maintains its own internal state (`this.state`).  
-
-> [!TIP]  
-> The convention is to name this pair like `const [something, setSomething]`.  
-> You could name it anything you like, but conventions make things easier to understand across projects.  
-
 > [!NOTE]  
-> In React, `useState`, as well as any other function starting with `use`, is called a Hook.  
-> Hooks are special functions that are only available while React is rendering. They let you “hook into” different React features.  
-> Hooks can only be called at the top level of your components or your own Hooks.  
-> You can’t call Hooks inside conditions, loops, or other nested functions.  
-> Hooks are functions, but it’s helpful to think of them as unconditional declarations about your component’s needs.  
-> You “use” React features at the top of your component similar to how you “import” modules at the top of your file.  
+> - In React, `useState`, as well as any other function starting with `use`, is called a Hook.  
+> - Hooks are special functions that are only available while React is rendering. They let you “hook into” different React features.  
+> - Hooks can only be called at the top level of your components or your own Hooks.  
+> - You can’t call Hooks inside conditions, loops, or other nested functions.  
+> - Hooks are functions, but it’s helpful to think of them as unconditional declarations about your component’s needs.  
+> - You “use” React features at the top of your component similar to how you “import” modules at the top of your file.  
 
 ### Example  
-- The first item in the array is the state variable and the second item is the state setter function to update the state variable.  
 - Clicking the button will now call the `handleClick` function, which calls the `setLikes` state updater function with a single argument of the current number of `likes + 1`.  
 
         function HomePage() {
