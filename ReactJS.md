@@ -222,7 +222,9 @@ Imperative programming is writing the steps for how the user interface should be
 ## State  
 - State is information that can change over time, usually triggered by user interaction.  
 - You want your apps to respond to state changes and present an updated UI when necessary.  
-- If you make a component stateful its state is local to that component and no other components are aware of its state unless you pass state data to a child component as props.  
+- State is local to a component instance on the screen. In other words, if you render the same component twice, each copy will have completely isolated state.  
+- You can pass state data to a child component as props.  
+- If you want child components to share state the right way to do it is to remove state from child components and add it to their closest shared parent.  
 
 > [!TIP]  
 > - The convention is to name this pair something like `const [something, setSomething]`.  
@@ -241,7 +243,7 @@ The `onClick` event is one of many possible events you can use to respond to use
 
 > [!NOTE]  
 > - In React, `useState`, as well as any other function starting with `use`, is called a Hook.  
-> - Hooks are special functions that are only available while React is rendering. They let you “hook into” different React features.  
+> - Hooks are special functions that are only available while React is rendering. They let you “hook into” different React features like state.  
 > - Hooks can only be called at the top level of your components or your own Hooks.  
 > - You can’t call Hooks inside conditions, loops, or other nested functions.  
 > - Hooks are functions, but it’s helpful to think of them as unconditional declarations about your component’s needs.  
