@@ -225,6 +225,7 @@ Imperative programming is writing the steps for how the user interface should be
 - State is local to a component instance on the screen. In other words, if you render the same component twice, each copy will have completely isolated state.  
 - You can pass state data to a child component as props.  
 - If you want child components to share state the right way to do it is to remove state from child components and add it to their closest shared parent.  
+- When deciding whether to include state consider if you need a component to re-render based on new input or to show new input. If you do, then state will trigger a re-render. If you don't, then local variables will work.  
 
 > [!TIP]  
 > - The convention is to name this pair something like `const [something, setSomething]`.  
@@ -271,6 +272,41 @@ The `onClick` event is one of many possible events you can use to respond to use
 > [!TIP]  
 > The convention for naming events & their handlers is to name this pair `onSomething` and `handleSomething`.  
 > You could name it anything you like, but conventions make things easier to understand across projects.  
+
+---
+
+## Render & commit  
+- Triggering a render (delivering the guest’s order to the kitchen).  
+- Rendering the component (preparing the order in the kitchen).  
+- Committing to the DOM (placing the order on the table).  
+
+![Screenshot 2024-06-30 at 14 54 57](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/891029cf-1db3-449d-bded-856750152909)
+
+### Step 1: Trigger a render  
+There are two reasons for a component to render:  
+1. It’s the component’s initial render; and
+2. The component’s (or one of its ancestors’) state has been updated (using the set function).  
+
+#### Initial render  
+
+    import App from "./app.js"
+    import { createRoot } from "react-dom/client";
+    
+    const root = createRoot(document.getElementById("root"));
+    root.render(<App />);
+
+### Step 2: React renders your components  
+After you trigger a render, React calls your components to figure out what to display on screen. “Rendering” is React calling your components.  
+
+- On initial render, React will call the `root` component.  
+- For subsequent renders, React will call the function component whose state update triggered the render.  
+
+This process is recursive: if the updated component returns some other component, React will render that component next, and if that component also returns something, it will render that component next, and so on. The process will continue until there are no more nested components and React knows exactly what should be displayed on screen.  
+
+
+
+
+
 
 ---
 
