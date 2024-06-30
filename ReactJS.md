@@ -318,7 +318,7 @@ All components nested within a re-rendered component are also re-rendered.
 ### Step 3: React commits changes to the DOM  
 After rendering (calling) your components, React will modify the DOM.  
 - For the initial render, React will use the `appendChild()` DOM API to put all the DOM nodes it has created on screen.  
-- For re-renders, React will apply the minimal necessary operations to make the DOM match the latest rendering output. React only changes  DOM nodes if there’s a difference between renders.  
+- For re-renders, React will apply the minimal necessary operations to make the DOM match the latest rendering output. React does not touch the DOM if the rendering result is the same as last time.  
 
 ### Browser paint  
 After rendering is done and React updated the DOM, the browser will repaint the screen, known as “browser rendering”.  
