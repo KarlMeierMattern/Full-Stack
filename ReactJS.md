@@ -167,6 +167,8 @@ Imperative programming is writing the steps for how the user interface should be
         
         ReactDOM.render(<MyComponent/>, document.getElementById("challenge-node"))
 
+---
+
 ## Props  
 - You can design components that accept custom arguments (properties) that change the component's behavior or what is visibly shown when it's rendered to the screen.  
 - You can pass down these props from parent components to child components.  
@@ -288,12 +290,22 @@ There are two reasons for a component to render:
 2. The component’s (or one of its ancestors’) state has been updated (using the set function).  
 
 #### Initial render  
+Rendering must always be a pure calculation:  
+- Same inputs, same outputs; and  
+- Components mind their own business (should not change any objects or variables that existed before rendering).  
+
+When developing in `StrictMode` React calls each component’s function twice, which can help surface mistakes caused by impure functions.  
 
     import App from "./app.js"
+    import React, { StrictMode } from "react";
     import { createRoot } from "react-dom/client";
     
     const root = createRoot(document.getElementById("root"));
-    root.render(<App />);
+    root.render(
+    <StrictMode>
+        <App />
+    </StrictMode>
+    );
 
 ### Step 2: React renders your components  
 After you trigger a render, React calls your components to figure out what to display on screen. “Rendering” is React calling your components.  
@@ -301,12 +313,15 @@ After you trigger a render, React calls your components to figure out what to di
 - On initial render, React will call the `root` component.  
 - For subsequent renders, React will call the function component whose state update triggered the render.  
 
-This process is recursive: if the updated component returns some other component, React will render that component next, and if that component also returns something, it will render that component next, and so on. The process will continue until there are no more nested components and React knows exactly what should be displayed on screen.  
+All components nested within a re-rendered component are also re-rendered.  
 
+### Step 3: React commits changes to the DOM  
+After rendering (calling) your components, React will modify the DOM.  
+- For the initial render, React will use the `appendChild()` DOM API to put all the DOM nodes it has created on screen.  
+- For re-renders, React will apply the minimal necessary operations to make the DOM match the latest rendering output. React only changes  DOM nodes if there’s a difference between renders.  
 
-
-
-
+### Browser paint  
+After rendering is done and React updated the DOM, the browser will repaint the screen, known as “browser rendering”.  
 
 ---
 
