@@ -325,6 +325,51 @@ After rendering is done and React updated the DOM, the browser will repaint the 
 
 ---
 
+## State as a snapshot  
+“Rendering” means that React is calling your component, which is a function. The JSX you return from that function is like a snapshot of the UI in time.
+The state stored in React may have changed by the time the alert runs, but it was scheduled using a snapshot of the state at the time the user interacted with it!
+A state variable’s value never changes within a render, even if its event handler’s code is asynchronous.
+React keeps the state values “fixed” within one render’s event handlers. You don’t need to worry whether the state has changed while the code is running.
+
+
+### Example  
+
+    import { useState } from 'react';
+    
+    export default function Form() {
+      const [to, setTo] = useState('Alice');
+      const [message, setMessage] = useState('Hello');
+    
+      return (
+        <form onSubmit={e => {
+          e.preventDefault();
+          setTimeout(() => {
+            alert(`You said ${message} to ${to}`)
+          }, 5000);
+        }}>
+          <label>
+            To:{' '}
+            <select
+              value={to}
+              onChange={e => setTo(e.target.value)}>
+              <option value="Alice">Alice</option>
+              <option value="Bob">Bob</option>
+            </select>
+          </label>
+          <textarea
+            placeholder="Message"
+            value={message}
+            onChange={e => setMessage(e.target.value)}
+          />
+          <button type="submit">Send</button>
+        </form>
+      );
+    }
+
+
+
+---
+
 ### Methods  
 - You can also define methods for your component class.  
 - A class method typically needs to use the `this` keyword so it can access properties on the class (such as state and props) inside the scope of the method.  
