@@ -366,7 +366,23 @@ React keeps the state values “fixed” within one render’s event handlers. Y
       );
     }
 
+---
 
+## Updater function  
+React processes state updates after event handlers have finished running. This is called **batching**.  
+If you would like to update the same state variable multiple times before the next render you can use `n => n + 1`, which is called an <u>updater function</u> when you pass it to a state setter function.  
+1. React queues this function to be processed after all the other code in the event handler has run.  
+2. During the next render, React goes through the queue and gives you the final updated state.  
+
+        setNumber(number + 5) // state/number is 0, so setNumber(0 + 5). React adds “replace with 5” to its queue (returns 5).
+        setNumber(n => n + 1) // n => n + 1 is an updater function. React adds that function to its queue (returns 5+1 = 6).
+        setNumber(42) // React adds “replace with 42” to its queue (returns 42).
+
+Here’s how you can think of what you’re passing to the setNumber state setter:  
+- An updater function (e.g. `n => n + 1`) gets added to the queue.  
+- Any other value (e.g. number 5) adds “replace with 5” to the queue, ignoring what’s already queued.  
+
+After the event handler completes, React will trigger a re-render. During the re-render, React will process the queue. Updater functions run during rendering, so updater functions must be pure and only return the result. Don’t try to set state from inside of them or run other side effects.  
 
 ---
 
