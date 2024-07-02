@@ -386,6 +386,44 @@ After the event handler completes, React will trigger a re-render. During the re
 
 ---
 
+## Updating objects in state  
+While objects in React state are technically mutable, you should treat them as if they were immutable (read-only) like numbers, booleans, and strings.  
+
+    const [position, setPosition] = useState({
+        x: 0,
+        y: 0
+    });
+    
+    <div
+        onPointerMove={e => {
+            setPosition({
+                x: e.clientX,
+                y: e.clientY
+            })
+        }}
+    </div>
+
+### Local mutation  
+Mutation is only a problem when you change existing objects that are already in state. Mutating an object you’ve just created is okay because no other code references it yet. This is called a “local mutation”.  
+
+These two pieces of code are equivalent:  
+
+    // Option 1
+    setPosition({
+        x: e.clientX,
+        y: e.clientY
+    })
+    
+    // Option 2: mutating a fresh object you have just created
+    const nextPosition = {};
+    nextPosition.x = e.clientX;
+    nextPosition.y = e.clientY;
+    setPosition(nextPosition);
+
+
+
+---
+
 ### Methods  
 - You can also define methods for your component class.  
 - A class method typically needs to use the `this` keyword so it can access properties on the class (such as state and props) inside the scope of the method.  
@@ -714,6 +752,8 @@ Two reasons to render on the server:
             </form>
           );
         }
+
+---
 
 
 
