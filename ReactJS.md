@@ -420,7 +420,135 @@ These two pieces of code are equivalent:
     nextPosition.y = e.clientY;
     setPosition(nextPosition);
 
+---
 
+## Copying objects with spread syntax  
+Assuming we want to change only the `firstName` in the state object.  
+
+    // Setting state
+    const [person, setPerson] = useState({
+        firstName: 'Barbara',
+        lastName: 'Hepworth',
+        email: 'bhepworth@sculpture.com'
+      });
+    
+    // Option 1 is verbose
+    const handleFirstNameChange = (e) => {
+        setPerson({
+          firstName: 'Barbara',
+          lastName: 'Hepworth',
+          email: 'bhepworth@sculpture.com',
+          firstName: e.target.value
+        })
+      }
+    
+    // Option 2 is cleaner using the spread operator to copy the existing properties and then updates firstName
+    const handleFirstNameChange = (e) => {
+        setPerson({
+          ...person,
+          firstName: e.target.value
+        })
+      }
+
+> [!NOTE]  
+> Note that the `...` spread syntax is “shallow” meaning it only copies things one level deep. This makes it fast, but it also means that if you want to update a nested property, you’ll have to use it more than once.  
+
+---
+
+## Using a single event handler for multiple fields  
+Add a `name` property to the element/s where your event handlers are
+
+    export default function Form() {
+        const [person, setPerson] = useState({
+            firstName: 'Barbara',
+            lastName: 'Hepworth',
+        });
+    
+        // Targets the name property of the various input fields
+        function handleChange(e) {
+            setPerson({
+                ...person,
+                [e.target.name]: e.target.value
+            });
+        }
+        
+        return (
+            <>
+                <label>
+                    First name:
+                    <input
+                        name="firstName"
+                        value={person.firstName}
+                        onChange={handleChange}
+                    />
+                </label>
+                <label>
+                    Last name:
+                    <input
+                        name="lastName"
+                        value={person.lastName}
+                        onChange={handleChange}
+                    />
+                </label>
+                <p>
+                    {person.firstName}{' '}
+                    {person.lastName}{' '}
+                </p>
+            </>
+        );
+    }
+
+---
+
+## Updating a nested object  
+
+    const [person, setPerson] = useState({
+      name: 'Niki de Saint Phalle',
+      artwork: {
+        title: 'Blue Nana',
+        city: 'Hamburg',
+        image: 'https://i.imgur.com/Sd1AgUOm.jpg',
+      }
+    });
+
+    // Update the city property
+    setPerson({
+        ...person, // Copy other fields
+        artwork: { // but replace the artwork
+            ...person.artwork, // with the same one
+            city: "Cape Town" // but in Cape Town
+        }
+    });
+
+---
+
+## Immer for nested objects  
+If your state is deeply nested, you might want to consider flattening it using a shortcut to nested spreads.  
+Immer is a popular library that lets you write using the convenient but mutating syntax and takes care of producing the copies for you.  
+With Immer, the code you write looks like you are “breaking the rules” and mutating an object.  
+But unlike a regular mutation, it doesn’t overwrite the past state!  
+
+The `draft` provided by Immer is a special type of object, called a Proxy, that “records” what you do with it. This is why you can mutate it freely as much as you like! Under the hood, Immer figures out which parts of the draft have been changed, and produces a completely new object that contains your edits.  
+
+> [!NOTE]  
+> Run `npm install use-immer` to add Immer as a dependency.  
+> `import { useImmer } from 'use-immer'`  
+> You can mix and match `useState` and `useImmer` in a single component as much as you like.  
+
+    // Option 1 using spread syntax 
+    function handleFirstNameChange (e) => {
+        setPerson({
+            ...person,
+            firstName: e.target.value
+        })
+    }
+    
+    // Option 2 using Immer
+    function handleNameChange(e) {
+        updatePerson(draft => {
+            draft.name = e.target.value;
+        });
+    }
 
 ---
 
