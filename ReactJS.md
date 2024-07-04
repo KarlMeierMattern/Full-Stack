@@ -129,6 +129,18 @@ Imperative programming is writing the steps for how the user interface should be
 
 ---
 
+## Event handlers  
+Functions passed to event handlers must be passed, not called.  
+
+`<button onClick={handleClick}>` passes the handleClick function.  
+`<button onClick={() => alert('...')}>` passes the `() => alert('...')` function.  
+
+![Screenshot 2024-07-04 at 09 00 53](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/17f91847-8bd5-4f0b-afcf-d64c42945722)  
+
+![Screenshot 2024-07-04 at 09 03 08](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/6928d1ae-20df-4179-9826-c75a8ecfc4de)  
+
+---
+
 ## Components  
 - Allow you to build self-contained, reusable snippets of code.  
 - First, React components should be capitalized to distinguish them from plain HTML and JavaScript.
