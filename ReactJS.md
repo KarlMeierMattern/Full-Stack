@@ -512,6 +512,7 @@ Add a `name` property to the element/s where your event handlers are
     });
 
     // Update the city property
+    // The first set of curly braces represents a new object that we create
     setPerson({
         ...person, // Copy other fields
         artwork: { // but replace the artwork
@@ -549,6 +550,34 @@ The `draft` provided by Immer is a special type of object, called a Proxy, that 
             draft.name = e.target.value;
         });
     }
+
+---
+
+## Updating arrays in state  
+While arrays are mutable in JavaScript, you should treat arrays in React state as read-only.  
+When you want to update an array stored in state, you need to create a new one (or make a copy of an existing one), and then set state to use the new array.  
+
+![Screenshot 2024-07-04 at 08 16 17](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/fb67e2cf-cff1-4908-997c-35a616dfd70e)  
+
+    const [artists, setArtists] = useState([]);
+    
+    <button onClick={() => {
+        setArtists( // Replace the state
+            [ // with a new array 
+                ...artists, // that contains all the old items
+                { id: nextId++, name: name } // and one new item at the end
+            ]
+        );
+    }}>
+    </button>
+
+![Screenshot 2024-07-04 at 08 26 22](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/cffc5486-3360-4687-a766-5d678d8d88ca)  
+
+
+
+
+
+
 
 ---
 
