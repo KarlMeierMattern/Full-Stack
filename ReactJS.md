@@ -585,11 +585,20 @@ When you want to update an array stored in state, you need to create a new one (
 
 ![Screenshot 2024-07-04 at 08 26 22](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/cffc5486-3360-4687-a766-5d678d8d88ca)  
 
+---
 
+## Reacting to input with state  
+You can trigger state updates in response to either:  
+1. Human inputs (click button, type in field); or  
+2. Computer inputs (timeout completing, network response arriving, image loading).  
 
+![Screenshot 2024-07-07 at 20 06 24](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/716df071-115d-4815-a487-1d9eec9c716c)  
 
-
-
+> [!TIP]  
+> - Start with the state that absolutely must be there.  
+> - If you struggle to think of the best way immediately, start by adding enough state that you’re definitely sure that all the possible visual states are covered.  
+> - Your first idea likely won’t be the best, but that’s ok—refactoring state is a part of the process.  
+> - Expressing all interactions as state changes lets you later introduce new visual states without breaking existing ones. It also lets you change what should be displayed in each state without changing the logic of the interaction itself.  
 
 ---
 
