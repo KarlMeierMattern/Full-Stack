@@ -605,9 +605,19 @@ You can trigger state updates in response to either:
 ### Sharing state between components  
 When you want the state of two components to always change together remove state from both of them and move it to their closest common parent, and then pass it down to them via props. This is known as lifting state up.  
 
+> [!IMPORTANT]  
+> - Lifting state up often changes the nature of what you’re storing as state.  
+> - The common parent component may need to keep track of which child component is the active one. Instead of a boolean value, it could use a number as the index of the active child component for the state variable.  
 
+![Screenshot 2024-07-11 at 08 39 08](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/25a1b34c-3504-45fa-a4b1-033f38fae9ef)  
 
+For each unique piece of state, you will choose the component that “owns” it. This principle is also known as having a “single source of truth”. It doesn’t mean that all state lives in one place—but that for each piece of state, there is a specific component that holds that piece of information. Instead of duplicating shared state between components, lift it up to their common shared parent, and pass it down to the children that need it. Your app will change as you work on it. It is common that you will move state down or back up while you’re still figuring out where each piece of the state “lives”.  
 
+> [!TIP]  
+> - When you want to coordinate two components, move their state to their common parent.  
+> - Then pass the information down through props from their common parent.  
+> - Finally, pass the event handlers down so that the children can change the parent’s state.  
+> - It’s useful to consider components as “controlled” (driven by props) or “uncontrolled” (driven by state).  
 
 ---
 
