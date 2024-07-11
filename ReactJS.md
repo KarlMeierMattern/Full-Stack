@@ -602,6 +602,15 @@ You can trigger state updates in response to either:
 
 ---
 
+### Sharing state between components  
+When you want the state of two components to always change together remove state from both of them and move it to their closest common parent, and then pass it down to them via props. This is known as lifting state up.  
+
+
+
+
+
+---
+
 ### Methods  
 - You can also define methods for your component class.  
 - A class method typically needs to use the `this` keyword so it can access properties on the class (such as state and props) inside the scope of the method.  
