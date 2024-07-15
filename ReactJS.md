@@ -621,6 +621,40 @@ For each unique piece of state, you will choose the component that “owns” it
 
 ---
 
+## Preserving & resetting state  
+As a rule of thumb, if you want to preserve the state between re-renders, the structure of your tree needs to “match up” from one render to another. If the structure is different, the state gets destroyed because React destroys state when it removes a component from the tree.  
+
+    // State gets destroyed as different child components are used between renders
+    // Although you render a Counter, the first child of the div changes from a div to a section
+    // Changing the <section> component to a <div> component would preserve state between renders
+    return (
+        <div>
+            {isFancy 
+            ? (<div><Counter isFancy={true} /></div>) 
+            : (<section><Counter isFancy={false} /></section>)
+            }
+        </div>
+    )
+
+If you want to distinguish between different states where two components appear in the same place in the UI, there are two ways to reset state when switching between them:  
+1. Render components in different positions; and  
+2. Give each component an explicit identity with key.  
+
+        return (
+            <div>
+                {isFancy 
+                ? (<div><Counter isFancy={true} /></div>) 
+                : (<section><Counter isFancy={false} /></section>)
+                }
+            </div>
+        )
+
+
+
+
+
+---
+
 ### Methods  
 - You can also define methods for your component class.  
 - A class method typically needs to use the `this` keyword so it can access properties on the class (such as state and props) inside the scope of the method.  
