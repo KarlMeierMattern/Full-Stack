@@ -622,6 +622,11 @@ For each unique piece of state, you will choose the component that “owns” it
 ---
 
 ## Preserving & resetting state  
+React keeps state for as long as the same component is rendered at the same position.  
+State is not kept in JSX tags. It’s associated with the tree position in which you put that JSX.  
+You can force a subtree to reset its state by giving it a different key.  
+Don’t nest component definitions, or you’ll reset state by accident.  
+
 As a rule of thumb, if you want to preserve the state between re-renders, the structure of your tree needs to “match up” from one render to another. If the structure is different, the state gets destroyed because React destroys state when it removes a component from the tree.  
 
     // State gets destroyed as different child components are used between renders
