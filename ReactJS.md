@@ -640,18 +640,17 @@ If you want to distinguish between different states where two components appear 
 1. Render components in different positions; and  
 2. Give each component an explicit identity with key.  
 
+        // Using a key ensures state is not preserved between renders
         return (
             <div>
                 {isFancy 
-                ? (<div><Counter isFancy={true} /></div>) 
-                : (<section><Counter isFancy={false} /></section>)
+                ? (<div key="component-1"><Counter isFancy={true} /></div>) 
+                : (<div key="component-2"><Counter isFancy={false} /></div>)
                 }
             </div>
         )
 
-
-
-
+Specifying a key tells React to use the key itself as part of the position, instead of their order within the parent. This is why, even though you render them in the same place in JSX, React sees them as two different counters, and so they will never share state. Every time a counter appears on the screen, its state is created. Every time it is removed, its state is destroyed. N.B. Keys are not globally unique. They only specify the position within the parent.  
 
 ---
 
