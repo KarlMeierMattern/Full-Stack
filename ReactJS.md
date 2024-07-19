@@ -632,6 +632,7 @@ As a rule of thumb, if you want to preserve the state between re-renders, the st
     // State gets destroyed as different child components are used between renders
     // Although you render a Counter, the first child of the div changes from a div to a section
     // Changing the <section> component to a <div> component would preserve state between renders
+    
     return (
         <div>
             {isFancy 
@@ -646,6 +647,7 @@ If you want to distinguish between different states where two components appear 
 2. Give each component an explicit identity with key.  
 
         // Using a key ensures state is not preserved between renders
+        
         return (
             <div>
                 {isFancy 
@@ -656,6 +658,95 @@ If you want to distinguish between different states where two components appear 
         )
 
 Specifying a key tells React to use the key itself as part of the position, instead of their order within the parent. This is why, even though you render them in the same place in JSX, React sees them as two different counters, and so they will never share state. Every time a counter appears on the screen, its state is created. Every time it is removed, its state is destroyed. N.B. Keys are not globally unique. They only specify the position within the parent.  
+
+> [!IMPORTANT]  
+> Redo task 3 in the link: https://react.dev/learn/preserving-and-resetting-state  
+
+---
+
+## Extracting State Logic into a Reducer  
+Components with many state updates spread across many event handlers can get overwhelming. For these cases, you can consolidate all the state update logic outside your component in a single function, called a reducer. Component logic can be easier to read when you separate concerns like this. Now the event handlers only specify what happened by dispatching actions, and the reducer function determines how the state updates in response to them.  
+
+Reducers are a different way to handle state. You can migrate from useState to useReducer in three steps:  
+1. Move from setting state to dispatching actions.  
+2. Write a reducer function.  
+3. Use the reducer from your component.  
+
+### Step 1: Move from setting state to dispatching actions  
+Managing state with reducers is slightly different from directly setting state. Instead of telling React “what to do” by setting state, you specify “what the user just did” by dispatching “actions” from your event handlers. (The state update logic will live elsewhere!) So instead of “setting tasks” via an event handler, you’re dispatching an “added/changed/deleted a task” action. This is more descriptive of the user’s intent.
+
+    // Using state
+    
+    function handleAddTask(text) {
+      setTasks([
+        ...tasks,
+        {
+          id: nextId++,
+          text: text,
+          done: false,
+        },
+      ]);
+    }
+    
+    // Using Reducer
+    // The object you pass to dispatch is called an “action”
+    
+    function handleAddTask(text) {
+      dispatch({
+        type: 'added',
+        id: nextId++,
+        text: text,
+      });
+    }
+
+> [!NOTE]  
+> A Reducer is a regular JavaScript object. You decide what to put in it, but generally it should contain the minimal information about what happened. The dispatch function is added later on.  
+> An action object can have any shape. By convention, it is common to give it a string type that describes what happened, and pass any additional information in other fields. The type is specific to a component, so in this example either 'added' or 'added_task' would be fine. Choose a name that says what happened.  
+
+### Step 2: Write a reducer function  
+A reducer function is where you will put your state logic. It takes two arguments, the current state and the action object, and it returns the next state.  
+It’s convention to use switch statements inside reducers for readability.  
+Wrapping each case block in curly braces means variables declared inside of different cases don’t clash with each other.  
+
+    function tasksReducer(tasks, action) {
+      switch (action.type) {
+        case 'added': {
+          return [
+            ...tasks,
+            {
+              id: action.id,
+              text: action.text,
+              done: false,
+            },
+          ];
+        }
+        case 'changed': {
+          return tasks.map((t) => {
+            if (t.id === action.task.id) {
+              return action.task;
+            } else {
+              return t;
+            }
+          });
+        }
+        case 'deleted': {
+          return tasks.filter((t) => t.id !== action.id);
+        }
+        default: {
+          throw Error('Unknown action: ' + action.type);
+        }
+      }
+    }
+
+### Step 3: Use the reducer from your component  
+
+Finally, you need to hook up the `tasksReducer` to your component. Import the `useReducer` Hook from React:
+
+    import { useReducer } from 'react';
+
+Then you can replace `useState` with `useReducer` like so: 
+
+    const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 
 ---
 
