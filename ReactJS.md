@@ -700,13 +700,12 @@ Managing state with reducers is slightly different from directly setting state. 
     }
 
 > [!NOTE]  
-> A Reducer is a regular JavaScript object. You decide what to put in it, but generally it should contain the minimal information about what happened. The dispatch function is added later on.  
-> An action object can have any shape. By convention, it is common to give it a string type that describes what happened, and pass any additional information in other fields. The type is specific to a component, so in this example either 'added' or 'added_task' would be fine. Choose a name that says what happened.  
+> - A Reducer is a regular JavaScript object. You decide what to put in it, but generally it should contain the minimal information about what happened. The dispatch function is added later on.  
+> - An action object can have any shape. By convention, it is common to give it a string type that describes what happened, and pass any additional information in other fields. The type is specific to a component, so in this example either 'added' or 'added_task' would be fine. Choose a name that says what happened.  
 
 ### Step 2: Write a reducer function  
 A reducer function is where you will put your state logic. It takes two arguments, the current state and the action object, and it returns the next state.  
-It’s convention to use switch statements inside reducers for readability.  
-Wrapping each case block in curly braces means variables declared inside of different cases don’t clash with each other.  
+It’s convention to use switch statements inside reducers for readability. Wrapping each case block in curly braces means variables declared inside of different cases don’t clash with each other.  
 
     function tasksReducer(tasks, action) {
       switch (action.type) {
