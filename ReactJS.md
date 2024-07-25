@@ -46,24 +46,6 @@ React is a popular declarative library that you can use build user interfaces.
           return <h1>This is a simple JSX example</h1>;
         }
 
-- The other way to define a React component is with the **ES6 class syntax**.
-- This is done by extending the `React.Component` class so that the class has access to many useful React features, such as local state and lifecycle hooks.
-- The class also has a `constructor` defined within it that calls `super()`, which is used to call the constructor of the parent class, in this case `React.Component`.
-- The constructor is a special method used during the initialisation of objects that are created with the `class` keyword.
-- It is best practice to call a component's constructor with `super`, and pass `props` to both. This makes sure the component is initialized properly.  
-
-        class Kitten extends React.Component {
-          constructor(props) {
-            super(props);
-          }
-        
-          render() {
-            return (
-              <h1>Hi</h1>
-            );
-          }
-        }
-
 react is the core React library:  
 <code><script src="https://unpkg.com/react@18/umd/react.development.js"></script></code>  
 
@@ -142,9 +124,7 @@ Functions passed to event handlers must be passed, not called.
 ---
 
 ## Components  
-- Allow you to build self-contained, reusable snippets of code.  
-- First, React components should be capitalized to distinguish them from plain HTML and JavaScript.
-- Second, you use React components the same way you'd use regular HTML tags, with angle brackets <>.  
+Allow you to build self-contained, reusable snippets of code. React components should be capitalized to distinguish them from plain HTML and JavaScript. You use React components the same way you'd use regular HTML tags, with angle brackets <>.  
         
         function Header() {
             return <h1>Develop. Preview. Ship.</h1>
@@ -153,8 +133,8 @@ Functions passed to event handlers must be passed, not called.
         const app = document.getElementById("app")
         const root = ReactDOM.createRoot(app);
         root.render(<Header/>);
-- To render a component as a child in a React component, you include the component name written as a custom HTML tag in the JSX.  
-- When React encounters a custom HTML tag that references another component (a component name wrapped in `< />`), it renders the markup for that component in the location of the tag.  
+ 
+To render a component as a child in a React component, you include the component name written as a custom HTML tag in the JSX. When React encounters a custom HTML tag that references another component (a component name wrapped in `< />`), it renders the markup for that component in the location of the tag.  
 
         // within the parent component
         return (
@@ -162,63 +142,41 @@ Functions passed to event handlers must be passed, not called.
           <ChildComponent/>
          </div>
         )
-- A typical React component is an ES6 class which extends `React.Component`. It has a `render` method that returns HTML (from JSX) or null. This is the basic form of a React component.  
-
-        class MyComponent extends React.Component {
-          constructor(props) {
-            super(props);
-          }
-          render() {
-            return (
-              <div>
-                <h1>My First React Component!</h1>
-              </div>
-            )
-          }
-        }
         
-        ReactDOM.render(<MyComponent/>, document.getElementById("challenge-node"))
-
 ---
 
-## Props  
-- You can design components that accept custom arguments (properties) that change the component's behavior or what is visibly shown when it's rendered to the screen.  
-- You can pass down these props from parent components to child components.  
-- Note: In React, data flows down the component tree. This is referred to as one-way data flow.  
-- Props are immutable (meaning “unchangeable”).  
-- When a component needs to change its props (e.g. in response to a user interaction or new data), it will have to “ask” its parent component to pass it different props—a new object.  
-- Don’t try to “change props”. When you need to respond to the user input (like changing the selected color), you will need to “set state”.  
+## Passing props to a component  
+Link: https://react.dev/learn/passing-props-to-a-component#passing-jsx-as-children  
 
-        function Header({ title }) {
-          return <h1>{`Cool ${title}`}</h1>;
-        }
-- React provides useful type-checking features to verify that components receive props of the correct type using `propTypes`.  
-- This will throw a useful warning when the data is of any other type. It's considered a best practice to set `propTypes` when you know the type of a prop ahead of time.  
+React components use props to communicate with each other. Every parent component can pass some information to its child components by giving them props. You can pass any JavaScript value through them, including objects, arrays, and functions.  
 
-        const Items = (props) => {
-          return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
-        };
-        
-        // Define propTypes for the Items component to require quantity as a prop and verify that it is of type number
-        Items.propTypes = { quantity: PropTypes.number.isRequired }
-- `defaultProps` sets the default properties.  
+Props are the information that you pass to a JSX tag. For example, predefined props like `className`, `src`, `alt`, `width`, and `height` are some of the props you can pass to an `<img>`:  
 
-        // if you render the Camper component without passing a name prop, it will display "CamperBot"
-        Camper.defaultProps = { name: "CamperBot" };
-- If the component that you're passing a prop to is an ES6 class component, rather than a stateless functional component you must use the `this` keyword anytime you refer to a class component within itself.  
+    function Avatar() {
+      return (
+        <img
+          className="avatar"
+          src="https://i.imgur.com/1bX5QH6.jpg"
+          alt="Lin Lanying"
+          width={100}
+          height={100}
+        />
+      );
+    }
 
-        class Welcome extends React.Component {
-          constructor(props) {
-            super(props);
-          }
-          render() {
-            return (
-                <div>
-                  <p>Hello, <strong>{this.props.name}</strong>!</p>
-                </div>
-            );
-          }
-        };
+But you can pass any props to your own components, such as `<Avatar>`, to customize them:  
+
+    function Avatar({ person, size }) {
+      return (
+        <img
+          className="avatar"
+          src={getImageUrl(person)}
+          alt={person.name}
+          width={size}
+          height={size}
+        />
+      );
+    }
 
 ### Syntax for destructuring props  
 
@@ -228,8 +186,34 @@ Functions passed to event handlers must be passed, not called.
 
 ![Screenshot 2024-06-21 at 08 44 36](https://github.com/KarlMeierMattern/Full-Stack/assets/99612323/2975ed3a-ef36-45d1-9558-3b0839e5205a)  
 
+### Forwarding props  
+
+![Screenshot 2024-07-25 at 08 41 02](https://github.com/user-attachments/assets/86aace6e-15aa-48a5-962e-6cd274d022d0)
+
+### Passing JSX as children  
+Sometimes you’ll want to nest your own components. When you nest content inside a JSX tag, the parent component will receive that content in a prop called `children`. For example, the `Card` component below will receive a `children` prop set to `<Avatar />` and render it in a wrapper div:
+
+    export default function Profile() {
+      return (
+        <Card>
+          <Avatar/>
+        </Card>
+      );
+    }
+    
+    function Card({ children }) {
+      return (
+        <div className="card">
+          {children}
+        </div>
+      );
+    }
+
 > [!TIP]  
-> You can forward all props with `<Avatar {...props} />` JSX spread syntax.  
+> - Note: In React, data flows down the component tree. This is referred to as one-way data flow.  
+> - Props are immutable (meaning “unchangeable”).  
+> - When a component needs to change its props (e.g. in response to a user interaction or new data), it will have to “ask” its parent component to pass it different props—a new object.  
+> - Don’t try to “change props”. When you need to respond to the user input (like changing the selected color), you will need to “set state”.  
 
 ---  
 
@@ -746,6 +730,61 @@ Finally, you need to hook up the `tasksReducer` to your component. Import the `u
 Then you can replace `useState` with `useReducer` like so: 
 
     const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
+
+---
+
+## Passing data deeply with context  
+Usually, you will pass information from a parent component to a child component via props. But passing props can become verbose and inconvenient if you have to pass them through many components. Context lets the parent component make some information available to any component in the tree below it—no matter how deep—without passing it explicitly through props.  
+
+### Step 1: create context  
+First, you need to create the context. You’ll need to export it from a file so that your components can use it. The only argument to `createContext` is the default value. In this example, 1 refers to the biggest heading level, but you could pass any kind of value (even an object).  
+
+    import { createContext } from 'react';
+    
+    export const LevelContext = createContext(1);
+
+### Step 2: use the context  
+`useContext` is a Hook. Just like `useState` and `useReducer`, you can only call a Hook immediately inside a React component (not inside loops or conditions).  
+    
+    import { useContext } from 'react';
+    import { LevelContext } from './LevelContext.js';
+
+`useContext` tells React that the Heading component wants to read the `LevelContext`.  
+
+    export default function Heading({ children }) {
+      const level = useContext(LevelContext);
+      // ...
+    }
+
+### Step 3: provide the context  
+This tells React: “if any component inside this `<Section>` asks for `LevelContext`, give them this level.” The component will use the value of the nearest `<LevelContext.Provider>` in the UI tree above it.  
+
+    import { LevelContext } from './LevelContext.js';
+    
+    export default function Section({ level, children }) {
+      return (
+        <section className="section">
+          <LevelContext.Provider value={level}>
+            {children}
+          </LevelContext.Provider>
+        </section>
+      );
+    }
+
+### When to use context  
+Just because you need to pass some props several levels deep doesn’t mean you should put that information into context.  
+
+1. Start by passing props. it’s not unusual to pass a dozen props down through a dozen components. It may feel like a slog, but it makes it very clear which components use which data.  
+2. Extract components and pass JSX as children to them.  
+If neither of these approaches works well for you, consider context.  
+
+### Use cases for context  
+In general, if some information is needed by distant components in different parts of the tree, it’s a good indication that context will help you.
+
+1. Theming: If your app lets the user change its appearance (e.g. dark mode), you can put a context provider at the top of your app, and use that context to adjust the visual look.  
+2. Current account: Many components might need to know the currently logged in user. Putting it in context makes it convenient to read it anywhere in the tree.  
+3. Routing: Most routing solutions use context internally to hold the current route. This is how every link “knows” whether it’s active or not.  
+4. Managing state: As your app grows, you might end up with a lot of state closer to the top of your app. Many distant components below may want to change it. It is common to use a reducer together with context to manage complex state and pass it down to distant components without too much hassle.
 
 ---
 
