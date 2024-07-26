@@ -738,8 +738,8 @@ Usually, you will pass information from a parent component to a child component 
 
 ### To pass context:  
 Step 1: Create and export it with export `const MyContext = createContext(defaultValue)`.  
-Step 2: Pass it to the `useContext(MyContext)` Hook to read it in any child component, no matter how deep.  
-Step 3: Wrap children into `<MyContext.Provider value={...}>` to provide it from a parent.  
+Step 2: In the child component where you want to use context, pass the context to the `useContext(MyContext)` Hook to read it in any child component, no matter how deep.  
+Step 3: In the parent component provide the context by wrapping children into `<MyContext.Provider value={...}>` to provide it from a parent.  
 
 ### Step 1: create context  
 First, you need to create the context. You’ll need to export it from a file so that your components can use it. The only argument to `createContext` is the default value. In this example, 1 refers to the biggest heading level, but you could pass any kind of value (even an object).  
