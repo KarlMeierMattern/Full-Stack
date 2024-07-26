@@ -793,6 +793,24 @@ In general, if some information is needed by distant components in different par
 
 ---
 
+## Scaling up with Reducer and Context  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
 ### Methods  
 - You can also define methods for your component class.  
 - A class method typically needs to use the `this` keyword so it can access properties on the class (such as state and props) inside the scope of the method.  
