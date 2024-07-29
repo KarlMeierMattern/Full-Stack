@@ -794,20 +794,12 @@ In general, if some information is needed by distant components in different par
 ---
 
 ## Scaling up with Reducer and Context  
+Reducers let you consolidate a component’s state update logic. Context lets you pass information deep down to other components. You can combine reducers and context together to manage state of a complex screen.  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+To provide state and the dispatch function to components below:  
+1. Create two contexts (for state and for dispatch functions).  
+2. Provide both contexts from the component that uses the reducer.  
+3. Use either context from components that need to read them.  
 
 ---
 
