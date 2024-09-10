@@ -1134,8 +1134,18 @@ Two reasons to render on the server:
 
 ---
 
+## useEffect  
+Any logic placed inside the `useEffect` hook is run after the component mounts.  
+By running side effects after the component mounts, you ensure the UI is ready first, and you prevent the side effect logic from running on every render unnecessarily.  
 
+`useEffect` allows you to run side effects (things like data fetching, subscriptions, API calls, promises, or manual DOM updates) after your component renders.  
+Mounting refers to the process of a component being inserted into the DOM (rendered for the first time).  
+In a React app, components follow a lifecycle. When a component is created and added to the DOM, it is said to be mounted.  
+When a component is unmounted, it is removed from the DOM.  
 
+When a component is mounted React renders the UI, and after the UI is rendered, you may want to perform actions like data fetching, subscribing to events, or initializing a timer. These tasks should not be done during rendering because rendering should remain fast and predictable. Thus, `useEffect` runs its code after the component is mounted and displayed in the browser. This ensures that your UI is ready before running side effects like promises, API calls, or subscriptions.  
+
+The empty array `[]` at the end of the useEffect tells React to run the effect only once, after the component is mounted. Without the array, useEffect would run on every render, which is usually unnecessary for tasks like fetching data or running a promise.  
 
 
 
